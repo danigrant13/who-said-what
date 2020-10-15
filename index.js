@@ -47,47 +47,123 @@ document.addEventListener("DOMContentLoaded", function() {
 
   // call all statements
   var covid_need = [
-    ['covid single parent 1', 'covid single parent 2', 'covid single parent 3'],
-    ['covid loneliness 1', 'covid loneliness 2', 'covid loneliness 3'],
-    ['covid chronic depression 1', 'covid chronic depression 2', 'covid chronic depression 3'],
-    ['covid illness 1', 'covid illness 2', 'covid illness 3'],
-    ['covid lost grandma 1', 'covid lost grandma 2', 'covid lost grandma 3'],
-    ['covid caring for father 1', 'covid caring for father 2', 'covid caring for father 3'],
-    ['covid lost job 1', 'covid lost job 2', 'covid lost job 3'],
-    ['covid pay tuition 1', 'covid pay tuition 2', 'covid pay tuition 3']
+    ['Depression can be really unpredictable, and being stuck inside because of COVID-19 has been really rough. I wish I could talk to someone about it in person.', 
+    'Some days I am so depressed I can’t even get out of bed. With the city stay-at-home recommendation, this morning it took me a few hours to finally get up to make breakfast.', 
+    'Because of the COVID-19 epidemic, my anxiety has interfered with all aspects of my life. I’ve had insomnia and a debilitating fear of going to the grocery store.'],
+   
+    ['I’ve been feeling really alone since I college shifted online last semester. I wish I had someone to talk to about how hard it is living in a new city shut down by Coronaivirus.', 
+    'I just feel like my life is falling apart right now. I feel so down all the time, and just wish I had someone to hang out with to take my mind off Coronavirus.', 
+    'I often feel really lonely and anxious since Coronavirus shut down the city, and all my close friends who I could hang out with to distract me live really far away.'],    
+   
+    ['I’ve been really sick with COVID-19  the last couple of days. It’s rough because I live alone, so I still have to get up and walk around even though I feel exhausted.', 
+    'I’m nervous about falling asleep because there is no one around to check-in on me while I’m recovering. What if I get dehydrated and need to go to the ER?', 
+    'I don’t own a car, so I know if I got sick enough I would have to call an ambulance to get to the hospital.'],
+   
+    ['I’ve really missed my grandmother since she passed away from COVID-19. It’s been hard because I’m basically planning her funeral on my own.', 
+    'Since my grandmother passed away there are some nights where I just sit and cry because I miss her so much. It would be nice if I had someone there with me, but I don’t want to risk spreading Coronavirus.', 
+    'My family has been so stressful since my grandmother passed away. We can’t mourn in person together, and everyone is always either arguing or really sad.'],
+   
+    ['A few weeks ago my dad was diagnosed with Coronavirus. I asked him to move in with me so I could help him recover. Knowing he could be gone soon makes me feel hopeless.', 
+    'I love my dad so much, but helping him out through Coronavirus recovery has been such a struggle. Each day he seems worse, and I feel so helpless.', 
+    'I feel so much guilt sometimes taking care of my dad while he fights Coronavirus. I want to support him, but I oftenI feel the weight of the world on my shoulders.'],
+   
+    ['For the last few months, it has been difficult to pay rent and for my daughter’s daycare. Being a single parent during Coronavirus can be a struggle sometimes.', 
+    'With no family nearby, I have to pay for childcare. Most of the time I can’t afford to pay for even a few extra hours to have some time to myself. Sometimes I feel so burnt out.', 
+    'Money has been really tight lately because of COVID-19, and I just lost my job. I know I’ll be struggling with finances for a while, but I’m happy to be with my daughter so much.'],
+   
+    ['Two months ago the cafe I worked for closed because of COVID-19, and I was laid off. I’m worried I will run out of savings to pay rent before I find another job.', 
+    'Recently, I applied for unemployment, but I haven’t received a response yet. It seems like everyone is applying for it, so I’m worried I won’t even be considered.', 
+    'Some businesses in my area are reopening. I’ve applied to every job position one I’ve learned about, but haven’t received a single call back.'],
   ]
 
   var personal_need = [
-    ['single parent statement 1', 'single parent statement 2', 'single parent statement 3'],
-    ['loneliness 1', 'loneliness 2', 'loneliness 3'],
-    ['chronic depression 1', 'chronic depression 2', 'chronic depression 3'],
-    ['illness 1', 'illness 2', 'illness 3'],
-    ['lost grandma 1', 'lost grandma 2', 'lost grandma 3'],
-    ['caring for father 1', 'caring for father 2', 'caring for father 3'],
-    ['lost job 1', 'lost job 2', 'lost job 3'],
-    ['pay tuition 1', 'pay tuition 2', 'pay tuition 3']
+    ['Depression can be really unpredictable, and the last few days have been rough. I wish I could talk to someone about it.',
+     'Some days I am so depressed I can’t even get out of bed. This morning it took me a few hours to finally get up to make breakfast.', 
+     'My anxiety can interfere with all aspects of my life. I’ve had insomnia and a debilitating fear of going to the grocery store.'],
+
+    ['I’ve been feeling really alone since I moved for college last semester. I wish I had someone to talk to about how hard it is living in a new city.', 
+    'I just feel like I’m failing in all parts of my life right now. I feel so down all the time, and just wish I had someone to hang out with who is encouraging.', 
+    'I often feel really lonely and anxious when I go out into the city, and all my close friends who could distract me from these feelings live really far away.'],
+
+    ['I’ve been really ill with food poisoning the last few days. It’s rough because I live alone, so I still have to get up and walk around even though I feel exhausted.', 
+    'I’m so nervous about falling asleep because there is no one around to check-in on me while I’m recovering. What if I get dehydrated and need to go to the ER?', 
+    'I don’t own a car, so I know if I got sick enough I would have to call an ambulance to get to the hospital.'],
+
+    ['I’ve really missed my grandmother since she passed away. It’s been hard because I’m basically planning her funeral on my own.', 
+    'Since my grandmother passed away there are some nights where I just sit and cry because I miss her so much. It would be nice if I had someone there with me.', 
+    'My family has been so stressful since my grandmother passed away. Everyone is always either arguing or really sad.'],
+
+    ['Last year my dad was diagnosed with cancer. I asked him to move in with me so I could help him through treatment. Knowing he could be gone soon makes me feel hopeless.', 
+    'I love my dad so much, but helping him out through chemotherapy has been such a struggle. Each day he seems worse, and I feel so helpless.', 
+    'I feel so much guilt sometimes taking care of my dad while he fights cancer. I want to support him, but oftenI feel the weight of the world on my shoulders.'],
+
+    ['For the last few months, it has been difficult to pay rent and for my daughter’s daycare. Being a single parent can be a struggle sometimes.', 
+    'With no family nearby, I have to pay for childcare. Most of the time I can’t afford to pay for even a few extra hours to have some time to myself. Sometimes I feel so burnt out.', 
+    'Because money has been so tight lately, I took on a second job. I know it will help with finances, but I’m broken up about being away from my daughter so much.'],
+
+    ['Two months ago the cafe I worked for closed down and I was laid off. I’m so worried I will run out of savings for paying rent before I find another job.', 
+    'Recently, I applied for unemployment, but I haven’t received a response yet. I’m worried I won’t even be considered.', 
+    'I’ve applied to every job position I’ve learned about, but haven’t received a single call back.'],
   ]
 
   var abstract_need = [
-    ['abstract need 1a', 'abstract need 1b', 'abstract need 1c'],
-    ['abstract need 2a', 'abstract need 2b', 'abstract need 2c'],
-    ['abstract need 3a', 'abstract need 3b', 'abstract need 3c'],
-    ['abstract need 4a', 'abstract need 4b', 'abstract need 4c'],
-    ['abstract need 5a', 'abstract need 5b', 'abstract need 5c'],
-    ['abstract need 6a', 'abstract need 6b', 'abstract need 6c'],
-    ['abstract need 7a', 'abstract need 7b', 'abstract need 7c'],
-    ['abstract need 8a', 'abstract need 8b', 'abstract need 8c']
+    ['I’ve had friends in the past who have struggled with mental health issues. They told me sometimes just sitting there and being with them can be a big help.', 
+    'I try to remember that some people may struggle a lot with things I don’t find difficult at all. Simply motivating yourself to get out of bed can be a challenge.', 
+    'I need to remember my strengths and limitations when others are struggling with their mental health. Sometimes I can help, but other times I need to trust that someone better equipped will help.'],
+    
+    ['I read an article the other day that said loneliness is one of the most common struggles for people. It can even cause a lot of health problems over time.', 
+    'It makes sense then that loneliness is a big problem for new college students. They see everyone else having fun around them, but don’t feel connected yet.', 
+    'I need to remember when I meet new people that while I might be comfortable living here because I’ve been here so long, they may be uncertain and searching for new friends.'],
+
+    ['I think getting sick with fever and nausea would be the absolute worst, especially when you don’t have anyone to help take care of you.', 
+    'Having foodborne illness would be terrible. I’ve heard you can get so dehydrated that you have to go to the ER. That would be so scary.', 
+    'If I were ever that sick I would be so nervous about having to call an ambulance if I needed to go to the hospital.'],
+
+    ['Sometimes I struggle with the idea that terrible things happen to people all of the time, that there&apos;s pain everywhere in the world.', 
+    'There are so many people struggling in the world with loss of loved ones that I often get overwhelmed just thinking about it.', 
+    'I can’t imagine how difficult it would be to lose a family member. I’ve never lost anyone close to me, but just the thought of it is really scary.'],
+
+    ['I read recently that volunteering for an organization like a retirement home or for a hospital can often connect you with others in your community and be very fulfilling.', 
+    'I know a few people who have time to volunteer for a local non-profit one day a week. They say they really enjoy it.    ', 
+    'Helping provide for others can often bring a lot of meaning to a person’s life. I bet, though, that it can also be really overwhelming too.'],
+
+    ['I sometimes wonder what it’s like to be a single parent. It must be a real struggle to balance work and taking care of a child.', 
+    'I’ve heard that single parents often struggle with feeling burnt out. If you don’t have a baby sitter or family nearby, then going non-stop all the time must be really exhausting.', 
+    'Often with only one source of income, I bet being a single parent is quite a struggle. I’ve heard some parents often get a second job. That must be horrible being away from the kids so much.'],
+
+    ['I noticed the other day that my grocery store put on a fundraiser by asking shoppers to buy food for a local food drive rather than just donating money. I thought that was a unique idea.', 
+    'There are a lot of people struggling these days trying to get back up on their feet. I’d like to learn more about the charities that help people with these problems.', 
+    'Sometimes just giving a dollar to someone in need when walking down the street can make that person’s day. Who knows, it could make your day too.'],
   ]
 
   var aphorism = [
-    ['aphorism 1a', 'aphorism 1b', 'aphorism 1c'],
-    ['aphorism 2a', 'aphorism 2b', 'aphorism 2c'],
-    ['aphorism 3a', 'aphorism 3b', 'aphorism 3c'],
-    ['aphorism 4a', 'aphorism 4b', 'aphorism 4c'],
-    ['aphorism 5a', 'aphorism 5b', 'aphorism 5c'],
-    ['aphorism 6a', 'aphorism 6b', 'aphorism 6c'],
-    ['aphorism 7a', 'aphorism 7b', 'aphorism 7c'],
-    ['aphorism 8a', 'aphorism 8b', 'aphorism 8c']
+    ['Sometimes I think our world is overly complicated. I feel like I make thousands of decisions everyday, and after a while, it gets really exhausting.', 
+    'Life is uncertain and full of many day-to-day challenges and obstacles. We never know what each day will bring.', 
+    'Even though the world can feel overwhelming, I am fortunate enough to live in a place where I can think about all kinds of future possibilities, whether than be for my career or personal life.'],
+
+    ['You will never know what new people that will enter your life. That is why you must always keep an open mind.', 
+    'I do my best not to give up even when I am so tired of working for something. In those moments I let myself take a break to rejuvenate my strength.', 
+    'We find ourselves in this world, trying to figure out how we should act, and what we should do. It&#39;s hard to know the right courses of action.'],
+
+    ['Separating raw meat, poultry, and seafood from ready-made-food is essential because it can cause food-borne illness.', 
+    'Anyone can get food poisoning, but some are at a higher risk. When they do, it’s good to stay and take care of them just in case they need to go to the ER.', 
+    'Often it’s not food poisoning itself that makes a person need an ambulance, it’s the body’s response causing dehydration that makes them need hospital care.'],
+
+    ['Only people who are capable of loving strongly can also suffer great sorrow, but this same necessity of loving serves to counteract their grief and heals them.', 
+    'While grief is fresh, every attempt to divert only irritates. You must wait until it is digested, and then amusement will dissipate the remains of it.', 
+    'There is no shame in holding on the grief, so long as you make room for other things too.'],
+
+    ['You can be a victim of cancer or a survivor of cancer. You can let it conquer you, or you can conquer it. It’s all a mindset.', 
+    'The secret of health for both mind and body is not  to mourn for the past, worry about the suture, or anticipate troubles, but to live in the present.', 
+    'Cancer is a journey, but you walk the road alone. There are many places to stop along the way and get nourishment - you just have to be willing to take it.'],
+
+    ['Being a single parent is twice the work, stress, and tears - but also twice the hugs, love and pride.', 
+    'A person doesn’t often set out to be a single parent, and it takes a strong person to be a single parent, taking on two roles.', 
+    'The birth of a child and parenthood are not things that a person can be trained to do. Even if you have a good example in your own parents, nobody teaches you how to be a really great parent.'],
+
+    ['People often say money doesn’t provide happiness, but everyone still wants to prove it to themselves.', 
+    'Money is numbers, and numbers never end. If it takes money to be happy, your search for happiness will never end.', 
+    'Time is always more valuable than money. You can earn more money for the rest of your life, but you can never get the time back to that you lost.'],
   ]
 
   // condition pairs

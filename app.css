@@ -13,6 +13,7 @@
 
 #jspsych-survey-likert-form {
   max-width: 750px;
+  margin: 0 auto;
 }
 
 .jspsych-survey-multi-choice.jspsych-btn {
