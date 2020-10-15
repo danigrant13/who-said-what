@@ -1155,7 +1155,7 @@ var debrief_3 = {
     consent,
     instructions,
     face_stimulus_procedure,
-    transition_1,  
+    transition_1,
     distractor_task,
     transition_2,
     ...recall_tasks,
