@@ -1186,7 +1186,7 @@ const debriefs = [
 const timeline = [
   consent,
   instructions,
-  face_stimulus_procedure,      
+  face_stimulus_procedure,
   transition_1,  
   distractor_task,
   transition_2,
@@ -1200,9 +1200,17 @@ const timeline = [
   end_experiment
 ];
 
+window.jatos.onLoad(() => {
+  const sonaCode = window.jatos.urlQueryParameters.sonaCode;
+  window.jatos.studySessionData.sonaCode = sonaCode ? sonaCode : 'none';
+
   jsPsych.init({
-    timeline: timeline
+    timeline: timeline,
+    on_finish: data => {
+      window.jatos.submitResultData(data.json(), window.jatos.startNextComponent);
+    }
   });
+});
 
 
 
