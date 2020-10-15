@@ -1,0 +1,20 @@
+#consent .aggreement {
+  max-width: 750px;
+  max-height: 350px;
+  text-align: left;
+  overflow-y: scroll;
+  overflow: auto;
+  padding: 16px;
+}
+
+.jspsych-survey-likert.jspsych-btn {
+  margin-bottom: 20px;
+}
+
+#jspsych-survey-likert-form {
+  max-width: 750px;
+}
+
+.jspsych-survey-multi-choice.jspsych-btn {
+  margin-bottom: 20px;
+}
