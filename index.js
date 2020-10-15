@@ -118,25 +118,19 @@ document.addEventListener("DOMContentLoaded", function() {
     random.shuffle(facesWithStatements).map(({ face, statements }) => ({ face, statement: statements[i] })))
     .flat();
 
-
-// consent form
-var check_consent = function(elem) {
-  if (document.getElementById('consent_checkbox').checked) {
-    return true;
-  }
-  else {
-    alert("If you wish to participate, you must check the box next to the statement 'Yes, I agree to participate in this study.'");
-    return false;
-  }
-  return false;
-};
-
 // declare the block
 var consent = {
-  type:'external-html',
+  type:'custom-external-html',
   url: "consent.html",
   cont_btn: "start",
-  check_fn: check_consent
+  end_btn: "end",
+  end_fn: () => {
+    if (window.jatos) {
+      window.jatos.startNextComponent();
+    } else {
+      window.location.reload();
+    }
+  }
 };
 
 // instructions 
