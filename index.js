@@ -113,27 +113,27 @@ document.addEventListener("DOMContentLoaded", function() {
   // pair faces with statement clusters
   var facesWithStatements = faces.map((face, i) => ({ face, statements: statementSelections[i] }));
   // call statements when paired face displays
- 
+
  var trialData = [0, 1, 2].map(i =>
     random.shuffle(facesWithStatements).map(({ face, statements }) => ({ face, statement: statements[i] })))
     .flat();
 
-// declare the block
-var consent = {
-  type:'custom-external-html',
-  url: "consent.html",
-  cont_btn: "start",
-  end_btn: "end",
-  end_fn: () => {
-    if (window.jatos) {
-      window.jatos.startNextComponent();
-    } else {
-      window.location.reload();
+  // declare the block
+  var consent = {
+    type:'custom-external-html',
+    url: "consent.html",
+    cont_btn: "start",
+    end_btn: "end",
+    end_fn: () => {
+      if (window.jatos) {
+        window.jatos.startNextComponent();
+      } else {
+        window.location.reload();
+      }
     }
-  }
-};
+  };
 
-// instructions 
+  // instructions 
   var instructions = {
     type: 'instructions',
     pages: [
@@ -144,7 +144,7 @@ var consent = {
       'The study will begin on the next page. <br><br> Press &#39;Next&#39; to begin the study.'
     ],
     show_clickable_nav: true
-};               
+  };
 
 // stimulus presentation
   var face_stimulus_procedure = {
@@ -212,59 +212,33 @@ var distractor_task = {
 };
 
 // transition page from distractor task to recall task
-var transition_2 = {
-  type: 'instructions',
-  pages: [
-    `Thank you for taking part in that task. There is one last task for you to do. On the next page we will describe this task to you.
-    <br><br> Click &#39;Next&#39; when you are ready to read the instructions.`,
-    
-    `Next, you will take part in a recall task. You will see a screen with all the faces that were presented to you in the first task. 
-    The statements each person said will appear sequentially. Please reread each statement and try to recall which person said it. 
-    To choose the person you think said the presented statement, simply click their picture.<br><br> 
-    When you are ready to begin, click &#39;Next&#39;.`
-  ],
-  show_clickable_nav: true
-};
-
-
-/////  recall task
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  var transition_2 = {
+    type: 'instructions',
+    pages: [
+      `Thank you for taking part in that task. There is one last task for you to do. On the next page we will describe this task to you.
+      <br><br> Click &#39;Next&#39; when you are ready to read the instructions.`,
+      
+      `Next, you will take part in a recall task. You will see a screen with all the faces that were presented to you in the first task. 
+      The statements each person said will appear sequentially. Please reread each statement and try to recall which person said it. 
+      To choose the person you think said the presented statement, simply click their picture.<br><br> 
+      When you are ready to begin, click &#39;Next&#39;.`
+    ],
+    show_clickable_nav: true
+  };
 
  // transition page from recall task to moderator surveys
- var transition_3 = {
-  type: 'instructions',
-  pages: [
-    `Thank you for taking part in that task. Next, you will answer some survey questions.
-     <br><br> Click &#39;Next&#39; when you are ready to begin.`
-  ],
-  show_clickable_nav: true
-}
-                                     
+  var transition_3 = {
+    type: 'instructions',
+    pages: [
+      `Thank you for taking part in that task. Next, you will answer some survey questions.
+       <br><br> Click &#39;Next&#39; when you are ready to begin.`
+    ],
+    show_clickable_nav: true
+  };
 
-// moderator surveys
-var scale_1 = [
+
+  // moderator surveys
+  var scale_1 = [
     "Strongly Disagree", 
     "Disagree", 
     "Moderately Disagree",
@@ -274,14 +248,14 @@ var scale_1 = [
     "Strongly Agree"
   ]
 
-var scale_2 = [
+  var scale_2 = [
     "Strongly Disagree", 
     "Disagree", 
     "Neutral", 
     "Agree", 
     "Strongly Agree"
   ]
- 
+
   var scale_3 = [
     "There was no one like this",
     "There was someone a little bit like this",
@@ -364,63 +338,63 @@ var scale_2 = [
     "Other"
   ]
 
-var scale_6 = [
-  "Not at all",
-  "Not really",
-  "Not sure",
-  "Mostly",
-  "Completely"
-]
+  var scale_6 = [
+    "Not at all",
+    "Not really",
+    "Not sure",
+    "Mostly",
+    "Completely"
+  ]
 
-var prayer = [
-  "Never",
-  "Occasionally",
-  "Once a week",
-  "Several times a week",
-  "Every day"
-]
+  var prayer = [
+    "Never",
+    "Occasionally",
+    "Once a week",
+    "Several times a week",
+    "Every day"
+  ]
 
-var attendance = [
-  "Never",
-  "A few times a year",
-  "Once a month",
-  "Once a week",
-  "More than once a week"
-]
+  var attendance = [
+    "Never",
+    "A few times a year",
+    "Once a month",
+    "Once a week",
+    "More than once a week"
+  ]
 
 
-/////////////////////////////// oxford utilitarian scale //////////////////
-var oxford_utilitarian = {
-type: 'survey-likert',
-preamble: "Please indicate below the degree to which you agree with the following statements.",
-questions: [
-  {prompt: "If the only way to save another person&#39;s life during an emergency is to sacrifice one&#39;s own leg, then one is morally required to make this sacrifice.", name: 'oxford_1', labels: scale_1},
-  {prompt: "From a moral point of view, we should feel obliged to give one of our kidneys to a person with kidney failure since we do not need two kidneys to survive, but really only one to be healthy.", name: 'oxford_2', labels: scale_1},
-  {prompt: "From a moral perspective, people should care about the well-being of all human beings on the planet equally; they should not favor the well-being of people who are especially close to them either physically or emotionally.", name: 'oxford_3', labels: scale_1},
-  {prompt: "It is just as wrong to fail to help someone as it is to actively harm them yourself.", name: 'oxford_4', labels: scale_1},
-  {prompt: "It is morally wrong to keep money that one doesn&#39;t really need if one can donate it to causes that provide effective help to those who will benefit a great deal.", name: 'oxford_5', labels: scale_1},
-  {prompt: "It is morally right to harm an innocent person if harming them is a necessary means to helping several other innocent people.", name: 'oxford_6', labels: scale_1},
-  {prompt: "If the only way to ensure the overall well-being and happiness of the people is through the use of political oppression for a short, limited period, then political oppression should be used.", name: 'oxford_7', labels: scale_1},
-  {prompt: "It is permissible to torture an innocent person if this would be necessary to provide information to prevent a bomb going off that would kill hundreds of people.", name: 'oxford_8', labels: scale_1},
-  {prompt: "Sometimes it is morally necessary for innocent people to die as collateral damage &#45; if more people are saved overall.", name: 'oxford_9', labels: scale_1}
-],
-randomize_question_order: true
-};
+  /////////////////////////////// oxford utilitarian scale //////////////////
+  var oxford_utilitarian = {
+    type: 'survey-likert',
+    preamble: "Please indicate below the degree to which you agree with the following statements.",
+    questions: [
+      {prompt: "If the only way to save another person&#39;s life during an emergency is to sacrifice one&#39;s own leg, then one is morally required to make this sacrifice.", name: 'oxford_1', labels: scale_1},
+      {prompt: "From a moral point of view, we should feel obliged to give one of our kidneys to a person with kidney failure since we do not need two kidneys to survive, but really only one to be healthy.", name: 'oxford_2', labels: scale_1},
+      {prompt: "From a moral perspective, people should care about the well-being of all human beings on the planet equally; they should not favor the well-being of people who are especially close to them either physically or emotionally.", name: 'oxford_3', labels: scale_1},
+      {prompt: "It is just as wrong to fail to help someone as it is to actively harm them yourself.", name: 'oxford_4', labels: scale_1},
+      {prompt: "It is morally wrong to keep money that one doesn&#39;t really need if one can donate it to causes that provide effective help to those who will benefit a great deal.", name: 'oxford_5', labels: scale_1},
+      {prompt: "It is morally right to harm an innocent person if harming them is a necessary means to helping several other innocent people.", name: 'oxford_6', labels: scale_1},
+      {prompt: "If the only way to ensure the overall well-being and happiness of the people is through the use of political oppression for a short, limited period, then political oppression should be used.", name: 'oxford_7', labels: scale_1},
+      {prompt: "It is permissible to torture an innocent person if this would be necessary to provide information to prevent a bomb going off that would kill hundreds of people.", name: 'oxford_8', labels: scale_1},
+      {prompt: "Sometimes it is morally necessary for innocent people to die as collateral damage &#45; if more people are saved overall.", name: 'oxford_9', labels: scale_1}
+    ],
+    randomize_question_order: true
+  };
 
-////////////// principle of care scale ////////////////////////
+  ////////////// principle of care scale ////////////////////////
 
-var principle_of_care = {
-  type: 'survey-likert',
-  questions: [
-    {prompt: "People should be willing to help others who are less fortunate.", name: 'care_1', labels: scale_2},
-    {prompt: "Everybody in this world has a responsibility to help others when they need assistance. ", name: 'care_2', labels: scale_2},
-    {prompt: "These days people need to look after themselves and not overly worry about others. ", name: 'care_3', labels: scale_2},
-    {prompt: "When people are less fortunate, it is important to help them even if they are very different from us. ", name: 'care_4', labels: scale_2},
-    {prompt: "It is important to help one another so that the community in general is a better place. ", name: 'care_5', labels: scale_2},
-    {prompt: "Personally assisting people in trouble is very important to me. ", name: 'care_6', labels: scale_2},
-    {prompt: "When thinking about helping people in trouble, it is important to consider whether the people are like us or not. ", name: 'care_7', labels: scale_2},
-    {prompt: "We should not care too much about the needs of people in other parts of the world.", name: 'care_8', labels: scale_2}
-],
+  var principle_of_care = {
+    type: 'survey-likert',
+    questions: [
+      {prompt: "People should be willing to help others who are less fortunate.", name: 'care_1', labels: scale_2},
+      {prompt: "Everybody in this world has a responsibility to help others when they need assistance. ", name: 'care_2', labels: scale_2},
+      {prompt: "These days people need to look after themselves and not overly worry about others. ", name: 'care_3', labels: scale_2},
+      {prompt: "When people are less fortunate, it is important to help them even if they are very different from us. ", name: 'care_4', labels: scale_2},
+      {prompt: "It is important to help one another so that the community in general is a better place. ", name: 'care_5', labels: scale_2},
+      {prompt: "Personally assisting people in trouble is very important to me. ", name: 'care_6', labels: scale_2},
+      {prompt: "When thinking about helping people in trouble, it is important to consider whether the people are like us or not. ", name: 'care_7', labels: scale_2},
+      {prompt: "We should not care too much about the needs of people in other parts of the world.", name: 'care_8', labels: scale_2}
+  ],
   randomize_question_order: true
   };
   
@@ -444,9 +418,9 @@ var empathy_index = {
     {prompt: "If I see someone suddenly looking away, I&#39;ll automatically look in the direction they are looking.", name: 'empathy_12', labels: scale_1},
     {prompt: "If I&#39;m watching someone walking on a balance beam, I will lean when they lean.", name: 'empathy_13', labels: scale_1},
     {prompt: "If I&#39;m having a conversation with someone and they scratch their nose, I will also scratch my nose", name: 'empathy_14', labels: scale_1}
-  ],
+    ],
     randomize_question_order: true
-    };
+  };
 
     ////////////////////////////  moral identity scale /////////////////
   
@@ -1073,171 +1047,134 @@ var debrief_3 = {
 ],
   };
 
-// debrief  
-var debrief = {
-  type: 'instructions',
-  pages: [
-    `Dear Participant, <br><br> 
+  // debrief  
+  var debrief = {
+    type: 'instructions',
+    pages: [
+      `Dear Participant, <br><br> 
 
-    During this study, you were asked to read statements made by a variety of different people, complete a memory task, and answer several 
-    questionnaires. However, we withheld some information about the actual purpose of the study, which was to understand the attentional 
-    processes and cognitive capacities underlying altruistic behavior.<br><br>
+      During this study, you were asked to read statements made by a variety of different people, complete a memory task, and answer several 
+      questionnaires. However, we withheld some information about the actual purpose of the study, which was to understand the attentional 
+      processes and cognitive capacities underlying altruistic behavior.<br><br>
 
-    We were interested in some problems that we couldn&#39;t discuss with you in advance.<br><br>
-    Our major concern in this study is with understanding peoples&#39; memory and motivational processes when presented information about needy 
-    others. While we told you that the study was about understanding how people interpret the statements made by social actors, 
-    in reality we were interested in your performance on the memory task. Our main hypothesis was that people who possess motivations to 
-    help others would have better recall on the memory task for those who are in need.<br><br>
+      We were interested in some problems that we couldn&#39;t discuss with you in advance.<br><br>
+      Our major concern in this study is with understanding peoples&#39; memory and motivational processes when presented information about needy 
+      others. While we told you that the study was about understanding how people interpret the statements made by social actors, 
+      in reality we were interested in your performance on the memory task. Our main hypothesis was that people who possess motivations to 
+      help others would have better recall on the memory task for those who are in need.<br><br>
+       
+      We couldn&#39;t tell you the true purpose of the study because if we did, then the cause of your altruistic behavior would be unknown—that is, 
+      we would not know whether your performance on the memory task was based on your knowledge of the true purpose of the study. Now that you see 
+      how elaborate the study was and the nature of the ideas we are investigating, I hope you can understand that we couldn&#39;t have tested what we 
+      wanted to test without keeping you in the dark about some of the elements of the study. <br><br>
+      
+      You are reminded that your original consent document included the following information: Participation is voluntary. You may feel free to say 
+      no to any activity that makes you feel uncomfortable. Participants who withdraw from the study will not be penalized in any way. 
+      Your answers will be kept confidential. They will only be seen by the research team or by auditing or compliance officials who are bound to 
+      the same confidentiality provisions. If you have any concerns about your participation or the data you provided in light of this disclosure, 
+      please discuss this with us. We will be happy to provide any information we can to help answer questions you have about this study. <br><br>
+      
+      We ask that you please not reveal anything about this experiment to your friends or anyone else you know who might also participate in the 
+      study down the road. It may be tempting to tell other people, but anyone who knows about the experiment ahead of time won&#39;t give us valid 
+      data.<br><br>
+      
+      If your concerns are such that you would now like to have your data withdrawn, and the data is identifiable, we will do so.<br><br>
+      
+      If you have questions about your participation in the study, please contact Dr. Eric Pedersen, at eric.j.pedersen@colorado.edu.<br><br>
      
-    We couldn&#39;t tell you the true purpose of the study because if we did, then the cause of your altruistic behavior would be unknown—that is, 
-    we would not know whether your performance on the memory task was based on your knowledge of the true purpose of the study. Now that you see 
-    how elaborate the study was and the nature of the ideas we are investigating, I hope you can understand that we couldn&#39;t have tested what we 
-    wanted to test without keeping you in the dark about some of the elements of the study. <br><br>
-    
-    You are reminded that your original consent document included the following information: Participation is voluntary. You may feel free to say 
-    no to any activity that makes you feel uncomfortable. Participants who withdraw from the study will not be penalized in any way. 
-    Your answers will be kept confidential. They will only be seen by the research team or by auditing or compliance officials who are bound to 
-    the same confidentiality provisions. If you have any concerns about your participation or the data you provided in light of this disclosure, 
-    please discuss this with us. We will be happy to provide any information we can to help answer questions you have about this study. <br><br>
-    
-    We ask that you please not reveal anything about this experiment to your friends or anyone else you know who might also participate in the 
-    study down the road. It may be tempting to tell other people, but anyone who knows about the experiment ahead of time won&#39;t give us valid 
-    data.<br><br>
-    
-    If your concerns are such that you would now like to have your data withdrawn, and the data is identifiable, we will do so.<br><br>
-    
-    If you have questions about your participation in the study, please contact Dr. Eric Pedersen, at eric.j.pedersen@colorado.edu.<br><br>
-   
-    If you have questions about your rights as a research participant, you may contact the University of Colorado, Boulder Human Research and 
-    IRB Office at 303-735-3702.<br><br>
+      If you have questions about your rights as a research participant, you may contact the University of Colorado, Boulder Human Research and 
+      IRB Office at 303-735-3702.<br><br>
 
-    Please again accept our appreciation for your participation in this study.<br><br> `
-  ],
-  show_clickable_nav: true
-}
+      Please again accept our appreciation for your participation in this study.<br><br> `
+    ],
+    show_clickable_nav: true
+  }
 
-const selectionFaces = random.shuffle(faces);
-const recall_tasks = random.shuffle(statementSelections.flat()).map(statement => ({
-  type: 'multi-image-selection',
-  image_paths: selectionFaces,
-  prompt: statement,
-}));
+  const selectionFaces = random.shuffle(faces);
+  const recall_tasks = random.shuffle(statementSelections.flat()).map(statement => ({
+    type: 'multi-image-selection',
+    image_paths: selectionFaces,
+    prompt: statement,
+  }));
 
-const surveys = [
-  oxford_utilitarian,
-  principle_of_care,
-  empathy_index,
-  moral_identity,
-  hexaco,
-  life_history_1,
-  life_history_2,
-  life_history_3,
-  life_history_4,
-  parent_birth,
-  alive_mom,
-  no_death_mom,
-  dad_alive,
-  no_death_mom,
-  siblings,
-  parent_divorce,
-  age_divorce,
-  live_with_step_dad,
-  age_divorce_step_mom,
-  live_with_step_mom,
-  age_divorce_step_mom,
-  foster_care,
-  abuse,
-  abuse,
-  stability,
-  disease,
-  change_schools,
-  care,
-  cog_ref,
-  religious_internalization,
-  relig_act,
-  religious_internalization
-];
+  const surveys = [
+    oxford_utilitarian,
+    principle_of_care,
+    empathy_index,
+    moral_identity,
+    hexaco,
+    life_history_1,
+    life_history_2,
+    life_history_3,
+    life_history_4,
+    parent_birth,
+    alive_mom,
+    no_death_mom,
+    dad_alive,
+    no_death_mom,
+    siblings,
+    parent_divorce,
+    age_divorce,
+    live_with_step_dad,
+    age_divorce_step_mom,
+    live_with_step_mom,
+    age_divorce_step_mom,
+    foster_care,
+    abuse,
+    abuse,
+    stability,
+    disease,
+    change_schools,
+    care,
+    cog_ref,
+    religious_internalization,
+    relig_act,
+    religious_internalization
+  ];
 
-const demographicQuestions = [
-  age,
-  gender,
-  ethnicity,
-  language,
-  sexuality,
-  education,
-  area,
-  status,
-  children
-];
+  const demographicQuestions = [
+    age,
+    gender,
+    ethnicity,
+    language,
+    sexuality,
+    education,
+    area,
+    status,
+    children
+  ];
 
-const debriefs = [
-  debrief_1,
-  debrief_2,
-  debrief_3,
-  debrief,
-];
+  const debriefs = [
+    debrief_1,
+    debrief_2,
+    debrief_3,
+    debrief,
+  ];
 
-const timeline = [
-  consent,
-  instructions,
-  face_stimulus_procedure,
-  transition_1,  
-  distractor_task,
-  transition_2,
-  ...recall_tasks,
-  transition_3,
-  ...likert_trials,
-  transition,
-  ... surveys,
-  ...demographicQuestions,
-  ...debriefs,
-  end_experiment
-];
+  const timeline = [
+    consent,
+    instructions,
+    face_stimulus_procedure,
+    transition_1,  
+    distractor_task,
+    transition_2,
+    ...recall_tasks,
+    transition_3,
+    transition,
+    ...surveys,
+    ...demographicQuestions,
+    ...debriefs,
+  ];
 
-window.jatos.onLoad(() => {
-  const sonaCode = window.jatos.urlQueryParameters.sonaCode;
-  window.jatos.studySessionData.sonaCode = sonaCode ? sonaCode : 'none';
+  window.jatos.onLoad(() => {
+    const sonaCode = window.jatos.urlQueryParameters.sonaCode;
+    window.jatos.studySessionData.sonaCode = sonaCode ? sonaCode : 'none';
 
-  jsPsych.init({
-    timeline: timeline,
-    on_finish: data => {
-      window.jatos.submitResultData(data.json(), window.jatos.startNextComponent);
-    }
+    jsPsych.init({
+      timeline: timeline,
+      on_finish: data => {
+        window.jatos.submitResultData(data.json(), window.jatos.startNextComponent);
+      }
+    });
   });
-});
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
 });
