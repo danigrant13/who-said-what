@@ -19,3 +19,10 @@
 .jspsych-survey-multi-choice.jspsych-btn {
   margin-bottom: 20px;
 }
+
+.jspsych-survey-multi-choice-option {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  justify-content: flex-end;
+}
