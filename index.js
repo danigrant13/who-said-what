@@ -1783,7 +1783,6 @@ var motivation_to_help = {
 
 //////////////////////////////////////// social values orientation scale ///////////////////////////////////////////
 
-
 var social_value_scale_1 = [
   `You receive 
   <br>100   
@@ -1846,27 +1845,67 @@ var social_value_scale_2 = [   /////////////////////////////////////////////////
   <br><br>100`,
 ]
 
-var social_value_orientation = {
-  type: 'survey-likert',
-  preamble: 
-  `<br><br>In this task you have been randomly paired with another person, whom we will refer to as the other. 
-  <br>This other person is someone you do not know and will remain mutually anonymous. All of your choices are completely confidential. 
-  <br>You will be making a series of decisions about allocating resources between you and this other person. For each of the following questions, 
-  <br>please indicate the distribution you prefer most by marking the respective position along the midline. You can only make one mark for each question.
- 
-  <br><br>Your decisions will yield money for both yourself and the other person. In the example below, a person has chosen to distribute money so that he/she receives 50 dollars, while the anonymous other person receives 40 dollars.
-   
-  <br><br>There are no right or wrong answers, this is all about personal preferences. After you have made your decision, write the resulting distribution of money on the spaces on the right. 
-  <br>As you can see, your choices will influence both the amount of money you receive as well as the amount of money the other receives.`,
-  questions: [
-    {prompt: ` `, name: 'social_value_1', required: true, labels: social_value_scale_1},
-    {prompt: ` `, name: 'social_value_2', required: true, labels: social_value_scale_2}
- // {prompt: ` `, name: 'social_value_3', required: true, labels: social_value_scale_3},
- // {prompt: ` `, name: 'social_value_4', required: true, labels: social_value_scale_4},
- // {prompt: ` `, name: 'social_value_5', required: true, labels: social_value_scale_5},
- // {prompt: ` `, name: 'social_value_5', required: true, labels: social_value_scale_6}
-],
-  };
+  const buildSocialValuesTable = (name, values) => `
+    <table class="social-value-orientation-table">
+      <tr>
+        <th>You'll Receive</td>
+        <th>They'll Receive</td>
+        <th></td>
+      </tr>
+      ${values.map(([youReceive, theyReceive], i) => `
+        <tr>
+          <td>${youReceive}</td>
+          <td>${theyReceive}</td>
+          <td><input type="radio" name="${name}" value="${i + 1}" required/></td>
+        </tr>
+      `).join('')}
+    </table>
+  `;
+
+
+  const socialOrientationScales = [
+    {
+      name: 'scale_2',
+      values:[[100, 50], [94,56], [88, 63], [75, 75], [69, 81], [63, 88], [56, 94], [50, 100]],
+    }
+  ];
+
+const social_value_orientation_timeline = socialOrientationScales.map(({ name, values }) => ({
+  type: 'survey-html-form',
+  html: buildSocialValuesTable(name, values),
+  preamble: `
+    <style>
+      .instructions {
+        max-width: 1250px;
+        margin: 20px auto 0;
+      }
+
+      .indent {
+        text-indent: 16px;
+      }
+
+      .mb {
+        margin-bottom: 16px;
+      }
+
+      .social-value-orientation-table {
+        margin: 20px auto 20px;
+        border-spacing: 16px;
+      }
+    </style>
+    <div class="instructions">
+      <div class="indent">In this task you have been randomly paired with another person, whom we will refer to as the other.</div>
+      <div class="indent">This other person is someone you do not know and will remain mutually anonymous. All of your choices are completely confidential.</div>
+      <div class="indent">You will be making a series of decisions about allocating resources between you and this other person. For each of the following questions,</div>
+      <div class="indent mb">please indicate the distribution you prefer most by marking the respective position along the midline. You can only make one mark for each question.</div>
+
+      <div class="indent mb">Your decisions will yield money for both yourself and the other person. In the example below, a person has chosen to distribute money so that he/she receives 50 dollars, while the anonymous other person receives 40 dollars.</div>
+
+      <div class="indent mb">There are no right or wrong answers, this is all about personal preferences. After you have made your decision, write the resulting distribution of money on the spaces on the right.</div>
+      <div>As you can see, your choices will influence both the amount of money you receive as well as the amount of money the other receives.</div>
+    </div>`
+  });
+
 
 /////////////////////////////////////////////////// brief fear of negative evaluations scale //////////////////////////////////////////////
 
@@ -2625,7 +2664,7 @@ var debrief_3 = {
     prompt: statement,
   }));
 
-  const surveys = [    
+  const surveys = [
     moral_identity,
     reaction_needy,
     oxford_utilitarian,
