@@ -39,11 +39,13 @@ jsPsych.plugins['multi-image-selection'] = (function() {
     const html = `
       <style>
         .jspsych-multi-image-selection-images {
+            position: relative;
             display: flex;
             justify-content: center;
             align-items: center;
             flex-wrap: wrap;
             max-width: 1350px;
+            margin: 0 auto;
         }
 
         .jspsych-multi-image-selection-image {
@@ -54,17 +56,19 @@ jsPsych.plugins['multi-image-selection'] = (function() {
         }
 
         .jspsych-multi-image-selection-prompt {
-          display: flex;
-          justify-content: center;
-          align-items: center;
+          flex: none;
+          position: absolute;
+          bottom: -50px;
+          margin: 0 auto;
           text-align: center;
+          max-width: 1350px;
         }
       </style>
       <div class="jspsych-multi-image-selection-images">
         ${buildImages(trial.image_paths)}
-      </div>
-      <div id="jspsych-multi-image-selection-prompt" class="jspych-multi-image-selection-prompt">
-        ${trial.prompt}
+        <div id="jspsych-multi-image-selection-prompt" class="jspsych-multi-image-selection-prompt">
+          ${trial.prompt}
+        </div>
       </div>
     `;
 
