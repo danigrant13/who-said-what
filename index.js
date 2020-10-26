@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", function() {
     'assets/male/m76.jpg', 'assets/male/m77.jpg', 'assets/male/m78.jpg', 'assets/male/m79.jpg', 'assets/male/m80.jpg',
     'assets/male/m81.jpg', 'assets/male/m82.jpg', 'assets/male/m83.jpg', 'assets/male/m84.jpg', 'assets/male/m85.jpg',
     'assets/male/m86.jpg', 'assets/male/m87.jpg', 'assets/male/m88.jpg', 'assets/male/m89.jpg'
-  ]
+  ];
 
   // call all statements
   var covid_need = [
@@ -75,7 +75,7 @@ document.addEventListener("DOMContentLoaded", function() {
     ['Two months ago, the cafe I worked for closed because of COVID-19, and I was laid off. I’m worried I will run out of savings to pay rent before I find another job.', 
     'Recently, I applied for unemployment, but I haven’t received a response yet. It seems like everyone is applying for it, so I’m worried I won’t even be considered.', 
     'Some businesses in my area are reopening. I’ve applied to every job position I’ve learned about, but haven’t received a single call back.'],
-  ]
+  ];
 
   var personal_need = [
     ['Depression can be really unpredictable, and the last few days have been rough. I wish I could talk to someone about it.',
@@ -106,7 +106,7 @@ document.addEventListener("DOMContentLoaded", function() {
     ['Two months ago, the cafe I worked for closed down and I was laid off. I’m so worried I will run out of savings for paying rent before I find another job.', 
     'Recently, I applied for unemployment, but I haven’t received a response yet. I’m worried I won’t even be considered.', 
     'I’ve applied to every job position I’ve learned about, but haven’t received a single call back.'],
-  ]
+  ];
 
   var abstract_need = [
     ['I’ve had friends in the past who have struggled with mental health issues. They told me sometimes just sitting there and being with them can be a big help.', 
@@ -140,7 +140,7 @@ document.addEventListener("DOMContentLoaded", function() {
     <br>I thought that was a unique idea.`, 
     'There are a lot of people struggling these days trying to get back up on their feet. I’d like to learn more about the charities that help people with these problems.', 
     'Sometimes just giving a dollar to someone in need when walking down the street can make that person’s day. Who knows, it could make your day too.'],
-  ]
+  ];
 
   var aphorism = [
     ['Sometimes I think our world is overly complicated. I feel like I make thousands of decisions everyday, and after a while, it gets really exhausting.', 
@@ -172,7 +172,7 @@ document.addEventListener("DOMContentLoaded", function() {
     ['People often say money doesn’t provide happiness, but everyone still wants to prove it to themselves.', 
     'Money is numbers, and numbers never end. If it takes money to be happy, your search for happiness will never end.', 
     'Time is always more valuable than money. You can always make more money after spending it, but you can never regain the time that you lost.'],
-  ]
+  ];
 
 
   // condition pairs
@@ -181,7 +181,7 @@ document.addEventListener("DOMContentLoaded", function() {
     [personal_need, abstract_need],
     [personal_need, aphorism],
     [abstract_need, aphorism]
-  ]
+  ];
 
   // randomly select statement clusters from list
   var statementGroups = random.sampleWithoutReplacement(conditions, 1)[0];
@@ -206,6 +206,7 @@ document.addEventListener("DOMContentLoaded", function() {
   // declare the block
   var consent = {
     type:'custom-external-html',
+    data: { experiment_section: 'consent' },
     url: "consent.html",
     cont_btn: "start",
     end_btn: "end",
@@ -221,6 +222,7 @@ document.addEventListener("DOMContentLoaded", function() {
   // instructions 
   var instructions = {
     type: 'instructions',
+    data: { experiment_section: 'instructions' },
     pages: [
       'Welcome to the study!<br><br>',
       'In this study you will observe an interaction among eight individiduals discussing a topic of interest.<br><br>',
@@ -231,78 +233,86 @@ document.addEventListener("DOMContentLoaded", function() {
     show_clickable_nav: true
   };
 
-// stimulus presentation
+  // stimulus presentation
   var face_stimulus_procedure = {
     timeline: [
         {
             type: 'html-keyboard-response',
+            data: { experiment_section: 'face_stimulus_procedure_blank_page' },
             stimulus: ' ',
             choices: jsPsych.NO_KEYS,
             trial_duration: 500
         },
         {
             type: 'image-keyboard-response',
+            data: {
+              experiment_section: 'face_stimulus_procedure',
+              message: jsPsych.timelineVariable('statement'),
+            },
             stimulus: jsPsych.timelineVariable('face'),
-            stimulus_width: 600,                                                                            
+            stimulus_width: 600,
             maintain_aspect_ration: true,
             choices: jsPsych.NO_KEYS,
-            trial_duration: 15000,   
+            trial_duration: 15000,
             prompt: () => `<p>${jsPsych.timelineVariable('statement', true)}</p>`
         }
     ],
     timeline_variables: trialData,
-};                                           
+  };
 
-// transition page from experimental task to distractor task
-var transition_1 = {
-  type: 'instructions',
-  pages: [
-    `Thank you for taking part in the impression formation task! Now you will move on to the next task.
-    <br><br> When you are ready to move on, click &#39;Next&#39;.<br><br>`,
+  // transition page from experimental task to distractor task
+  var transition_1 = {
+    type: 'instructions',
+    data: { experiment_section: 'instructions' },
+    pages: [
+      `Thank you for taking part in the impression formation task! Now you will move on to the next task.
+      <br><br> When you are ready to move on, click &#39;Next&#39;.<br><br>`,
 
-    `For the next task, you will have 60 seconds to list as many US state capitals as you can recall. 
-    <br><br> When you are ready to begin, click &#39;Next&#39;.<br><br>`
-  ],
-  show_clickable_nav: true
-};                                     
+      `For the next task, you will have 60 seconds to list as many US state capitals as you can recall. 
+      <br><br> When you are ready to begin, click &#39;Next&#39;.<br><br>`
+    ],
+    show_clickable_nav: true
+  };
 
-//   distractor task   
-var distractor_task = {
-  type: 'survey-html-javascript-form',
-  preamble: '<img width="600" height="400" src="USA2.jpg"></img>',
-  html: `
-  <style>
-    #jspsych-survey-html-form-next {
-      display: none;
-    }
-  </style>
-  <p> For the next 60 seconds, type as many state capitals as you can. </p>
-   <p><input name="state1" type="text"/> <input name="state2" type="text"/> <input name="state3" type="text"/> <input name="state4" type="text"/> <input name="state5" type="text"/></p>
-   <p><input name="state6" type="text"/> <input name="state7" type="text"/> <input name="state8" type="text"/> <input name="state9" type="text"/> <input name="state10" type="text"/></p>
-   <p><input name="state11" type="text"/> <input name="state12" type="text"/> <input name="state13" type="text"/> <input name="state14" type="text"/> <input name="state15" type="text"/></p>
-   <p><input name="state16" type="text"/> <input name="state17" type="text"/> <input name="state18" type="text"/> <input name="state19" type="text"/> <input name="state20" type="text"/></p>
-   <p><input name="state21" type="text"/> <input name="state22" type="text"/> <input name="state23" type="text"/> <input name="state24" type="text"/> <input name="state25" type="text"/></p>
-   <p><input name="state26" type="text"/> <input name="state27" type="text"/> <input name="state28" type="text"/> <input name="state29" type="text"/> <input name="state30" type="text"/></p>
-   <p><input name="state31" type="text"/> <input name="state32" type="text"/> <input name="state33" type="text"/> <input name="state34" type="text"/> <input name="state35" type="text"/></p>
-   <p><input name="state36" type="text"/> <input name="state37" type="text"/> <input name="state38" type="text"/> <input name="state39" type="text"/> <input name="state40" type="text"/></p>
-   <p><input name="state41" type="text"/> <input name="state42" type="text"/> <input name="state43" type="text"/> <input name="state44" type="text"/> <input name="state45" type="text"/></p>
-   <p><input name="state46" type="text"/> <input name="state47" type="text"/> <input name="state48" type="text"/> <input name="state49" type="text"/> <input name="state50" type="text"/><p>
-   `,
-  javascript: `
-    const nextButton = document.getElementById('jspsych-survey-html-form-next');
-    setTimeout(() => {
-      nextButton.click();
-    }, 60000)
-  `
-};
+  //   distractor task   
+  var distractor_task = {
+    type: 'survey-html-javascript-form',
+    data: { experiment_section: 'distractor_task' },
+    preamble: '<img width="600" height="400" src="USA2.jpg"></img>',
+    html: `
+    <style>
+      #jspsych-survey-html-form-next {
+        display: none;
+      }
+    </style>
+    <p> For the next 60 seconds, type as many state capitals as you can. </p>
+     <p><input name="state1" type="text"/> <input name="state2" type="text"/> <input name="state3" type="text"/> <input name="state4" type="text"/> <input name="state5" type="text"/></p>
+     <p><input name="state6" type="text"/> <input name="state7" type="text"/> <input name="state8" type="text"/> <input name="state9" type="text"/> <input name="state10" type="text"/></p>
+     <p><input name="state11" type="text"/> <input name="state12" type="text"/> <input name="state13" type="text"/> <input name="state14" type="text"/> <input name="state15" type="text"/></p>
+     <p><input name="state16" type="text"/> <input name="state17" type="text"/> <input name="state18" type="text"/> <input name="state19" type="text"/> <input name="state20" type="text"/></p>
+     <p><input name="state21" type="text"/> <input name="state22" type="text"/> <input name="state23" type="text"/> <input name="state24" type="text"/> <input name="state25" type="text"/></p>
+     <p><input name="state26" type="text"/> <input name="state27" type="text"/> <input name="state28" type="text"/> <input name="state29" type="text"/> <input name="state30" type="text"/></p>
+     <p><input name="state31" type="text"/> <input name="state32" type="text"/> <input name="state33" type="text"/> <input name="state34" type="text"/> <input name="state35" type="text"/></p>
+     <p><input name="state36" type="text"/> <input name="state37" type="text"/> <input name="state38" type="text"/> <input name="state39" type="text"/> <input name="state40" type="text"/></p>
+     <p><input name="state41" type="text"/> <input name="state42" type="text"/> <input name="state43" type="text"/> <input name="state44" type="text"/> <input name="state45" type="text"/></p>
+     <p><input name="state46" type="text"/> <input name="state47" type="text"/> <input name="state48" type="text"/> <input name="state49" type="text"/> <input name="state50" type="text"/><p>
+     `,
+    javascript: `
+      const nextButton = document.getElementById('jspsych-survey-html-form-next');
+      setTimeout(() => {
+        nextButton.click();
+      }, 60000)
+    `
+  };
 
-// transition page from distractor task to recall task
+  // transition page from distractor task to recall task
   var transition_2 = {
     type: 'instructions',
+    data: { experiment_section: 'instructions' },
     pages: [
       `Thank you for taking part in that task. There is one last task for you to do. On the next page we will describe this task to you.
       <br><br> Click &#39;Next&#39; when you are ready to read the instructions.<br><br>`,
-      
+
       `Next, you will take part in a recall task. You will see a screen with all the faces that were presented to you in the first task.<br>
       The statements each person said will appear sequentially. Please reread each statement and try to recall which person said it.<br>
       To choose the person you think said the presented statement, simply click their picture.<br><br> 
@@ -314,6 +324,7 @@ var distractor_task = {
  // transition page from recall task to moderator surveys
   var transition_3 = {
     type: 'instructions',
+    data: { experiment_section: 'instructions' },
     pages: [
       `Thank you for taking part in that task. Next, you will answer some survey questions.
        <br><br> Click &#39;Next&#39; when you are ready to begin.<br><br>`
@@ -332,6 +343,7 @@ var distractor_task = {
 
   var GB_checklist = {
     type: 'survey-likert',
+    data: { experiment_section: 'gb_checklist' },
     preamble: `<br><br> Below is a list of specific behaviors or acts. Over the past two months, it is likely that you may have performed some of these behaviors. 
     <br> It is also likely that you have not performed many of them as well during this time. Please consider each behavior to determine whether or not you have performed the behavior during the past two months. 
     <br> If you have performed the behavior, please try to determine how many times you have performed it during the past two months. For each behavior, provide one of the following ratings.
@@ -352,7 +364,7 @@ var distractor_task = {
     randomize_question_order: true,
     };
 
- 
+
   //////////////////////////////////////////////// principle of care scale /////////////////////////////////////
 
   var scale_2 = [
@@ -365,6 +377,7 @@ var distractor_task = {
   
   var principle_of_care = {
     type: 'survey-likert',
+    data: { experiment_section: 'principle_of_care' },
     preamble: "<br><br>Please indicate below the degree to which you agree with the following statements.",
     questions: [
       {prompt: "People should be willing to help others who are less fortunate.", name: 'care_1', required: true, labels: scale_2},
@@ -391,6 +404,7 @@ var distractor_task = {
   
   var moral_identity = {
     type: 'survey-likert',
+    data: { experiment_section: 'moral_identity' },
     preamble: `<br><br>Listed below are some characteristics that may describe a person: <br>
     <b>Caring, compassionate, fair, friendly, generous, helpful, hardworking, honest, and kind.</b><br>
     The person with these characteristics could be you or it could be someone else. <br>
@@ -425,6 +439,7 @@ var distractor_task = {
 
     var life_orientation = {
       type: 'survey-likert',
+      data: { experiment_section: 'life_orientation' },
       preamble: `<br><br>Please be as honest and accurate as you can throughout.  
       <br> Try not to let your response to one statement influence your responses to other statements.  
       <br> There are no &#39;correct&#39; or &#39;incorrect&#39; answers.  Answer according to your own feelings, rather than how you think &#39;most people&#39; would answer`,
@@ -435,11 +450,9 @@ var distractor_task = {
         {prompt: "I hardly ever expect things to go my way.", name: 'life_orient_4R', required: true, labels: scale_8},
         {prompt: "I rarely count on good things happening to me.", name: 'life_orient_5R', required: true, labels: scale_8},
         {prompt: "Overall, I expect more good things to happen to me than bad.", name: 'life_orient_6', required: true, labels: scale_8},
-
-
       ],
       randomize_question_order: true,
-      };
+    };
 
 
  ///////////////////////////////////////////////////////////////  HEXACO  scale ///////////////////////////////////////////////////////////////////
@@ -453,23 +466,24 @@ var distractor_task = {
 ] */
 
 
-var hexaco_1 = {
-  type: 'survey-likert',
-  preamble: `<br><br>On the following pages, you will find a series of statements about you. 
-  <br>Please read each statement and decide how much you agree or disagree with that statement.`,
-  questions: [
-    {prompt: "I would be quite bored by a visit to an art gallery.", name: 'hexaco_1R', required: true, labels: scale_2},
-    {prompt: "I plan ahead and organize things, to avoid scrambling at the last minute.", name: 'hexaco_2', required: true, labels: scale_2},
-    {prompt: "I rarely hold a grudge, even against people who have badly wronged me.", name: 'hexaco_3', required: true, labels: scale_2},
-    {prompt: "I feel reasonably satisfied with myself overall.", name: 'hexaco_4', required: true, labels: scale_2},
-    {prompt: "I would feel afraid if I had to travel in bad weather conditions.", name: 'hexaco_5', required: true, labels: scale_2},
-    {prompt: "I wouldn&#39;t use flattery to get a raise or promotion at work, even if I thought it would succeed.", name: 'hexaco_6', required: true, labels: scale_2},
-    {prompt: "I&#39;m interested in learning about the history and politics of other countries.", name: 'hexaco_7', required: true, labels: scale_2},
-    {prompt: "I often push myself very hard when trying to achieve a goal.", name: 'hexaco_8', required: true, labels: scale_2},
-    {prompt: "People sometimes tell me that I am too critical of others.", name: 'hexaco_9R', required: true, labels: scale_2},
-    {prompt: "I rarely express my opinions in group meetings.", name: 'hexaco_10R', required: true, labels: scale_2},
-  ],
-  randomize_question_order: true,
+  var hexaco_1 = {
+    type: 'survey-likert',
+    data: { experiment_section: 'hexaco' },
+    preamble: `<br><br>On the following pages, you will find a series of statements about you. 
+    <br>Please read each statement and decide how much you agree or disagree with that statement.`,
+    questions: [
+      {prompt: "I would be quite bored by a visit to an art gallery.", name: 'hexaco_1R', required: true, labels: scale_2},
+      {prompt: "I plan ahead and organize things, to avoid scrambling at the last minute.", name: 'hexaco_2', required: true, labels: scale_2},
+      {prompt: "I rarely hold a grudge, even against people who have badly wronged me.", name: 'hexaco_3', required: true, labels: scale_2},
+      {prompt: "I feel reasonably satisfied with myself overall.", name: 'hexaco_4', required: true, labels: scale_2},
+      {prompt: "I would feel afraid if I had to travel in bad weather conditions.", name: 'hexaco_5', required: true, labels: scale_2},
+      {prompt: "I wouldn&#39;t use flattery to get a raise or promotion at work, even if I thought it would succeed.", name: 'hexaco_6', required: true, labels: scale_2},
+      {prompt: "I&#39;m interested in learning about the history and politics of other countries.", name: 'hexaco_7', required: true, labels: scale_2},
+      {prompt: "I often push myself very hard when trying to achieve a goal.", name: 'hexaco_8', required: true, labels: scale_2},
+      {prompt: "People sometimes tell me that I am too critical of others.", name: 'hexaco_9R', required: true, labels: scale_2},
+      {prompt: "I rarely express my opinions in group meetings.", name: 'hexaco_10R', required: true, labels: scale_2},
+    ],
+    randomize_question_order: true,
   };
 
   /* var scale_2 = [
@@ -482,6 +496,7 @@ var hexaco_1 = {
 
   var hexaco_2 = {
     type: 'survey-likert',
+    data: { experiment_section: 'hexaco' },
     preamble: "<br><br>Please read each statement and decide how much you agree or disagree with that statement.",
     questions: [
     {prompt: "I sometimes can&#39;t help worrying about little things.", name: 'hexaco_11', required: true, labels: scale_2},
@@ -508,6 +523,7 @@ var hexaco_1 = {
 
   var hexaco_3 = {
     type: 'survey-likert',
+    data: { experiment_section: 'hexaco' },
     preamble: "<br><br>Please read each statement and decide how much you agree or disagree with that statement.",
     questions: [
     {prompt: "People think of me as someone who has a quick temper.", name: 'hexaco_21R', required: true, labels: scale_2},
@@ -534,6 +550,7 @@ var hexaco_1 = {
 
   var hexaco_4 = {
     type: 'survey-likert',
+    data: { experiment_section: 'hexaco' },
     preamble: "<br><br>Please read each statement and decide how much you agree or disagree with that statement.",
     questions: [
     {prompt: "I’ve never really enjoyed looking through an encyclopedia.", name: 'hexaco_31R', required: true, labels: scale_2},
@@ -560,6 +577,7 @@ var hexaco_1 = {
 
   var hexaco_5 = {
     type: 'survey-likert',
+    data: { experiment_section: 'hexaco' },
     preamble: "<br><br>Please read each statement and decide how much you agree or disagree with that statement.",
     questions: [
     {prompt: "I can handle difficult situations without needing emotional support from anyone else.", name: 'hexaco_41R', required: true, labels: scale_2},
@@ -586,6 +604,7 @@ var hexaco_1 = {
 
   var hexaco_6 = {
     type: 'survey-likert',
+    data: { experiment_section: 'hexaco' },
     preamble: "<br><br>Please read each statement and decide how much you agree or disagree with that statement.",
     questions: [
     {prompt: "Even when people make a lot of mistakes, I rarely say anything negative.", name: 'hexaco_51', required: true, labels: scale_2},
@@ -612,6 +631,7 @@ var hexaco_1 = {
 
   var hexaco_7 = {
     type: 'survey-likert',
+    data: { experiment_section: 'hexaco' },
     preamble: "<br><br>Please read each statement and decide how much you agree or disagree with that statement.",
     questions: [
     {prompt: "I have sympathy for people who are less fortunate than I am.", name: 'hexaco_61', required: true, labels: scale_2},
@@ -639,6 +659,7 @@ var scale_life = [
 
 var life_history_1 = {
   type: 'survey-likert',
+  data: { experiment_section: 'life_history' },
   preamble: "<br><br>Please indicate how well each of the following statements describes your life while you were growing up (ages 5- 15).",
   questions: [ 
     {prompt: "My father changed jobs very often.", name: 'life_hist_1', required: true, labels: scale_life},
@@ -669,6 +690,7 @@ var scale_life = [
 
 var life_history_2 = {
   type: 'survey-likert',
+  data: { experiment_section: 'life_history' },
   preamble: "<br><br>Please indicate how well each of the following statements describes your life while you were growing up (ages 5- 15).",
   questions: [ 
     {prompt: "My mother put a lot of effort into watching over me and making sure I had a good upbringing.", name: 'life_hist_11', required: true, labels: scale_life},
@@ -699,6 +721,7 @@ var scale_life = [
 
 var life_history_3 = {
   type: 'survey-likert',
+  data: { experiment_section: 'life_history' },
   preamble: "<br><br>Please indicate how well each of the following statements describes your life while you were growing up (ages 5- 15).",
   questions: [ 
     {prompt: "My father gave me love and affection.", name: 'life_hist_21', required: true, labels: scale_life}, 
@@ -729,6 +752,7 @@ var scale_5 = [
 
 var life_history_4 = {
   type: 'survey-likert',
+  data: { experiment_section: 'life_history' },
   preamble: `<br><br>The following are questions about your childhood and early adolescence (ages 5-15). 
   <br> Please think over your family life and answer these questions by putting the relevant number next to each statement to indicate how much you agree with it.`,
   questions: [ 
@@ -767,6 +791,7 @@ var life_history_4 = {
 
   var life_history_5 = {
     type: 'survey-likert',
+    data: { experiment_section: 'life_history' },
     preamble: `<br><br>The following are questions about your childhood and early adolescence (ages 5-15). 
     <br> Please answer the following four questions about the police in the neighborhood where you grew up.`,
     questions: [ 
@@ -791,6 +816,7 @@ var life_history_4 = {
 
     var life_history_6 = {
       type: 'survey-likert',
+      data: { experiment_section: 'life_history' },
       preamble: `<br><br>The following are questions about your childhood and early adolescence (ages 5-15). 
       <br> How many times do you remember witnessing or hearing about the following events in your neighborhood when you were growing up?`,
       questions: [ 
@@ -825,6 +851,7 @@ var life_history_4 = {
 
     var life_history_7 = {
       type: 'survey-likert',
+      data: { experiment_section: 'life_history' },
       preamble: "<br><br>Please indicate how well each of the following statements describes your life while you were growing up (ages 5- 15).",
       questions: [ 
         {prompt: "People in my family helped me study and/or complete my school assignments.", name: 'life_hist_57', required: true, labels: scale_5},
@@ -851,39 +878,41 @@ var life_history_4 = {
 //////////////////////////////////////////////////////////// life history - adult role models
 
 
-var role_model = [
-  "There was no one like this",
-  "There was someone a little bit like this",
-  "There was someone somewhat like this",
-  "There was someone very much like this",
-  "There was someone exactly like this"
-]
+  var role_model = [
+    "There was no one like this",
+    "There was someone a little bit like this",
+    "There was someone somewhat like this",
+    "There was someone very much like this",
+    "There was someone exactly like this"
+  ]
 
-var life_history_8 = {
-  type: 'survey-likert',
-  preamble: `<br><br>For the next questions, please think of your life while you were growing up (ages 5-15).`,  
-  questions: [
-    {prompt: 
-      `When you were growing up, was there an important adult who was NOT your parent or guardian that did a lot of good things for you? 
-      Someone you thought was a special person in your life? This could be a teacher, a neighbor, someone in your community, or anyone that did a 
-      lot of good things for you.`, 
-      name: 'life_hist_20', required: true, labels: role_model},
-  ],
-};
+  var life_history_8 = {
+    type: 'survey-likert',
+    data: { experiment_section: 'life_history' },
+    preamble: `<br><br>For the next questions, please think of your life while you were growing up (ages 5-15).`,  
+    questions: [
+      {prompt: 
+        `When you were growing up, was there an important adult who was NOT your parent or guardian that did a lot of good things for you? 
+        Someone you thought was a special person in your life? This could be a teacher, a neighbor, someone in your community, or anyone that did a 
+        lot of good things for you.`, 
+        name: 'life_hist_20', required: true, labels: role_model},
+    ],
+  };
 
-var scale_4 = [
-  "None",
-  "One",
-  "A few",
-  "Many"
-]
+  var scale_4 = [
+    "None",
+    "One",
+    "A few",
+    "Many"
+  ]
 
-// life history scale section #3
-var life_history_9 = {
-  type: 'survey-likert',
-  questions: [
-    {prompt: `How many adults like this did you have in your life?`, name: 'life_hist_21', required: true, labels: scale_4},
-],
+  // life history scale section #3
+  var life_history_9 = {
+    type: 'survey-likert',
+    data: { experiment_section: 'life_history' },
+    questions: [
+      {prompt: `How many adults like this did you have in your life?`, name: 'life_hist_21', required: true, labels: scale_4},
+    ],
   };
 
 
@@ -896,6 +925,7 @@ var yes_no = [
 
 var parent_birth = {
   type: 'survey-text',
+  data: { experiment_section: 'life_history' },
   preamble: `<br><br>You will now fill out the last questionnaire. Some of the questions are personal.  
   <br><br>You are asked these questions so that participants’ responses can be analyzed according to their individual profile and history.  
   <br><br>We wish to remind you that all of the responses we collect will be analysed completely anonymously - NO INFORMATION FROM THIS 
@@ -910,6 +940,7 @@ randomize_question_order: true,
 
 var alive_mom = {
   type: 'survey-likert',
+  data: { experiment_section: 'life_history' },
   questions: [
     {prompt: `Is your mother still alive?`, name: 'mom_alive', required: true, labels: yes_no}, 
 ],
@@ -917,6 +948,7 @@ var alive_mom = {
 
 var no_death_mom = {
   type: 'survey-text',
+  data: { experiment_section: 'life_history' },
   questions: [
     {prompt: `If you answered “No” to the above question, what year did your mother die?`, name: 'mom_death', rows: 2, columns: 20}, 
 ],
@@ -924,6 +956,7 @@ var no_death_mom = {
 
  var alive_dad = {
   type: 'survey-likert',
+  data: { experiment_section: 'life_history' },
   questions: [
     {prompt: `Is you father still alive?`, name: 'dad_alive', required: true, labels: yes_no}
 ],
@@ -931,6 +964,7 @@ var no_death_mom = {
 
 var no_death_dad = {
   type: 'survey-text',
+  data: { experiment_section: 'life_history' },
   questions: [
     {prompt: `If you answered “No” to the above question, what year did your father die?`, name: 'dad_death', rows: 2, columns: 20}
 ],
@@ -966,142 +1000,158 @@ var no_death_dad = {
     "More than 10th"
   ]
 
-var siblings = {
-  type: 'survey-likert',
-  questions: [
-    {prompt: `How many children did your mother have?`, name: 'mom_siblings', required: true, labels: count},
-    {prompt: `Among your mother&#39;s children you are the:`, name: 'mom_birth_order', required: true, labels: birth_order},
-    {prompt: `How many children did your father have?`, name: 'dad_siblings', required: true, labels: count},
-    {prompt: `Among your father&#39;s children you are the:`, name: 'dad_birth_order', required: true, labels: birth_order}
-],
+  var siblings = {
+    type: 'survey-likert',
+    data: { experiment_section: 'life_history' },
+    questions: [
+      {prompt: `How many children did your mother have?`, name: 'mom_siblings', required: true, labels: count},
+      {prompt: `Among your mother&#39;s children you are the:`, name: 'mom_birth_order', required: true, labels: birth_order},
+      {prompt: `How many children did your father have?`, name: 'dad_siblings', required: true, labels: count},
+      {prompt: `Among your father&#39;s children you are the:`, name: 'dad_birth_order', required: true, labels: birth_order}
+    ],
   };
 
-var parent_divorce = {
-  type: 'survey-likert',
-  questions: [
-    {prompt: `Did your parents got divorved or separated?`, name: 'divorce', required: true, labels: yes_no}
-],
-required: true
+  var parent_divorce = {
+    type: 'survey-likert',
+    data: { experiment_section: 'life_history' },
+    questions: [
+      {prompt: `Did your parents got divorved or separated?`, name: 'divorce', required: true, labels: yes_no}
+    ],
+    required: true
   };
 
-var age_divorce = {
-  type: 'survey-text',
-  questions: [
-    {prompt: `If your parents did get divorced or separated, how old were you when they got divorced?`, name: 'age_divorce', rows: 2, columns: 20}
-],
-  }; 
+  var age_divorce = {
+    type: 'survey-text',
+    data: { experiment_section: 'life_history' },
+    questions: [
+      {prompt: `If your parents did get divorced or separated, how old were you when they got divorced?`, name: 'age_divorce', rows: 2, columns: 20}
+  ],
+    }; 
 
-var live_with_step_dad = {
-  type: 'survey-likert',
-  questions: [
-    {prompt: `If your parents did get divorced or separated, have you ever lived with a step-father?`, name: 'step_dad', labels: yes_no}
-],
+  var live_with_step_dad = {
+    type: 'survey-likert',
+    data: { experiment_section: 'life_history' },
+    questions: [
+      {prompt: `If your parents did get divorced or separated, have you ever lived with a step-father?`, name: 'step_dad', labels: yes_no}
+    ],
   };
 
-var age_divorce_step_dad = {
-  type: 'survey-text',
-  questions: [
-    {prompt: `If your parents did get divorced or separated, and you lived with a step-father, from what age on did you live with your step-father?`, name: 'age_step_dad', rows: 2, columns: 20}
-],
-  };  
+  var age_divorce_step_dad = {
+    type: 'survey-text',
+    data: { experiment_section: 'life_history' },
+    questions: [
+      {prompt: `If your parents did get divorced or separated, and you lived with a step-father, from what age on did you live with your step-father?`, name: 'age_step_dad', rows: 2, columns: 20}
+  ],
+    };  
 
-var live_with_step_mom = {
-  type: 'survey-likert',
-  questions: [
-    {prompt: `If your parents did get divorced or separated, have you ever lived with a step-mother?`, name: 'step_mom', labels: yes_no}
-],
-  };
-
-var age_divorce_step_mom = {
-  type: 'survey-text',
-  questions: [
-    {prompt: `If your parents did get divorced or separated, and you lived with a step-mother, from what age on did you live with your step-mother?`, name: 'age_step_mom', rows: 2, columns: 20}
-],
-  };  
-
-var foster_care = {
-  type: 'survey-likert',
-  questions: [
-    {prompt: `Were you ever placed in an institution or in a foster family?`, name: 'foster_care', required: true, labels: yes_no}
-],
-required: true
-  };
-
-var abuse_1 = {
-  type: 'survey-multi-select',
-  questions: [
-    {prompt: `During my childhood, I was a victim of (please select all appropriate answers):`, 
-      options: ["Physical abuse", "Sexual abuse", "Psychological abuse", "No form of abuse", "I do not want to answer"], name: 'childhood_abuse_yn', required: true}
-],
-  };
-
-var abuse_2 = {
-  type: 'survey-multi-select',
-  questions: [
-    {prompt: `Answer this question only if you answered 'Physical abuse' or 'Psychological abuse' or 'Sexual abuse' to the previous question. <br>
-              These episodes were caused by (please select all appropriate answers):`, 
-      options: ["One or several people in my family", "One or several people outside my family", "Does not apply to me", "I do not want to answer"], name: 'childhood_abuse', required: true}
-],
-  };
-
-var stability = {
-  type: 'survey-multi-select',
-  questions: [
-    {prompt: `During your childhood, did you live with one or several people who were (Please select all appropriate answers):`,         
-      options: [
-        "Alcoholic",
-        "Violent",
-        "Depressed", 
-        "Who suffered from a mental disorder", 
-        "Who regularly took illegal drugs", 
-        "Who sometimes had issues with the judicial system", 
-        "Who had spent time in prison", 
-        "None of the above", 
-        "I don’t want to answer"],
-      name: 'home_stability', required: true}
-],
-    };
-
-var disease = {
-  type: 'survey-likert',
-  questions: [
-    {prompt: `   From your birth until you were 7 years old, did you suffer from a long disease that required a hospitalization?  `, name: 'disease', required: true, labels: yes_no}
+  var live_with_step_mom = {
+    type: 'survey-likert',
+    data: { experiment_section: 'life_history' },
+    questions: [
+      {prompt: `If your parents did get divorced or separated, have you ever lived with a step-mother?`, name: 'step_mom', labels: yes_no}
   ],
     };
 
-var change_schools = {
-  type: 'survey-likert',
-  questions: [
-    {prompt: `From your birth until you were 7 years old, how many times did you change schools?`, name: 'change_schools', required: true, labels: count},
-],    
-    };
-  
-var paternal_care_scale = [  
-  "He left my mother taking care of us",
-  "He took care of us, but less than my mother",
-  "He took care of us as much as my mother",
-  "He took more care of us than my mother",
-  "This question does not apply to me"
-]
+  var age_divorce_step_mom = {
+    type: 'survey-text',
+    data: { experiment_section: 'life_history' },
+    questions: [
+      {prompt: `If your parents did get divorced or separated, and you lived with a step-mother, from what age on did you live with your step-mother?`, name: 'age_step_mom', rows: 2, columns: 20}
+    ],
+  };  
 
-var care_father = {
-  type: 'survey-likert',
-  questions: [
-    {prompt: `          From your birth until you were 7 years old, how much did your father take care of you?          `, name: 'paternal_care', required: true, labels: paternal_care_scale}
-],
+  var foster_care = {
+    type: 'survey-likert',
+    data: { experiment_section: 'life_history' },
+    questions: [
+      {prompt: `Were you ever placed in an institution or in a foster family?`, name: 'foster_care', required: true, labels: yes_no}
+    ],
+    required: true
+  };
+
+  var abuse_1 = {
+    type: 'survey-multi-select',
+    data: { experiment_section: 'life_history' },
+    questions: [
+      {prompt: `During my childhood, I was a victim of (please select all appropriate answers):`, 
+      options: ["Physical abuse", "Sexual abuse", "Psychological abuse", "No form of abuse", "I do not want to answer"], name: 'childhood_abuse_yn', required: true}
+    ],
+  };
+
+  var abuse_2 = {
+    type: 'survey-multi-select',
+    data: { experiment_section: 'life_history' },
+    questions: [
+      {prompt: `Answer this question only if you answered 'Physical abuse' or 'Psychological abuse' or 'Sexual abuse' to the previous question. <br>
+                These episodes were caused by (please select all appropriate answers):`, 
+        options: ["One or several people in my family", "One or several people outside my family", "Does not apply to me", "I do not want to answer"], name: 'childhood_abuse', required: true}
+    ],
+  };
+
+  var stability = {
+    type: 'survey-multi-select',
+    data: { experiment_section: 'life_history' },
+    questions: [
+      {prompt: `During your childhood, did you live with one or several people who were (Please select all appropriate answers):`,         
+        options: [
+          "Alcoholic",
+          "Violent",
+          "Depressed", 
+          "Who suffered from a mental disorder", 
+          "Who regularly took illegal drugs", 
+          "Who sometimes had issues with the judicial system", 
+          "Who had spent time in prison", 
+          "None of the above", 
+          "I don’t want to answer"],
+        name: 'home_stability', required: true}
+    ],
+  };
+
+  var disease = {
+    type: 'survey-likert',
+    data: { experiment_section: 'life_history' },
+    questions: [
+      {prompt: `   From your birth until you were 7 years old, did you suffer from a long disease that required a hospitalization?  `, name: 'disease', required: true, labels: yes_no}
+    ],
+  };
+
+  var change_schools = {
+    type: 'survey-likert',
+    data: { experiment_section: 'life_history' },
+    questions: [
+      {prompt: `From your birth until you were 7 years old, how many times did you change schools?`, name: 'change_schools', required: true, labels: count},
+    ],
+  };
+
+  var paternal_care_scale = [  
+    "He left my mother taking care of us",
+    "He took care of us, but less than my mother",
+    "He took care of us as much as my mother",
+    "He took more care of us than my mother",
+    "This question does not apply to me"
+  ]
+
+  var care_father = {
+    type: 'survey-likert',
+    data: { experiment_section: 'life_history' },
+    questions: [
+      {prompt: `          From your birth until you were 7 years old, how much did your father take care of you?          `, name: 'paternal_care', required: true, labels: paternal_care_scale}
+    ],
   };
 
   var sib_death = {
     type: 'survey-likert',
+    data: { experiment_section: 'life_history' },
     questions: [
       {prompt: `               When you were growing up, did one of your siblings die?                 `, name: 'sib_die', required: true, labels: yes_no}
-  ],
-    };
+    ],
+  };
 
 ///////////////////////////////////////// Personal strivings list ///////////////////////////////////////////
 
 var personal_striving = {
   type: 'survey-text',
+  data: { experiment_section: 'personal_strivings' },
   preamble: `<br><br> One way to describe someone’s personality is to consider the purposes or goals that the person seems to be seeking in his or her everyday behavior. 
     <br>We are interested in the things that you typically or characteristically are trying to do. We might call these objectives “strivings.” Here are some examples of strivings:
               
@@ -1152,6 +1202,7 @@ var scale_important = [
 
 var volunteer_functions = {
   type: 'survey-likert',
+  data: { experiment_section: 'volunteer_functions' },
   preamble: `<br><br>Please indicate how important or accurate each of the 30 possible reasons for volunteering are for you when you take part in volunteer work.`,
   questions: [
     {prompt: `Volunteering can help me to get my foot in the door at a place where I would like to work.`, name: 'vol_funct_1', required: true, labels: scale_important},
@@ -1202,6 +1253,7 @@ var scale_true = [
 
 var motivation_to_help = {
   type: 'survey-likert',
+  data: { experiment_section: 'motivation_to_help' },
   preamble: `<br><br>Think of the last time you acted prosocially (e.g., selflessly, kindly, helpful, etc.) toward another person. 
   Please indicate how true or untrue each of the statements below is in describing why you acted prosocialy.`,
   questions: [
@@ -1270,6 +1322,7 @@ randomize_question_order: true,
 
 const social_value_orientation_timeline = socialOrientationScales.map(({ name, values }) => ({
   type: 'survey-html-form',
+  data: { experiment_section: 'social_value_orientation' },
   html: buildSocialValuesTable(name, values),
   preamble: `
     <style>
@@ -1317,6 +1370,7 @@ var characteristic = [
 
 var fear_negative_evaluation = {
   type: 'survey-likert',
+  data: { experiment_section: 'fear_of_negative_evaluations' },
   preamble: 
   `<br><br>Read each of the following statements carefully and indicate how characteristic it is of you according to the following scale:`,
   questions: [
@@ -1352,6 +1406,7 @@ randomize_question_order: true,
 
   var desirable_responding = {
     type: 'survey-likert',
+    data: { experiment_section: 'desirable_responding' },
     preamble: 
     `<br><br>Read each of the following statements carefully and indicate how characteristic it is of you according to the following scale:`,
     questions: [
@@ -1389,6 +1444,7 @@ var scale_true_for_me = [
 
 var pers_norm_reciprocity = {
   type: 'survey-likert',
+  data: { experiment_section: 'personal_norm_reciprocity' },
   preamble: 
   `<br><br>Read each of the following statements carefully and indicate how characteristic it is of you according to the following scale:`,
   questions: [
@@ -1427,6 +1483,7 @@ var scale_likely = [
 
 var guilt_proneness_scale = {
   type: 'survey-likert',
+  data: { experiment_section: 'guilt_proneness' },
   preamble: 
   `<br><br>In this questionnaire you will read about situations that people are likely to encounter in day‐to‐day life, followed by common reactions to those situations. 
   As you read each scenario, try to imagine yourself in that situation. Then indicate the likelihood that you would react in the way described.`,
@@ -1455,6 +1512,7 @@ var scale_agree = [
 
 var justice_sensitivity = {
   type: 'survey-likert',
+  data: { experiment_section: 'justice_sensitivity' },
   preamble: 
   `<br><br> People react quite differently in unfair situations. Use the following scale to indicate how much you agree with each statement. Please be honest and thoughtful in your responses.`,
   questions: [
@@ -1496,6 +1554,7 @@ var scale_describe = [
 
 var reactivity_index = {
   type: 'survey-likert',
+  data: { experiment_section: 'interpersonal_reactivity' },
   preamble: 
   `<br><br> The following statements inquire about your thoughts and feelings in a variety of situations.
   For each item, indicate how well it describes you by choosing the appropriate point on the scale.
@@ -1528,6 +1587,7 @@ var scale_important = [
 
 var agentic_communal_values_scale = {
   type: 'survey-likert',
+  data: { experiment_section: 'agentic_communal_values' },
   preamble: 
   `<br><br> Below are different values that people rate of different importance in their lives. FIRST READ THROUGH THE LIST to familiarize yourself with all the values. 
   While reading over the list, consider which ones tend to be most important to you and which tend to be least important to you. After familiarizing yourself with the list, 
@@ -1566,6 +1626,7 @@ var scale_parent = [
 
 var parental_bonding_mom = {
   type: 'survey-likert',
+  data: { experiment_section: 'parental_bonding' },
   preamble: 
   `<br><br>This questionnaire lists various attitudes and behaviors of parents. As you remember your <b>mother</b> in your first 16 years, would you rate each question as either very like to very unlike`,
   questions: [
@@ -1601,6 +1662,7 @@ randomize_question_order: true,
   
 var parental_bonding_dad = {
   type: 'survey-likert',
+  data: { experiment_section: 'parental_bonding' },
   preamble: 
   `<br><br>This questionnaire lists various attitudes and behaviors of parents. As you remember your <b>father</b> in your first 16 years, would you rate each question as either very like to very unlike`,
   questions: [
@@ -1645,6 +1707,7 @@ var scale_true_of_me = [
 
 var relig_commitment = {
   type: 'survey-likert',
+  data: { experiment_section: 'religious_commitment' },
   preamble: 
   `<br><br>Please read each of the following statements. Choose the response that best describes how true each statement is for you.`,
   questions: [
@@ -1678,6 +1741,7 @@ randomize_question_order: true,
 
  var relig_behavior_A = {
   type: 'survey-likert',
+  data: { experiment_section: 'religious_behaviors' },
   preamble: 
   `<br><br>This questionnaire has four statements, each of which is followed by three possible responses. Please read the first statement, and then consider each response. 
   Indicate how true each response is for you, using the following scale.
@@ -1693,6 +1757,7 @@ randomize_question_order: true,
 
   var relig_behavior_B = {
     type: 'survey-likert',
+    data: { experiment_section: 'religious_behaviors' },
     preamble: 
     `<br><br>This questionnaire has four statements, each of which is followed by three possible responses. Please read the first statement, and then consider each response. 
     <br>Indicate how true each response is for you, using the following scale.
@@ -1708,6 +1773,7 @@ randomize_question_order: true,
 
   var relig_behavior_C = {
     type: 'survey-likert',
+    data: { experiment_section: 'religious_behaviors' },
     preamble: 
     `<br><br>This questionnaire has four statements, each of which is followed by three possible responses. Please read the first statement, and then consider each response. 
     <br>Indicate how true each response is for you, using the following scale.
@@ -1723,6 +1789,7 @@ randomize_question_order: true,
 
     var relig_behavior_D = {
       type: 'survey-likert',
+      data: { experiment_section: 'religious_behaviors' },
       preamble: 
       `<br><br>This questionnaire has four statements, each of which is followed by three possible responses. Please read the first statement, and then consider each response. 
       <br>Indicate how true each response is for you, using the following scale.
@@ -1750,6 +1817,7 @@ var scale_1 = [
 
 var general_trust_scale = {
   type: 'survey-likert',
+  data: { experiment_section: 'general_trust' },
   preamble: 
   `<br><br> Please read each of the following statements. Choose the response that best describes strongly you agree or disagree with the statement.`,
   questions: [
@@ -1778,6 +1846,7 @@ var scale_1 = [
 
 var personal_belief_just_world_scale = {
   type: 'survey-likert',
+  data: { experiment_section: 'personal_belief' },
   preamble: 
   `<br><br> Below you will find various statements. Most likely, you will strongly agree with some statements, and strongly disagree with others. Sometimes you may feel more neutral.
   <br>Read each statement carefully and decide to what extent you personally agree or disagree with it. Choose the point which corresponds to this judgement. 
@@ -1812,6 +1881,7 @@ var scale_1 = [
 
 var general_trust_scale = {
   type: 'survey-likert',
+  data: { experiment_section: 'general_belief' },
   preamble: 
   `<br><br> Below you will find various statements. Most likely, you will strongly agree with some statements, and strongly disagree with others. Sometimes you may feel more neutral.
   <br>Read each statement carefully and decide to what extent you personally agree or disagree with it. Choose the point which corresponds to this judgement. 
@@ -1844,7 +1914,8 @@ var scale_1 = [
 
 var social_dominance_orientation = {
   type: 'survey-likert',
-  preamble: 
+  data: { experiment_section: 'social_dominance_orientation' },
+  preamble:
   `<br><br>Show how much you agree or disagree each idea below by selecting a number from 1 to 7 on the scale below. You can work quickly; your first feeling is generally best.`,
   questions: [
     {prompt: `An ideal society requires some groups to be on top and others to be on the bottom. `, name: 'sdo_1', required: true, labels: scale_1},
@@ -1876,6 +1947,7 @@ var scale_1 = [
 
 var power_domineering_position = {
   type: 'survey-likert',
+  data: { experiment_section: 'power_domineering_position' },
   preamble: 
   `<br><br>Show how much you agree or disagree each idea below by selecting a number from 1 to 7 on the scale below. You can work quickly; your first feeling is generally best.`,
   questions: [
@@ -1894,6 +1966,7 @@ randomize_question_order: true,
 
 var team_prosocial_motivation = {
   type: 'survey-likert',
+  data: { experiment_section: 'team_prosocial_motivation' },
   preamble: `<br><br> We are interested in how you approach teamwork-related tasks. <br>
   When you work with others in teams (for example, on a sports team, or at a job, or for schoolwork) what motivates you to contribute to your team&#39;s work?`,
   questions: [
@@ -1915,6 +1988,7 @@ var team_prosocial_motivation = {
 
   var org_citizenship_behavior_scale = {
     type: 'survey-likert',
+    data: { experiment_section: 'org_citizenship_behavior' },
     preamble: `<br><br> We are interested in how you approach teamwork-related tasks. <br>
     When you work with others in teams (for example, on a sports team, or at a job, or for schoolwork) what motivates you to contribute to your team&#39;s work?`,
     questions: [
@@ -1946,6 +2020,7 @@ var team_prosocial_motivation = {
 
 var teamwork_scale = {
 type: 'survey-likert',
+data: { experiment_section: 'teamwork_scale' },
 preamble: `<br><br> We are interested in how you approach teamwork-related tasks. <br>
 When you work with others in teams (for example, on a sports team, or at a job, or for schoolwork) what motivates you to contribute to your team&#39;s work?`,
 questions: [
@@ -1983,6 +2058,7 @@ randomize_question_order: true,
 
 var transition_4 = {
   type: 'instructions',
+  data: { experiment_section: 'instructions' },
   pages: [
     `Next, you will answer some demographic questions. <br><br> 
     
@@ -1996,6 +2072,7 @@ var transition_4 = {
 // age
 var age = {
   type: 'survey-text',
+  data: { experiment_section: 'demographics' },
   questions: [
     {prompt: "How old are you? (leave blank if prefer not to say)", name: 'age'}
   ]};
@@ -2003,6 +2080,7 @@ var age = {
 // gender
 var gender = {
   type: 'survey-multi-choice',
+  data: { experiment_section: 'demographics' },
   questions: [
     {
       prompt: "What is your gender identity?", 
@@ -2016,6 +2094,7 @@ var gender = {
 // ethnicity
 var ethnicity = {
   type: 'survey-multi-choice',
+  data: { experiment_section: 'demographics' },
   questions: [
     {
       prompt: "Please select which of the following best describes you.", 
@@ -2038,6 +2117,7 @@ var ethnicity = {
   // hispanic
 var hispanic = {
   type: 'survey-multi-choice',
+  data: { experiment_section: 'demographics' },
   questions: [
     {
       prompt: "Would you consider yourself Hispanic or Latinx?", 
@@ -2050,6 +2130,7 @@ var hispanic = {
 // language
 var language = {
   type: 'survey-multi-choice',
+  data: { experiment_section: 'demographics' },
   questions: [
     {
       prompt: "Which is your primary language?", 
@@ -2074,6 +2155,7 @@ var language = {
 // sexuality
 var sexuality = {
   type: 'survey-multi-choice',
+  data: { experiment_section: 'demographics' },
   questions: [
     {
       prompt: "Which of the following best describes your sexual orientation?", 
@@ -2096,6 +2178,7 @@ var sexuality = {
 // education
 var education = {
   type: 'survey-multi-choice',
+  data: { experiment_section: 'demographics' },
   questions: [
     {
       prompt: "Please indicate your highest level of education.", 
@@ -2118,6 +2201,7 @@ var education = {
 // living area
 var area = {
   type: 'survey-multi-choice',
+  data: { experiment_section: 'demographics' },
   questions: [
     {
       prompt: "Which of the following best describes the area you live in?", 
@@ -2129,6 +2213,7 @@ var area = {
 //marital status
 var status = {
   type: 'survey-multi-choice',
+  data: { experiment_section: 'demographics' },
   questions: [    
     { prompt: "Which of the following best describes your marital status?", 
       options: ["Never Married", "Married", "Widowed", "Divorced", "Prefer not to say"], 
@@ -2138,6 +2223,7 @@ var status = {
 // number of children
 var children = {
   type: 'survey-multi-choice',
+  data: { experiment_section: 'demographics' },
   questions: [   
     {
       prompt: "How many children do you have?", 
@@ -2149,6 +2235,7 @@ var children = {
   // age of children
 var children_age = {
   type: 'survey-text',
+  data: { experiment_section: 'demographics' },
   preamble: `If you have children, what are the ages of your children in years? Please round to the nearest year. You should only fill out as many boxes as children you have. If you have more than 18 children, just fill in the ages of the first 18 children. `,
   questions:[
     {prompt: "Child 1:", name: 'childAge_1', columns: 20, rows: 2},
@@ -2175,6 +2262,7 @@ var children_age = {
 ////////////////////////////////////////////////////////  debrief questions  ///////////////////////////////////////////////////////////////////////
 var debrief_1 = {
   type: 'survey-text',
+  data: { experiment_section: 'debrief' },
   questions: [
     {prompt: "Do you have any general comments about the study? Continue when finished, or if you have no comments.", name: 'debrief_1', rows: 5, columns: 40}, 
 ],
@@ -2182,6 +2270,7 @@ var debrief_1 = {
 
 var debrief_2 = {
   type: 'survey-text',
+  data: { experiment_section: 'debrief' },
   questions: [
     {prompt: "Did anything about today&#39;s study strike you as odd or strange?", name: 'debrief_2', rows: 5, columns: 40}, 
 ],
@@ -2189,6 +2278,7 @@ var debrief_2 = {
 
 var debrief_3 = {
   type: 'survey-text',
+  data: { experiment_section: 'debrief' },
   questions: [
     {prompt: 
       `Sometimes people think that psychology experiments are all about tricks and behind the scenes stuff; 
@@ -2199,6 +2289,7 @@ var debrief_3 = {
   // debrief  
   var debrief = {
     type: 'instructions',
+    data: { experiment_section: 'debrief' },
     pages: [
       `Dear Participant, <br><br> 
 
@@ -2238,13 +2329,6 @@ var debrief_3 = {
     ],
     show_clickable_nav: true
   }
-
-  const selectionFaces = random.shuffle(faces);
-  const recall_tasks = random.shuffle(statementSelections.flat()).map(statement => ({
-    type: 'multi-image-selection',
-    image_paths: selectionFaces,
-    prompt: statement,
-  }));
 
   const surveys = [   
     GB_checklist, // generative behavior checklist
@@ -2335,6 +2419,14 @@ var debrief_3 = {
     debrief_3,
     debrief,
   ];
+
+  const selectionFaces = random.shuffle(faces);
+  const recall_tasks = random.shuffle(statementSelections.flat()).map(statement => ({
+    type: 'multi-image-selection',
+    data: { experiment_section: 'recall_tasks' },
+    image_paths: selectionFaces,
+    prompt: statement,
+  }));
 
   const timeline = [
     consent,
