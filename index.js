@@ -4,45 +4,55 @@ document.addEventListener("DOMContentLoaded", function() {
 
   //call all images
   var females = [
-    'assets/female/w1.jpg', 'assets/female/w2.jpg', 'assets/female/w3.jpg', 'assets/female/w4.jpg', 'assets/female/w5.jpg',
-    'assets/female/w6.jpg', 'assets/female/w7.jpg', 'assets/female/w8.jpg', 'assets/female/w9.jpg', 'assets/female/w10.jpg',
-    'assets/female/w11.jpg', 'assets/female/w12.jpg', 'assets/female/w13.jpg', 'assets/female/w14.jpg', 'assets/female/w15.jpg', 
-    'assets/female/w16.jpg', 'assets/female/w17.jpg', 'assets/female/w18.jpg', 'assets/female/w19.jpg', 'assets/female/w20.jpg', 
-    'assets/female/w21.jpg', 'assets/female/w22.jpg', 'assets/female/w23.jpg', 'assets/female/w24.jpg', 'assets/female/w25.jpg',
-    'assets/female/w26.jpg', 'assets/female/w27.jpg', 'assets/female/w28.jpg', 'assets/female/w29.jpg', 'assets/female/w30.jpg',
-    'assets/female/w31.jpg', 'assets/female/w32.jpg', 'assets/female/w33.jpg', 'assets/female/w34.jpg', 'assets/female/w35.jpg', 
-    'assets/female/w36.jpg', 'assets/female/w37.jpg', 'assets/female/w38.jpg', 'assets/female/w29.jpg', 'assets/female/w40.jpg',
-    'assets/female/w41.jpg', 'assets/female/w42.jpg', 'assets/female/w43.jpg', 'assets/female/w44.jpg', 'assets/female/w45.jpg',
-    'assets/female/w46.jpg', 'assets/female/w47.jpg', 'assets/female/w48.jpg', 'assets/female/w49.jpg', 'assets/female/w50.jpg',
-    'assets/female/w51.jpg', 'assets/female/w52.jpg', 'assets/female/w53.jpg', 'assets/female/w54.jpg', 'assets/female/w55.jpg',
-    'assets/female/w56.jpg', 'assets/female/w57.jpg', 'assets/female/w58.jpg', 'assets/female/w59.jpg', 'assets/female/w60.jpg',
-    'assets/female/w61.jpg', 'assets/female/w62.jpg', 'assets/female/w63.jpg', 'assets/female/w64.jpg', 'assets/female/w65.jpg',
-    'assets/female/w66.jpg', 'assets/female/w67.jpg', 'assets/female/w68.jpg', 'assets/female/w69.jpg', 'assets/female/w70.jpg',
-    'assets/female/w71.jpg', 'assets/female/w72.jpg', 'assets/female/w73.jpg', 'assets/female/w74.jpg', 'assets/female/w75.jpg',
-    'assets/female/w76.jpg', 'assets/female/w77.jpg', 'assets/female/w78.jpg', 'assets/female/w79.jpg', 'assets/female/w80.jpg',
-    'assets/female/w81.jpg', 'assets/female/w82.jpg', 'assets/female/w83.jpg', 'assets/female/w84.jpg', 'assets/female/w85.jpg',
-    'assets/female/w86.jpg', 'assets/female/w87.jpg', 'assets/female/w88.jpg', 'assets/female/w89.jpg'
+    'assets/female/w1.jpg',   'assets/female/w2.jpg',   'assets/female/w3.jpg', 'assets/female/w4.jpg',
+    'assets/female/w5.jpg',   'assets/female/w6.jpg',   'assets/female/w7.jpg', 'assets/female/w8.jpg',
+    'assets/female/w9.jpg',  'assets/female/w10.jpg', 'assets/female/w11.jpg', 'assets/female/w12.jpg',
+    'assets/female/w13.jpg', 'assets/female/w14.jpg', 'assets/female/w15.jpg', 'assets/female/w16.jpg',
+    'assets/female/w17.jpg', 'assets/female/w18.jpg', 'assets/female/w19.jpg', 'assets/female/w20.jpg',
+    'assets/female/w21.jpg', 'assets/female/w22.jpg', 'assets/female/w23.jpg', 'assets/female/w24.jpg',
+    'assets/female/w25.jpg', 'assets/female/w26.jpg', 'assets/female/w27.jpg', 'assets/female/w28.jpg',
+    'assets/female/w29.jpg', 'assets/female/w30.jpg', 'assets/female/w31.jpg', 'assets/female/w32.jpg',
+    'assets/female/w33.jpg', 'assets/female/w34.jpg', 'assets/female/w35.jpg', 'assets/female/w36.jpg',
+    'assets/female/w37.jpg', 'assets/female/w38.jpg', 'assets/female/w29.jpg', 'assets/female/w40.jpg',
+    'assets/female/w41.jpg', 'assets/female/w42.jpg', 'assets/female/w43.jpg', 'assets/female/w44.jpg',
+    'assets/female/w45.jpg', 'assets/female/w46.jpg', 'assets/female/w47.jpg', 'assets/female/w48.jpg',
+    'assets/female/w49.jpg', 'assets/female/w50.jpg', 'assets/female/w51.jpg', 'assets/female/w52.jpg',
+    'assets/female/w53.jpg', 'assets/female/w54.jpg', 'assets/female/w55.jpg', 'assets/female/w56.jpg',
+    'assets/female/w57.jpg', 'assets/female/w58.jpg', 'assets/female/w59.jpg', 'assets/female/w60.jpg',
+    'assets/female/w61.jpg', 'assets/female/w62.jpg', 'assets/female/w63.jpg', 'assets/female/w64.jpg',
+    'assets/female/w65.jpg', 'assets/female/w66.jpg', 'assets/female/w67.jpg', 'assets/female/w68.jpg',
+    'assets/female/w69.jpg', 'assets/female/w70.jpg', 'assets/female/w71.jpg', 'assets/female/w72.jpg',
+    'assets/female/w73.jpg', 'assets/female/w74.jpg', 'assets/female/w75.jpg', 'assets/female/w76.jpg',
+    'assets/female/w77.jpg', 'assets/female/w78.jpg', 'assets/female/w79.jpg', 'assets/female/w80.jpg',
+    'assets/female/w81.jpg', 'assets/female/w82.jpg', 'assets/female/w83.jpg', 'assets/female/w84.jpg',
+    'assets/female/w85.jpg', 'assets/female/w86.jpg', 'assets/female/w87.jpg', 'assets/female/w88.jpg',
+    'assets/female/w89.jpg',
   ]
 
   var males = [
-    'assets/male/m1.jpg', 'assets/male/m2.jpg', 'assets/male/m3.jpg', 'assets/male/m4.jpg', 'assets/male/m5.jpg',
-    'assets/male/m6.jpg', 'assets/male/m7.jpg', 'assets/male/m8.jpg', 'assets/male/m9.jpg', 'assets/male/m10.jpg',
-    'assets/male/m11.jpg', 'assets/male/m12.jpg', 'assets/male/m13.jpg', 'assets/male/m14.jpg', 'assets/male/m15.jpg',
-    'assets/male/m16.jpg', 'assets/male/m17.jpg', 'assets/male/m18.jpg', 'assets/male/m19.jpg', 'assets/male/m10.jpg',
-    'assets/male/m21.jpg', 'assets/male/m22.jpg', 'assets/male/m23.jpg', 'assets/male/m24.jpg', 'assets/male/m25.jpg',
-    'assets/male/m26.jpg', 'assets/male/m27.jpg', 'assets/male/m28.jpg', 'assets/male/m29.jpg', 'assets/male/m20.jpg',
-    'assets/male/m31.jpg', 'assets/male/m32.jpg', 'assets/male/m33.jpg', 'assets/male/m34.jpg', 'assets/male/m35.jpg',
-    'assets/male/m36.jpg', 'assets/male/m37.jpg', 'assets/male/m38.jpg', 'assets/male/m39.jpg', 'assets/male/m40.jpg',
-    'assets/male/m41.jpg', 'assets/male/m42.jpg', 'assets/male/m43.jpg', 'assets/male/m44.jpg', 'assets/male/m45.jpg',
-    'assets/male/m46.jpg', 'assets/male/m47.jpg', 'assets/male/m48.jpg', 'assets/male/m49.jpg', 'assets/male/m50.jpg',
-    'assets/male/m51.jpg', 'assets/male/m52.jpg', 'assets/male/m53.jpg', 'assets/male/m54.jpg', 'assets/male/m55.jpg',
-    'assets/male/m56.jpg', 'assets/male/m57.jpg', 'assets/male/m58.jpg', 'assets/male/m59.jpg', 'assets/male/m60.jpg',
-    'assets/male/m61.jpg', 'assets/male/m62.jpg', 'assets/male/m63.jpg', 'assets/male/m64.jpg', 'assets/male/m65.jpg',
-    'assets/male/m66.jpg', 'assets/male/m67.jpg', 'assets/male/m68.jpg', 'assets/male/m69.jpg', 'assets/male/m70.jpg',
-    'assets/male/m71.jpg', 'assets/male/m72.jpg', 'assets/male/m73.jpg', 'assets/male/m74.jpg', 'assets/male/m75.jpg',
-    'assets/male/m76.jpg', 'assets/male/m77.jpg', 'assets/male/m78.jpg', 'assets/male/m79.jpg', 'assets/male/m80.jpg',
-    'assets/male/m81.jpg', 'assets/male/m82.jpg', 'assets/male/m83.jpg', 'assets/male/m84.jpg', 'assets/male/m85.jpg',
-    'assets/male/m86.jpg', 'assets/male/m87.jpg', 'assets/male/m88.jpg', 'assets/male/m89.jpg'
+    'assets/male/m1.jpg',   'assets/male/m2.jpg',   'assets/male/m3.jpg', 'assets/male/m4.jpg',
+    'assets/male/m5.jpg',   'assets/male/m6.jpg',   'assets/male/m7.jpg', 'assets/male/m8.jpg',
+    'assets/male/m9.jpg',  'assets/male/m10.jpg', 'assets/male/m11.jpg', 'assets/male/m12.jpg',
+    'assets/male/m13.jpg', 'assets/male/m14.jpg', 'assets/male/m15.jpg', 'assets/male/m16.jpg',
+    'assets/male/m17.jpg', 'assets/male/m18.jpg', 'assets/male/m19.jpg', 'assets/male/m10.jpg',
+    'assets/male/m21.jpg', 'assets/male/m22.jpg', 'assets/male/m23.jpg', 'assets/male/m24.jpg',
+    'assets/male/m25.jpg', 'assets/male/m26.jpg', 'assets/male/m27.jpg', 'assets/male/m28.jpg',
+    'assets/male/m29.jpg', 'assets/male/m20.jpg', 'assets/male/m31.jpg', 'assets/male/m32.jpg',
+    'assets/male/m33.jpg', 'assets/male/m34.jpg', 'assets/male/m35.jpg', 'assets/male/m36.jpg',
+    'assets/male/m37.jpg', 'assets/male/m38.jpg', 'assets/male/m39.jpg', 'assets/male/m40.jpg',
+    'assets/male/m41.jpg', 'assets/male/m42.jpg', 'assets/male/m43.jpg', 'assets/male/m44.jpg',
+    'assets/male/m45.jpg', 'assets/male/m46.jpg', 'assets/male/m47.jpg', 'assets/male/m48.jpg',
+    'assets/male/m49.jpg', 'assets/male/m50.jpg', 'assets/male/m51.jpg', 'assets/male/m52.jpg',
+    'assets/male/m53.jpg', 'assets/male/m54.jpg', 'assets/male/m55.jpg', 'assets/male/m56.jpg',
+    'assets/male/m57.jpg', 'assets/male/m58.jpg', 'assets/male/m59.jpg', 'assets/male/m60.jpg',
+    'assets/male/m61.jpg', 'assets/male/m62.jpg', 'assets/male/m63.jpg', 'assets/male/m64.jpg',
+    'assets/male/m65.jpg', 'assets/male/m66.jpg', 'assets/male/m67.jpg', 'assets/male/m68.jpg',
+    'assets/male/m69.jpg', 'assets/male/m70.jpg', 'assets/male/m71.jpg', 'assets/male/m72.jpg',
+    'assets/male/m73.jpg', 'assets/male/m74.jpg', 'assets/male/m75.jpg', 'assets/male/m76.jpg',
+    'assets/male/m77.jpg', 'assets/male/m78.jpg', 'assets/male/m79.jpg', 'assets/male/m80.jpg',
+    'assets/male/m81.jpg', 'assets/male/m82.jpg', 'assets/male/m83.jpg', 'assets/male/m84.jpg',
+    'assets/male/m85.jpg', 'assets/male/m86.jpg', 'assets/male/m87.jpg', 'assets/male/m88.jpg',
+    'assets/male/m89.jpg',
   ];
 
   // call all statements
@@ -75,37 +85,6 @@ document.addEventListener("DOMContentLoaded", function() {
     ['Two months ago, the cafe I worked for closed because of COVID-19, and I was laid off. I’m worried I will run out of savings to pay rent before I find another job.', 
     'Recently, I applied for unemployment, but I haven’t received a response yet. It seems like everyone is applying for it, so I’m worried I won’t even be considered.', 
     'Some businesses in my area are reopening. I’ve applied to every job position I’ve learned about, but haven’t received a single call back.'],
-  ];
-
-  var personal_need = [
-    ['Depression can be really unpredictable, and the last few days have been rough. I wish I could talk to someone about it.',
-     'Some days I am so depressed I can’t even get out of bed. This morning it took me a few hours to finally get up to make breakfast.', 
-     'My anxiety can interfere with all aspects of my life. I’ve had insomnia and a debilitating fear of going to the grocery store.'],
-
-    ['I’ve been feeling really alone since I moved for college last semester. I wish I had someone to talk to about how hard it is living in a new city.', 
-    'I just feel like I’m failing in all parts of my life right now. I feel so down all the time, and just wish I had someone to hang out with who is encouraging.', 
-    'I often feel really lonely and anxious when I go out into the city, and all my close friends who could distract me from these feelings live really far away.'],
-
-    ['I’ve been really ill with food poisoning the last few days. It’s rough because I live alone, so I still have to get up and walk around even though I feel exhausted.', 
-    `I’m so nervous about falling asleep with food poisoning because there is no one around to check-in on me while I’m recovering. 
-    <br>What if I get dehydrated and need to go to the ER?`, 
-    'I don’t own a car, so I know if I ever got sick enough from food poisoning I would have to call an ambulance to get to the hospital.'],
-
-    ['I’ve really missed my grandmother since she passed away. It’s been hard because I’m basically planning her funeral on my own.', 
-    'Since my grandmother passed away there are some nights where I just sit and cry because I miss her so much. It would be nice if I had someone there with me.', 
-    'My family has been so stressful since my grandmother passed away. Everyone is always either arguing or really sad.'],
-
-    ['Last year my dad was diagnosed with cancer. I asked him to move in with me so I could help him through treatment. Knowing he could be gone soon makes me feel hopeless.', 
-    'I love my dad so much, but helping him out through chemotherapy has been such a struggle. Each day he seems worse, and I feel so helpless.', 
-    'I feel so much guilt sometimes taking care of my dad while he fights cancer. I want to support him, but I often feel the weight of the world on my shoulders.'],
-
-    ['For the last few months, it has been difficult to pay rent and for my daughter’s daycare. Being a single parent can be a struggle sometimes.', 
-    'With no family nearby, I have to pay for childcare. Most of the time I can’t afford to pay for even a few extra hours to have some time to myself. Sometimes I feel so burnt out.', 
-    'Because money has been so tight lately, I took on a second job. I know it will help with finances, but I’m broken up about being away from my daughter so much.'],
-
-    ['Two months ago, the cafe I worked for closed down and I was laid off. I’m so worried I will run out of savings for paying rent before I find another job.', 
-    'Recently, I applied for unemployment, but I haven’t received a response yet. I’m worried I won’t even be considered.', 
-    'I’ve applied to every job position I’ve learned about, but haven’t received a single call back.'],
   ];
 
   var abstract_need = [
@@ -174,37 +153,66 @@ document.addEventListener("DOMContentLoaded", function() {
     'Time is always more valuable than money. You can always make more money after spending it, but you can never regain the time that you lost.'],
   ];
 
-
   // condition pairs
-  var conditions = [
+  const conditions = [
     [aphorism, covid_need],
-    [personal_need, abstract_need],
-    [personal_need, aphorism],
-    [abstract_need, aphorism]
+    [aphorism, abstract_need],
+    [covid_need, abstract_need],
   ];
 
-  // randomly select statement clusters from list
-  var statementGroups = random.sampleWithoutReplacement(conditions, 1)[0];
-  // assign selected statement clusters to single array
-  var statementSelections = statementGroups.map(group => random.sampleWithoutReplacement(group, 4)).flat();
-  // shuffle statement order
-  statementSelections = random.shuffle(statementSelections);
-  // randomly sample from female faces 
-  var femaleSample = random.sampleWithoutReplacement(females, 4);
-  // randomly sample from male faces
-  var maleSample = random.sampleWithoutReplacement(males, 4);
-  // place male and female faces in single array and randomize order
-  var faces = random.shuffle(maleSample.concat(femaleSample));
-  // pair faces with statement clusters
-  var facesWithStatements = faces.map((face, i) => ({ face, statements: statementSelections[i] }));
-  // call statements when paired face displays
 
- var trialData = [0, 1, 2].map(i =>
-    random.shuffle(facesWithStatements).map(({ face, statements }) => ({ face, statement: statements[i] })))
-    .flat();
+  // randomly select statement clusters from list
+  const [statementGroups1, statementGroups2] = random.sampleWithoutReplacement(conditions, 2);
+  // assign selected statement clusters to single array
+  let statementSelections1 = statementGroups1.map(group => random.sampleWithoutReplacement(group, 4)).flat();
+  let statementSelections2 = statementGroups2.map(group => random.sampleWithoutReplacement(group, 4)).flat();
+
+  // shuffle statement order
+  statementSelections1 = random.shuffle(statementSelections1);
+  statementSelections2 = random.shuffle(statementSelections2);
+
+  // randomly sample from female faces 
+  const femaleSample = random.sampleWithoutReplacement(females, 8);
+  // randomly sample from male faces
+  const maleSample = random.sampleWithoutReplacement(males, 8);
+
+  // prefetch images
+  femaleSample.concat(maleSample).forEach(image => {
+    var img = new Image();
+    img.src = image;
+  });
+  // place male and female faces in single array and randomize order
+  const faces1 = random.shuffle(maleSample.splice(0, 4).concat(femaleSample.splice(0, 4)));
+  const faces2 = random.shuffle(maleSample.concat(femaleSample));
+
+  // pair faces with statement clusters
+  const facesWithStatements1 = faces1.map((face, i) => ({ face, statements: statementSelections1[i] }));
+  const facesWithStatements2 = faces2.map((face, i) => ({ face, statements: statementSelections2[i] }));
+
+  // call statements when paired face displays
+  const trialData1 = [0, 1, 2].map(i =>
+    random.shuffle(facesWithStatements1).map(({ face, statements }) => ({ face, statement: statements[i] })))
+      .flat();
+  // call statements when paired face displays
+  const trialData2 = [0, 1, 2].map(i =>
+    random.shuffle(facesWithStatements2).map(({ face, statements }) => ({ face, statement: statements[i] })))
+      .flat();
+
+  const recall_tasks1 = random.shuffle(statementSelections1.flat()).map(statement => ({
+    type: 'multi-image-selection',
+    data: { experiment_section: 'recall_tasks1' },
+    image_paths: random.shuffle(faces1),
+    prompt: statement,
+  }));
+  const recall_tasks2 = random.shuffle(statementSelections2.flat()).map(statement => ({
+    type: 'multi-image-selection',
+    data: { experiment_section: 'recall_tasks2' },
+    image_paths: random.shuffle(faces2),
+    prompt: statement,
+  }));
 
   // declare the block
-  var consent = {
+  const consent = {
     type:'custom-external-html',
     data: { experiment_section: 'consent' },
     url: "consent.html",
@@ -220,7 +228,7 @@ document.addEventListener("DOMContentLoaded", function() {
   };
 
   // instructions 
-  var instructions = {
+  const instructions = {
     type: 'instructions',
     data: { experiment_section: 'instructions' },
     pages: [
@@ -234,7 +242,7 @@ document.addEventListener("DOMContentLoaded", function() {
   };
 
   // stimulus presentation
-  var face_stimulus_procedure = {
+  const face_stimulus_procedure1 = {
     timeline: [
         {
             type: 'html-keyboard-response',
@@ -246,18 +254,43 @@ document.addEventListener("DOMContentLoaded", function() {
         {
             type: 'image-keyboard-response',
             data: {
-              experiment_section: 'face_stimulus_procedure',
+              experiment_section: 'face_stimulus_procedure1',
               message: jsPsych.timelineVariable('statement'),
             },
             stimulus: jsPsych.timelineVariable('face'),
             stimulus_width: 600,
             maintain_aspect_ration: true,
             choices: jsPsych.NO_KEYS,
-            trial_duration: 15000,
+            trial_duration: 1000,
             prompt: () => `<p>${jsPsych.timelineVariable('statement', true)}</p>`
         }
     ],
-    timeline_variables: trialData,
+    timeline_variables: trialData1,
+  };
+  const face_stimulus_procedure2 = {
+    timeline: [
+        {
+            type: 'html-keyboard-response',
+            data: { experiment_section: 'face_stimulus_procedure_blank_page' },
+            stimulus: ' ',
+            choices: jsPsych.NO_KEYS,
+            trial_duration: 500
+        },
+        {
+            type: 'image-keyboard-response',
+            data: {
+              experiment_section: 'face_stimulus_procedure2',
+              message: jsPsych.timelineVariable('statement'),
+            },
+            stimulus: jsPsych.timelineVariable('face'),
+            stimulus_width: 600,
+            maintain_aspect_ration: true,
+            choices: jsPsych.NO_KEYS,
+            trial_duration: 1000,
+            prompt: () => `<p>${jsPsych.timelineVariable('statement', true)}</p>`
+        }
+    ],
+    timeline_variables: trialData2,
   };
 
   // transition page from experimental task to distractor task
@@ -298,11 +331,31 @@ document.addEventListener("DOMContentLoaded", function() {
      <p><input name="state46" type="text"/> <input name="state47" type="text"/> <input name="state48" type="text"/> <input name="state49" type="text"/> <input name="state50" type="text"/><p>
      `,
     javascript: `
-      const nextButton = document.getElementById('jspsych-survey-html-form-next');
+      var nextButton = document.getElementById('jspsych-survey-html-form-next');
       setTimeout(() => {
         nextButton.click();
       }, 60000)
     `
+  };
+
+  var task_intro1 = {
+    type: 'instructions',
+    data: { experiment_section: 'instructions' },
+    pages: [
+      `<p style="max-width: 750px;">
+        While you are reading the statements, try to imagine how each person feels about what they are experiencing and how it has affected his or her life. Try not to concern yourself with attending to all of the information presented. Just concentrate on trying to imagine how the person feels.
+       </p>`,
+    ],
+    show_clickable_nav: true
+  };
+
+  var task_intro2 = {
+    type: 'instructions',
+    data: { experiment_section: 'instructions' },
+    pages: [
+      `<p style="max-width: 750px;">While you are reading the statements, try to be as objective as possible about what each person is experiencing and how it has affected his or her life. To remain objective, do not let yourself get caught up in imagining what this person has been through and how he or she feels as a result. Just try to remain objective and detached.</p>`,
+    ],
+    show_clickable_nav: true
   };
 
   // transition page from distractor task to recall task
@@ -317,6 +370,20 @@ document.addEventListener("DOMContentLoaded", function() {
       The statements each person said will appear sequentially. Please reread each statement and try to recall which person said it.<br>
       To choose the person you think said the presented statement, simply click their picture.<br><br> 
       When you are ready to begin, click &#39;Next&#39;.<br><br>`
+    ],
+    show_clickable_nav: true
+  };
+
+  // transition page from experimental task to distractor task
+  var experiment_transition = {
+    type: 'instructions',
+    data: { experiment_section: 'instructions' },
+    pages: [
+      `<p>
+        Content for a transition between sections gos here.
+        <strong>Please replace this content!</strong>
+      </p>
+      <br><br> When you are ready to move on, click &#39;Next&#39;.<br><br>`,
     ],
     show_clickable_nav: true
   };
@@ -2330,7 +2397,7 @@ var debrief_3 = {
     show_clickable_nav: true
   }
 
-  const surveys = [   
+  const surveys = [
     GB_checklist, // generative behavior checklist
     principle_of_care, // principle of care scale
     moral_identity, // moral identity scale
@@ -2420,22 +2487,31 @@ var debrief_3 = {
     debrief,
   ];
 
-  const selectionFaces = random.shuffle(faces);
-  const recall_tasks = random.shuffle(statementSelections.flat()).map(statement => ({
-    type: 'multi-image-selection',
-    data: { experiment_section: 'recall_tasks' },
-    image_paths: selectionFaces,
-    prompt: statement,
-  }));
+  const experiment_sections= random.shuffle([
+    [
+      task_intro1,
+      face_stimulus_procedure1,
+      transition_1,
+      distractor_task,
+      transition_2,
+      ...recall_tasks1,
+    ],
+    [
+      task_intro2,
+      face_stimulus_procedure2,
+      transition_1,
+      distractor_task,
+      transition_2,
+      ...recall_tasks2,
+    ],
+  ]);
 
   const timeline = [
     consent,
     instructions,
-    face_stimulus_procedure,
-    transition_1,
-    distractor_task,
-    transition_2,
-    ...recall_tasks,
+    ...experiment_sections[0],
+    experiment_transition,
+    ...experiment_sections[1],
     transition_3,
     ...surveys,
     transition_4,
@@ -2455,569 +2531,3 @@ var debrief_3 = {
     });
   });
 });
-
-
-/*
-  var religion = [
-    "Christianity", 
-    "Hinduism",
-    "Shintoism",
-    "Taoism", 
-    "Judaism",
-    "Buddhism", 
-    "Jainism",
-    "Islam", 
-    "Sikhism",
-    "Wicca/Paganism",
-    "Atheism",
-    "Nothing in particular",
-    "Other"
-  ]
-
-  /////////////////////// emotional reaction to needy others /////////////////////////////////////////
-
-  var reaction_needy = {
-    type: 'survey-likert',
-    preamble: `<br><br> Please indicate how much you feel the following emotions.`,
-    questions: [
-      {prompt: "<br>Angry", name: 'angry', required: true, labels: scale_7},
-      {prompt: "<br>Bored", name: 'bored', required: true, labels: scale_7},
-      {prompt: "<br>Compassionate", name: 'compassionate', required: true, labels: scale_7},
-      {prompt: "<br>Confused", name: 'confused', required: true, labels: scale_7},
-      {prompt: "<br>Curious", name: 'curious', required: true, labels: scale_7},
-      {prompt: "<br>Distressed", name: 'distressed', required: true, labels: scale_7},
-      {prompt: "<br>Empathic", name: 'empathic', required: true, labels: scale_7},
-      {prompt: "<br>Excited", name: 'excited', required: true, labels: scale_7},
-      {prompt: "<br>Inspired", name: 'inspired', required: true, labels: scale_7},
-      {prompt: "<br>Interested", name: 'interested', required: true, labels: scale_7},
-      {prompt: "<br>Moved", name: 'moved', required: true, labels: scale_7},
-      {prompt: "<br>Softhearted", name: 'softhearted', required: true, labels: scale_7},
-      {prompt: "<br>Surprised", name: 'suprised', required: true, labels: scale_7},
-      {prompt: "<br>Sympathetic", name: 'sympathetic', required: true, labels: scale_7},
-      {prompt: "<br>Tender", name: 'tender', required: true, labels: scale_7},
-    ],
-    randomize_question_order: true,
-    };
-
-  ///////////////////////////////////////// oxford utilitarian scale ///////////////////////////////////////////
-
-  var oxford_utilitarian = {
-    type: 'survey-likert',
-    preamble: "<br><br>Please indicate below the degree to which you agree with the following statements.",
-    questions: [
-      {prompt: "If the only way to save another person&#39;s life during an emergency is to sacrifice one&#39;s own leg, then one is morally required to make this sacrifice.", name: 'oxford_1', required: true, labels: scale_1},
-      {prompt: "From a moral point of view, we should feel obliged to give one of our kidneys to a person with kidney failure since we do not need two kidneys to survive, but really only one to be healthy.", name: 'oxford_2', required: true, labels: scale_1},
-      {prompt: "From a moral perspective, people should care about the well-being of all human beings on the planet equally; they should not favor the well-being of people who are especially close to them either physically or emotionally.", name: 'oxford_3', required: true, labels: scale_1},
-      {prompt: "It is just as wrong to fail to help someone as it is to actively harm them yourself.", name: 'oxford_4', required: true, labels: scale_1},
-      {prompt: "It is morally wrong to keep money that one doesn&#39;t really need if one can donate it to causes that provide effective help to those who will benefit a great deal.", name: 'oxford_5', required: true, labels: scale_1},
-      {prompt: "It is morally right to harm an innocent person if harming them is a necessary means to helping several other innocent people.", name: 'oxford_6', required: true, labels: scale_1},
-      {prompt: "If the only way to ensure the overall well-being and happiness of people is through the use of political oppression for a short, limited period, then political oppression should be used.", name: 'oxford_7', required: true, labels: scale_1},
-      {prompt: "It is permissible to torture an innocent person if this would be necessary to provide information to prevent a bomb going off that would kill hundreds of people.", name: 'oxford_8', required: true, labels: scale_1},
-      {prompt: "Sometimes it is morally necessary for innocent people to die as collateral damage &#45; if more people are saved overall.", name: 'oxford_9', required: true, labels: scale_1}
-    ],
-    randomize_question_order: true,
-  };
-
-  ////////////////////////////////////////////////// empathy index scale //////////////////////////////////////
-
-var empathy_index = {
-  type: 'survey-likert',
-  preamble: "<br><br>Please indicate below the degree to which you agree with the following statements.",
-  questions: [
-    {prompt: "If I see someone who is excited, I will feel excited myself.", name: 'empathy_1', required: true, labels: scale_1},
-    {prompt: "I sometimes find myself feeling the emotions of the people around me, even if I don&#39;t try to feel what they&#39;re feeling. ", name: 'empathy_2', required: true, labels: scale_1},
-    {prompt: "If I&#39;m watching a movie and a character injures their leg, I will feel pain in my leg. ", name: 'empathy_3', required: true, labels: scale_1},
-    {prompt: "If I hear a story in which someone is scared, I will imagine how scared I would be in that situation and begin to feel scared myself. ", name: 'empathy_4', required: true, labels: scale_1},
-    {prompt: "If I hear an awkward story about someone else, I might feel a little embarrassed. ", name: 'empathy_5', required: true, labels: scale_1},
-    {prompt: "I can&#39;t watch shows in which an animal is being hunted, because I feel nervous as if I am being hunted. ", name: 'empathy_6', required: true, labels: scale_1},
-    {prompt: "If I see someone else yawn, I am also likely to yawn.", name: 'empathy_7', required: true, labels: scale_1},
-    {prompt: "If I see someone fidgeting, I&#39;ll start feeling anxious too.", name: 'empathy_8', required: true, labels: scale_1},
-    {prompt: "If I see someone vomit, I will gag.", name: 'empathy_9', required: true, labels: scale_1},
-    {prompt: "I catch myself crossing my arms or legs just like the person I&#39;m talking to.", name: 'empathy_10', required: true, labels: scale_1},
-    {prompt: "If I see a video of a baby smiling, I find myself smiling.", name: 'empathy_11',required: true, labels: scale_1},
-    {prompt: "If I see someone suddenly looking away, I&#39;ll automatically look in the direction they are looking.", name: 'empathy_12', required: true, labels: scale_1},
-    {prompt: "If I&#39;m watching someone walking on a balance beam, I will lean when they lean.", name: 'empathy_13', required: true, labels: scale_1},
-    {prompt: "If I&#39;m having a conversation with someone and they scratch their nose, I will also scratch my nose.", name: 'empathy_14', required: true, labels: scale_1}
-    ],
-    randomize_question_order: true,
-  };
-
-   /////////////////////////////////////// cognitive reflection test //////////////////////////////////////////
-
-var cog_ref = {
-  type: 'survey-text',
-  preamble: "<br><br>Please answer the next few problems to the best of your ability and type the answers in the box.",
-  questions: [
-    {prompt: "A bat and a ball cost $1.10. The bat costs $1.00 more than the ball. How much does the ball cost?", name: 'cog_ref_1', required: true, rows: 2, columns: 20}, 
-    {prompt: "If it takes 5 machines 5 minutes to make 5 widgets, how long would it take 100 machines to make 100 widgets?", name: 'cog_ref_2', required: true, rows: 2, columns: 20},
-    {prompt: "In a lake, there is a patch of lily pads. Every day, the patch doubles in size. If it takes 48 days for the patch to cover the entire lake, how long would it take for the patch to cover half of the lake?", name: 'cog_ref_3', required: true, rows: 2, columns: 20}
-],
-  randomize_question_order: true,
-  };
-
-  ////////////////////////////////////////// religious beliefs ///////////////////////////////////////////////
-
-// belief - y/n
-var belief_god = {
-  type: 'survey-likert',
-  questions: [
-    {prompt: `Do you believe in God or gods?`, 
-    name: 'belief_god', 
-    required: true,
-    labels: yes_no,}
-  ],
-  required: true
-};
-
-  // religion
-  var religion = {
-    type: 'survey-multi-choice',
-    questions: [
-      {
-        prompt: "Which comes closest to describing your religion?", 
-        options: [
-          "Christianity", 
-          "Hinduism", 
-          "Shintoism", 
-          "Taoism", 
-          "Judaism", 
-          "Buddhism", 
-          "Jainism", 
-          "Islam", 
-          "Sikhism", 
-          "Wicca/Paganism", 
-          "Atheism", 
-          "Nothing in particular", 
-          "Other"],
-        horizontal: false,
-        required: true,
-        name: 'religion'
-      }
-    ]};
-
- // religious strength
-var religious_strength = {
-  type: 'survey-likert',   
-  preamble:"<br><br> ",
-  questions: [
-    {prompt: `How much do you believe in God or gods?`, name: 'relig_str_1', required: true, labels: scale_6},
-    {prompt: `How much do you believe in the scriptures and writings of your religion?`, name: 'relig_str_2', required: true, labels: scale_6},
-    {prompt: `How much do you believe in the lessons taught by the founders of your religion?`, name: 'relig_str_3', required: true, labels: scale_6},
-    {prompt: `How much do you believe in the lessons taught by the leaders of your religion?`, name: 'relig_str_4', required: true, labels: scale_6},
-    {prompt: `How important are your religious beliefs in your daily life?`, name: 'relig_str_5', required: true, labels: scale_6},
-    {prompt: `How often do you pray?`, name: 'prayer', required: true, labels: prayer},
-    {prompt: `How often do you attend public religious activities or services?`, name: 'attend', required: true, labels: attendance}
-  ],
-};
-
-//////////////////////////////////////////////////// religious internalization //////////////////////////////////////////////////////////
-
-// most meaningful religious act
-var relig_act = {
-  type: 'survey-text',
-  preamble: `Please list an activity that you think is the most important religious activity in which you express your religious beliefs.`,
-  questions:[
-    {prompt: "The most important activity that you engage in is:", name: 'relig_act', required: true, columns: 40, rows: 5},
-  ],
-  };
-
-// Why you do that act
-var religious_internalization = {
-  type: 'survey-likert',
-  preamble:"Why do you engage in this activity?",
-  questions: [
-    {prompt: `Because it connects well with what I want in life.`, name: 'relig_act_1', required: true, labels: scale_1},
-    {prompt: `Because it is in harmony with my way of life.`, name: 'relig_act_2', required: true, labels: scale_1},
-    {prompt: `Because it corresponds well with how I approach other things in life.`, name: 'relig_act_3', required: true, labels: scale_1},
-    {prompt: `Because it is in accordance with my vision of life.`, name: 'relig_act_4', required: true, labels: scale_1},
-    {prompt: `Because it is a meaningful activity to me.`, name: 'relig_act_5', required: true, labels: scale_1},
-    {prompt: `Because I find it a personally valuable activity.`, name: 'relig_act_6', required: true, labels: scale_1},
-    {prompt: `Because I fully endorse it.`, name: 'relig_act_7', required: true, labels: scale_1},
-    {prompt: `Because I would feel bad if I don’t.`, name: 'relig_act_8', required: true, labels: scale_1},
-    {prompt: `Because I would feel guilty if I don&#39;t.`, name: 'relig_act_9', required: true, labels: scale_1}, 
-    {prompt: `Because I want others to see me as a worthy person.`, name: 'relig_act_10', required: true, labels: scale_1},
-    {prompt: `Because I would feel ashamed if I didn’t do it.`, name: 'relig_act_11', required: true, labels: scale_1},
-    {prompt: `Because I feel I’m expected to do so.`, name: 'relig_act_12', required: true, labels: scale_1},
-    {prompt: `Because I feel pushed by others.`, name: 'relig_act_13', required: true, labels: scale_1},
-    {prompt: `Because others put me under pressure to do so.`, name: 'relig_act_14', required: true, labels: scale_1}
-  ],  
-  randomize_question_order: true,
-  };
-
-  ////////////////////////////////////////////////// spontaneous donation task //////////////////////////////////////////////////////////////////
-
-  var spon_donate = {
-    type: 'survey-text',
-    preamble: `<br><br>We'd like to test your creativity by asking you to imagine that you were given $1.<br>
-    What are some possible ways that you might use that money? We encourage you to be creative, <br>
-    and list as many possibilities as you can imagine. However, you only have a limited amount of time,
-    <br>so you'll need to think fast!<br><br>
-    
-    After the survey results are collected, a panel of judges will rate the responses. <br>
-    The top 10% of respondents will be rewarded with $1 in bonus money.`,
-    questions: [
-      {prompt: "I could use $1 by...", name: '1_dollar', required: true, rows: 20, columns: 70}
-  ],
-    };
-
-// life history scale section #1
-  
-var life_history_1 = {
-  type: 'survey-likert',
-  preamble: "<br><br>Please indicate how well each of the following statements describes your life while you were growing up (ages 5- 15).",
-  questions: [ 
-    {prompt: "People in my family helped me study and/or complete my school assignments.", name: 'life_hist_1', required: true, labels: scale_1},
-    {prompt: "People in my family acted lovingly towards me.", name: 'life_hist_2', required: true, labels: scale_1},
-    {prompt: "People in my family cared about me.", name: 'life_hist_3', required: true, labels: scale_1},
-    {prompt: "Adults in my community that weren’t part of my family cared about me.", name: 'life_hist_4', required: true, labels: scale_1},
-    {prompt: "My parents were involved with events at my school.", name: 'life_hist_5', required: true, labels: scale_1},
-    {prompt: "I volunteered to make my community a better place.", name: 'life_hist_6', required: true, labels: scale_1},
-    {prompt: "I wasn’t afraid of getting hurt at my school.", name: 'life_hist_7', required: true, labels: scale_1},
-    {prompt: "I felt comfortable walking around my neighborhood.", name: 'life_hist_8', required: true, labels: scale_1},
-    {prompt: "I could make an impact on my community.", name: 'life_hist_9', required: true, labels: scale_1},
-    {prompt: "If you broke the rules at my school, you got in trouble.", name: 'life_hist_10', required: true, labels: scale_1},
-    {prompt: "My parents knew who my friends were and what they were like.", name: 'life_hist_11', required: true, labels: scale_1},
-    {prompt: "My parents would often ask about where I went and who I was with.", name: 'life_hist_12', required: true, labels: scale_1},
-    {prompt: "Adults encouraged me to “aim high” and achieve.", name: 'life_hist_13', required: true, labels: scale_1},
-    {prompt: "My close friends got good grades in school.", name: 'life_hist_14', required: true, labels: scale_1},
-    {prompt: "My close friends didn’t get in trouble with the school or the police.", name: 'life_hist_15', required: true, labels: scale_1},
-    {prompt: "I spent a lot of time practicing, taking lessons, or working on art (dance, music, painting, etc).", name: 'life_hist_16', required: true, labels: scale_1},
-    {prompt: "I was involved with sports teams.", name: 'life_hist_17', required: true, labels: scale_1},
-    {prompt: "I was a member of youth clubs (for example, the Boy Scouts or Girl Scouts).", name: 'life_hist_18', required: true, labels: scale_1},
-    {prompt: "I was heavily involved with my spiritual or religious organization.", name: 'life_hist_19', required: true, labels: scale_1}, 
-],
-  randomize_question_order: true,
-  };
-
-// life history scale section #2
-var life_history_2 = {
-  type: 'survey-likert',
-  preamble: `<br><br>For the next questions, please think of your life while you were growing up (ages 5-15).`,  
-  questions: [
-    {prompt: 
-      `When you were growing up, was there an important adult who was NOT your parent or guardian that did a lot of good things for you? 
-      Someone you thought was a special person in your life? This could be a teacher, a neighbor, someone in your community, or anyone that did a 
-      lot of good things for you.`, 
-      name: 'life_hist_20', 
-      required: true,
-      labels: scale_3},
-],
-required: true
-};
-
-// life history scale section #3
-var life_history_3 = {
-  type: 'survey-likert',
-  questions: [
-    {prompt: `How many adults like this did you have in your life?`, 
-    name: 'life_hist_21', 
-    required: true,
-    labels: scale_4},
-],
-  };
-
-// life history scale section #4
-var life_history_4 = {
-  type: 'survey-likert',
-  preamble: 
-    `<br><br>Thinking about the adult from the last question, please indicate how much you agree with each statement describing how you felt about that adult while growing up. 
-    If there was more than one adult like that in your life, please think of the adult that was most important to you. 
-    If you didn’t have any important adults in your life, please respond “Not at all”.`,
-  questions: [
-    {prompt: `I looked up to this adult.`, 
-    name: 'life_hist_22', 
-    required: true,
-    labels: scale_5},
-    {prompt: `This adult encouraged me to do my best.`, 
-    name: 'life_hist_23', 
-    required: true,
-    labels: scale_5},
-    {prompt: `I felt like this adult really cared about what happened to me.`, 
-    name: 'life_hist_24', 
-    required: true,
-    labels: scale_5},
-    {prompt: `This adult influenced what I did and the choices I made.`, 
-    name: 'life_hist_25', 
-    required: true,
-    labels: scale_5},
-    {prompt: `I felt like I could talk to this adult about my personal problems.`, 
-    name: 'life_hist_26', 
-    required: true,
-    labels: scale_5},
-    {prompt: `This adult helped me see good things about myself.`, 
-    name: 'life_hist_27', 
-    required: true,
-    labels: scale_5},
-],
-  randomize_question_order: true,
-  };
-
-  // life history section #5
-var parent_birth = {
-  type: 'survey-text',
-  preamble: `<br><br>You will now fill out the last questionnaire. Some of the questions are personal.  
-  <br>You are asked these questions so that participants’ responses can be analyzed according to their individual profile and history.  
-  <br>We wish to remind you that all of the responses we collect will be analysed completely anonymously - NO INFORMATION FROM THIS 
-  <br>SECTION WILL BE LINKED TO YOU IN ANY WAY. If you would prefer to not respond to some of the questions, you will simply have to   <br>type in the box 'I don’t want to answer'.`,
-  questions: [
-    {prompt: `What is the birth year of your mother?`, 
-    name: 'mom_birth', 
-    required: true,
-    rows: 1, 
-    columns: 7}, 
-    {prompt: `What is the birth year of your father?`, 
-    name: 'dad_birth', 
-    required: true,
-    rows: 1, 
-    columns: 7}
-],
-  };
-
-var alive_mom = {
-  type: 'survey-likert',
-  questions: [
-    {prompt: `Is your mother still alive?`, 
-    name: 'mom_alive', 
-    required: true,
-    labels: yes_no}, 
-],
-  };
-
-var no_death_mom = {
-  type: 'survey-text',
-  questions: [
-    {prompt: `If you answered “No” to the above question, what year did your mother die?`, 
-    name: 'mom_death', 
-    rows: 2, 
-    columns: 20}, 
-],
-  };
-
- var alive_dad = {
-  type: 'survey-likert',
-  questions: [
-    {prompt: `Is you father still alive?`, 
-    name: 'dad_alive', 
-    required: true,
-    labels: yes_no}
-],
-required: true
-  };
-
-var no_death_dad = {
-  type: 'survey-text',
-  questions: [
-    {prompt: `If you answered “No” to the above question, what year did your father die?`, 
-    name: 'dad_death', 
-    rows: 2, 
-    columns: 20}
-],
-  };  
-
-var siblings = {
-  type: 'survey-likert',
-  questions: [
-    {prompt: `How many children did your mother have?`, 
-    name: 'mom_siblings', 
-    required: true,
-    labels: children},
-    {prompt: `Among your mother's children you are the:`, 
-    name: 'mom_birth_order', 
-    required: true,
-    labels: birth_order},
-    {prompt: `How many children did your father have?`, 
-    name: 'dad_siblings', 
-    required: true,
-    labels: children},
-    {prompt: `Among your father's children you are the:`, 
-    name: 'dad_birth_order', 
-    required: true,
-    labels: birth_order}
-],
-required: true
-  };
-
-var parent_divorce = {
-  type: 'survey-likert',
-  questions: [
-    {prompt: `Did your parents got divorved or separated?`, 
-    name: 'divorce', 
-    required: true,
-    labels: yes_no}
-],
-required: true
-  };
-
-var age_divorce = {
-  type: 'survey-text',
-  questions: [
-    {prompt: `If your parents did get divorced or separated, how old were you when they got divorced?`, 
-    name: 'age_divorce', 
-    rows: 2, 
-    columns: 20}
-],
-  }; 
-
-var live_with_step_dad = {
-  type: 'survey-likert',
-  questions: [
-    {prompt: `If your parents did get divorced or separated, have you ever lived with a step-father?`, 
-    name: 'step_dad', 
-    labels: yes_no}
-],
-required: true
-  };
-
-var age_divorce_step_dad = {
-  type: 'survey-text',
-  questions: [
-    {prompt: `If your parents did get divorced or separated, and you lived with a step-father, from what age on did you live with your step-father?`, 
-    name: 'age_step_dad', 
-    rows: 2, 
-    columns: 20}
-],
-  };  
-
-var live_with_step_mom = {
-  type: 'survey-likert',
-  questions: [
-    {prompt: `If your parents did get divorced or separated, have you ever lived with a step-mother?`, 
-    name: 'step_mom', 
-    labels: yes_no}
-],
-  };
-
-
-var age_divorce_step_mom = {
-  type: 'survey-text',
-  questions: [
-    {prompt: `If your parents did get divorced or separated, and you lived with a step-mother, from what age on did you live with your step-mother?`, 
-    name: 'age_step_mom', 
-    rows: 2, 
-    columns: 20}
-],
-  };  
-
-var foster_care = {
-  type: 'survey-likert',
-  questions: [
-    {prompt: `Were you ever placed in an institution or in a foster family?`, 
-    name: 'foster_care', 
-    required: true,
-    labels: yes_no}
-],
-required: true
-  };
-
-var abuse_1 = {
-  type: 'survey-multi-select',
-  questions: [
-    {prompt: `During my childhood, I was a victim of (please select all appropriate answers):`, 
-      options: ["Physical abuse", "Sexual abuse", "Psychological abuse", "No form of abuse", "I don’t want to answer"],
-      name: 'childhood_abuse_yn',
-      required: true}
-],
-  };
-
-var abuse_2 = {
-  type: 'survey-multi-select',
-  questions: [
-    {
-      prompt: `Answer this question only if you answered 'Physical abuse' or 'Psychological abuse ' or 'Sexual abuse' to the previous question. <br>
-              These episodes were caused by (please select all appropriate answers):`, 
-      options: ["One or several people in my family", "One or several people outside my family"],
-      name: 'childhood_abuse',
-      required: true
-    }
-],
-  };
-
-var stability = {
-  type: 'survey-multi-select',
-  questions: [
-    {
-      prompt: `During your childhood, did you live with one or several people who were (Please select all appropriate answers):`, 
-              
-      options: [
-        "alcoholic",
-        "violent",
-        "depressed", 
-        "who suffered from a mental disorder", 
-        "who regularly took illegal drugs", 
-        "who sometimes had issues with the judicial system", 
-        "who had spent time in prison", 
-        "none of the above", 
-        "I don’t want to answer"],
-      name: 'home_stability',
-      required: true
-    }
-],
-};
-
-var disease = {
-  type: 'survey-likert',
-  questions: [
-    {prompt: `   From your birth until you were 7 years old, did you suffer from a long disease that required a hospitalization?  `, 
-    name: 'disease',
-    required: true,
-    labels: yes_no}
-  ],
-  };
-
-var change_schools = {
-  type: 'survey-likert',
-  questions: [
-    {prompt: `From your birth until you were 7 years old, how many times did you change schools?`, 
-    name: 'change_schools',
-    required: true,
-    labels: children},
-],    
-  };
-
-var care = {
-  type: 'survey-likert',
-  questions: [
-    {prompt: `          From your birth until you were 7 years old, how much did your father take care of you?          `, 
-    name: 'paternal_care',
-    required: true,
-    labels: paternal_care}
-],
-  };
-
-  
-  // moderator surveys
-
-  var scale_6 = [
-    "Not at all",
-    "Not really",
-    "Not sure",
-    "Mostly",
-    "Completely"
-  ]
-
-  var scale_7 = [
-    "Not at all",
-    "A little",
-    "Moderately",
-    "A lot",
-    "Extremely"
-  ]
-
-
-  var prayer = [
-    "Never",
-    "Occasionally",
-    "Once a week",
-    "Several times a week",
-    "Every day"
-  ]
-
-  var attendance = [
-    "Never",
-    "A few times a year",
-    "Once a month",
-    "Once a week",
-    "More than once a week"
-  ]
-
-  */
