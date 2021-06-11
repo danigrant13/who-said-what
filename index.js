@@ -57,107 +57,114 @@ document.addEventListener("DOMContentLoaded", function() {
 
   // call all statements
   var covid_need = [
-    ['Depression can be really unpredictable, and being stuck inside because of COVID-19 has been really rough. I wish I could talk to someone about it in person.', 
-    'Some days I am so depressed I can’t even get out of bed. With the city stay-at-home recommendation, this morning it took me a few hours to finally get up to make breakfast.', 
-    'Because of the COVID-19 epidemic, my anxiety has interfered with all aspects of my life. I’ve had insomnia and a debilitating fear of going to the grocery store.'],
+    ['<p style="max-width: 750px;">Depression can be really unpredictable, and being stuck inside because of Covid-19 has been really rough. I wish I could talk to someone about it in person.</p>', 
+    '<p style="max-width: 750px;">Some days I am so depressed I can’t even get out of bed. With the city stay-at-home recommendation, this morning it took me a few hours to finally get up to make breakfast.</p>', 
+    '<p style="max-width: 750px;">Because of the Covid-19 epidemic, my anxiety has interfered with all aspects of my life. I’ve had insomnia and a debilitating fear of going to the grocery store.</p>'],
+
+    ['<p style="max-width: 750px;">I’ve been feeling really alone since college shifted online last semester. I wish I had someone to talk to about how hard it is living in a new city shut down by Covid-19.</p>', 
+    '<p style="max-width: 750px;">I just feel like my life is falling apart right now. I feel so down all the time, and just wish I had someone to hang out with to take my mind off my worries about Covid-19.</p>', 
+    '<p style="max-width: 750px;">I often feel really lonely and anxious since Covid-19 shut down the city, and all my close friends who I could hang out with to distract me live really far away.</p>'],       
    
-    ['I’ve been feeling really alone since college shifted online last semester. I wish I had someone to talk to about how hard it is living in a new city shut down by Coronaivirus.', 
-    'I just feel like my life is falling apart right now. I feel so down all the time, and just wish I had someone to hang out with to take my mind off Coronavirus.', 
-    'I often feel really lonely and anxious since Coronavirus shut down the city, and all my close friends who I could hang out with to distract me live really far away.'],    
-   
-    ['I’ve been really sick with COVID-19  the last couple of days. It’s rough because I live alone, so I still have to get up and walk around even though I feel exhausted.', 
-    'I’m nervous about falling asleep because there is no one around to check-in on me while I’m recovering. What if I get dehydrated and need to go to the ER?', 
-    'I don’t own a car, so I know if I got ever sick enough with Coronavirus I would have to call an ambulance to get to the hospital.'],
-   
-    ['I’ve really missed my grandmother since she passed away from COVID-19. It’s been hard because I’m basically planning her funeral on my own.', 
-    `Since my grandmother passed away, there are some nights where I just sit and cry because I miss her so much. It would be nice if I had someone there with me, 
-    <br>but I don’t want to risk spreading Coronavirus.`, 
-    'My family has been so stressful to talk to since my grandmother passed away. We can’t mourn in person together, and everyone is always either arguing or really sad.'],
-   
-    ['A few weeks ago my dad was diagnosed with Coronavirus. I asked him to move in with me so I could help him recover. Knowing he could be gone soon makes me feel hopeless.', 
-    'I love my dad so much, but helping him out through Coronavirus recovery has been such a struggle. Each day he seems worse, and I feel so helpless.', 
-    'I feel so much guilt sometimes taking care of my dad while he fights Coronavirus. I want to support him, but I often feel the weight of the world on my shoulders.'],
-   
-    ['For the last few months, it has been difficult to pay for both rent and my daughter’s daycare. Being a single parent during Coronavirus can be a struggle sometimes.', 
-    'With no family nearby, I have to pay for childcare. Most of the time I can’t afford to pay for even a few extra hours to have some time to myself. Sometimes I feel so burnt out.', 
-    'Money has been really tight lately because of COVID-19, and I just lost my job. I know I’ll be struggling with finances for a while, but I’m happy to be with my daughter so much.'],
-   
-    ['Two months ago, the cafe I worked for closed because of COVID-19, and I was laid off. I’m worried I will run out of savings to pay rent before I find another job.', 
-    'Recently, I applied for unemployment, but I haven’t received a response yet. It seems like everyone is applying for it, so I’m worried I won’t even be considered.', 
-    'Some businesses in my area are reopening. I’ve applied to every job position I’ve learned about, but haven’t received a single call back.'],
+    ['<p style="max-width: 750px;">I’ve been really sick with Covid-19  the last couple of days. It’s rough because I live alone, so I still have to get up and walk around even though I feel exhausted.</p>', 
+    '<p style="max-width: 750px;">I’m nervous about falling asleep because there is no one around to check-in on me while I’m recovering from Covid-19. What if I struggle to breath and need to go to the ER for a ventilator?</p>', 
+    '<p style="max-width: 750px;">I don’t own a car, so I know if I got ever sick enough with Covid-19 I would have to call an ambulance to get to the hospital. I hope I don’t need it because I’m worried about the cost of the medical bill.</p>'],
+
+    ['<p style="max-width: 750px;">I’ve really missed my grandmother since she passed away from Covid-19. It’s been hard because I’m basically planning her funeral on my own.</p>', 
+    `<p style="max-width: 750px;">Since my grandmother passed away, there are some nights where I just sit and cry because I miss her so much. It would be nice if I had someone there with me, but I don’t want to risk spreading Covid-19.</p>`, 
+    '<p style="max-width: 750px;">My family has been so stressful to talk to since my grandmother passed away. We can’t mourn in person together, and everyone is always either arguing or really sad.</p>'],
+
+    ['<p style="max-width: 750px;">A few weeks ago my dad was diagnosed with Covid-19. I asked him to move in with me so I could help him recover. Knowing he could be gone soon makes me feel hopeless.</p>', 
+    '<p style="max-width: 750px;">I love my dad so much, but helping him out through Covid-19 recovery has been such a struggle. Each day he seems worse, and I feel so helpless.</p>', 
+    '<p style="max-width: 750px;">I feel so much guilt sometimes taking care of my dad while he fights Covid-19. I want to support him, but I often feel the weight of the world on my shoulders which makes it really hard sometimes.</p>'],
+ 
+    ['<p style="max-width: 750px;">For the last few months, it has been difficult to pay for both rent and my daughter’s daycare. Being a single parent during Coronavirus pandemic can be a struggle sometimes.</p>', 
+    '<p style="max-width: 750px;">With no family nearby, I have to pay for childcare. Most of the time I can’t afford to pay for even a few extra hours to have some time to myself since my daughter is always home due to the pandemic. Sometimes I feel so burnt out.</p>', 
+    '<p style="max-width: 750px;">Money has been really tight lately because of Covid-19 restrictions cut my work hours. To make it worse, last week I lost my job. I am so worried about finances, but I have a put on a smile each morning so my daughter doesn’t worry.</p>'],
+
+    ['<p style="max-width: 750px;">Two months ago, the cafe I worked for closed because of Covid-19, and I was laid off. I’m worried I will run out of savings to pay rent before I find another job.</p>', 
+    '<p style="max-width: 750px;">Recently, I applied for unemployment, but I haven’t received a response yet. It seems like everyone is applying for it, so I’m worried I won’t even be considered.</p>', 
+    '<p style="max-width: 750px;">Some businesses in my area are reopening from Covid-19 shutdowns. I’ve applied to every job position I’ve learned about, but haven’t received a single call back.</p>'],
+
+    ['<p style="max-width: 750px;">I have been staying home socially distancing for months now. Every day is the same. I get up and I work on my computer. I used to be passionate about my job, but now my work feels so meaningless.</p>', 
+    '<p style="max-width: 750px;">Having no structured daily routine during the Covid-19 pandemic has been the most difficult part for me. Life feels bland and I feel so unmotivated in all parts of my life.</p>', 
+    `<p style="max-width: 750px;">Not being able to see my friends in person is really straining. I miss being around people and video chatting just isn’t the same. Life just feels pointless sometimes when I can’t see my friends and family.</p>`],
   ];
 
-  var abstract_need = [
-    ['I’ve had friends in the past who have struggled with mental health issues. They told me sometimes just sitting there and being with them can be a big help.', 
-    'I try to remember that some people may struggle a lot with things I don’t find difficult at all. Simply motivating yourself to get out of bed can be a challenge.', 
-    `I need to remember my strengths and limitations when others are struggling with their mental health. 
-    <br>Sometimes I can help, but other times I need to trust that someone better equipped will help.`],
+  var covid_abstract = [
+
+    ['<p style="max-width: 750px;">It can be difficult for people navigating the unpredictability of the pandemic. Sometimes it is alright to go outside when the spread is under control, and just a few days later you have to quarantine.</p>',
+    '<p style="max-width: 750px;">Life during the Covid-19 pandemic can feel so uncertain. You just have to take it day-by-day and just trust it will work out, I guess.</p>',
+    '<p style="max-width: 750px;">I wonder how uncomfortable people will feel being in public places after the Covid-19 pandemic restrictions are over. I suspect some people will struggle with social anxiety and being in crowded places.</p>'],
     
-    ['I read an article the other day that said loneliness is one of the most common struggles for people. It can even cause a lot of health problems over time.', 
-    'It makes sense then that loneliness is a big problem for new college students. They see everyone else having fun around them, but don’t feel connected yet.', 
-    `I need to remember when I meet new people that while I might be comfortable living here because I’ve been here so long, 
-    <br>they may be uncertain and searching for new friends.`],
+    ['<p style="max-width: 750px;">Many people seem to be struggling with loneliness working from home and doing school from home all the time. Being intentional scheduling time to chat with your friends can really help keep you balanced.</p>', 
+    '<p style="max-width: 750px;">Some people make fun, but video chatting fatigue is really a struggle. Rather than jumping from meeting to meeting, it can be helpful setting aside a few minutes throughout the day to get away from the computer.</p>', 
+    `<p style="max-width: 750px;">It must be very hard living in a crowded city during Covid-19 restrictions. You can’t go out to eat, or really even get away from people anywhere but in your apartment.</p>`],
 
-    ['I think getting sick with fever and nausea would be the absolute worst, especially when you don’t have anyone to help take care of you.', 
-    'Having foodborne illness would be terrible. I’ve heard you can get so dehydrated that you have to go to the ER. That would be so scary.', 
-    'If I were ever that sick, I would be relly nervous about having to call an ambulance even if I thought I needed to go to the hospital.'],
+    ['<p style="max-width: 750px;">Living alone during the Covid-19 pandemic could be really good and really bad. Good because you are less likely to contract the virus, but bad because if you do get sick no one is living with you to help.</p>', 
+    '<p style="max-width: 750px;">It seems the fear of Covid-19 symptoms is a thought many people struggle with. Catching Covid-19 includes so many uncertain factors - will you get sick or will you be asymptomatic? You can’t know unless you get it.</p>', 
+    `<p style="max-width: 750px;">Surprisingly, many people are worried about Covid-19 not because of the symptoms, but the possibility of having big medical bills if they need to go to the hospital.</p>`],
 
-    ['Sometimes I struggle with the idea that terrible things happen to people all of the time, and that there&apos;s pain everywhere in the world.', 
-    'There are so many people struggling in the world with the loss of loved ones that I often get overwhelmed just thinking about it.', 
-    'I can’t imagine how difficult it would be to lose a family member. I’ve never lost anyone close to me, but just the thought of it is really scary.'],
+    ['<p style="max-width: 750px;">Do your best to be mindful of others when discussing the Covid-19 pandemic. You never know if someone you are talking to has lost someone they love to the virus.</p>', 
+    '<p style="max-width: 750px;">Losing someone during Covid-19 is terrible. It is good to remember that there are many people also struggling with grief too and you are not alone.</p>', 
+    `<p style="max-width: 750px;">Deciding whether to spend time with family can be a stressful experience during the pandemic. It means so much to grandparents when you visit, but it can also be dangerous for their health.</p>`],
 
-    ['I read recently that volunteering for an organization like a retirement home or for a hospital can often connect you with others in your community and be very fulfilling.', 
-    'I know a few people who have time to volunteer for a local non-profit one day a week. They say they really enjoy it.    ', 
-    'Helping provide for others can often bring a lot of meaning to a person’s life. Though, I bet it can also be really overwhelming too.'],
+    ['<p style="max-width: 750px;">Covid-19 is not only a struggle for those who become sick, but also for their loved ones. It is really difficult to cope with having no control over their recovery.</p>', 
+    '<p style="max-width: 750px;">There is so much uncertainty when you know someone who tests positive for Covid-19. Will they get really ill or will they have no symptoms. You just need to keep hope that everything will workout in the end.</p>', 
+    `<p style="max-width: 750px;">When you are the only one caring for someone with Covid-19, it can be overwhelming. If it is possible, it is good to have someone else helping you along the way.</p>`],
 
-    ['I sometimes wonder what it’s like to be a single parent. It must be a real struggle to balance work and taking care of a child.', 
-    'I’ve heard that single parents often struggle with feeling burnt out. If you don’t have a baby sitter or family nearby, then going non-stop all the time must be really exhausting.', 
-    `Often with only one source of income, I bet being a single parent is quite a struggle. I’ve heard some parents often get a second job. 
-    <br>That must be horrible being away from the kids so much.`],
+    ['<p style="max-width: 750px;">Children rely on their parents for reassurance of safety, both physical and emotional. This is why parents need to keep in mind helping their kids understand that we will get through the Covid-19 pandemic together.</p>', 
+    '<p style="max-width: 750px;">Being a single parent during the Covid-19 pandemic isn’t easy, having to work and help your child with remote schooling. It is good to know that accepting a bad situation doesn’t mean you have to like it.</p>', 
+    `<p style="max-width: 750px;">Many parents’ lives have been severely disrupted during the pandemic. Because they have so much to manage now, their own personal lives may have to be pushed to the back burner.</p>`],
 
-    [`I noticed the other day that my grocery store put on a fundraiser by asking shoppers to buy food for a local food drive rather than just donating money. 
-    <br>I thought that was a unique idea.`, 
-    'There are a lot of people struggling these days trying to get back up on their feet. I’d like to learn more about the charities that help people with these problems.', 
-    'Sometimes just giving a dollar to someone in need when walking down the street can make that person’s day. Who knows, it could make your day too.'],
+    ['<p style="max-width: 750px;">Millions of people around the world are coping with job loss caused by the Covid-19 pandemic. For those who do lost their jobs, it’s good to remember you are just doing the best you can under the current circumstances.</p>', 
+    '<p style="max-width: 750px;">Try to keep in mind that the Covid-19 pandemic is causing many companies to make difficult decisions about their employees. If you are laid off, it has nothing to do with your worth.</p>', 
+    `<p style="max-width: 750px;">Keep in mind to use your energy wisely when looking for a job during the pandemic. Be kind to yourself and focus on what you can work on in the moment to get where you want to be.</p>`],
+
+    ['<p style="max-width: 750px;">During the pandemic you need to remain intentional about creating purpose in your life. Planning a daily routine and tossing in new activities every once and a while can really help keep life interesting while socially isolating.</p>', 
+    '<p style="max-width: 750px;">Learning to live with purpose during the Covid-19 pandemic is the ultimate challenge. Staying home most days strips away much of the minutia and you can focus on looking inward.</p>', 
+    `<p style="max-width: 750px;">A pandemic is a great time to discover what really matters most in your life, what you care about, what&#39;s most important. This is the foundation of a life purpose. Now is a time to discover strengths you didn’t know you had.</p>`],
   ];
 
-  var aphorism = [
-    ['Sometimes I think our world is overly complicated. I feel like I make thousands of decisions everyday, and after a while, it gets really exhausting.', 
-    'Life is uncertain and full of many day-to-day challenges and obstacles. We never know what each day will bring.', 
-    `Even though the world can feel overwhelming, I am fortunate enough to live in a place where I can think about all kinds of future possibilities, 
-    <br>whether than be for my career or personal life.`],
+  var platitude = [
+    ['<p style="max-width: 750px;">Sometimes I think our world is overly complicated. I feel like I make thousands of decisions everyday, and after a while, it gets really exhausting.</p>', 
+    '<p style="max-width: 750px;">Life is uncertain and full of many day-to-day challenges and obstacles. We never know what each day will bring.</p>', 
+    `<p style="max-width: 750px;">Even though the world can feel overwhelming, I am fortunate enough to live in a place where I can think about all kinds of future possibilities, whether than be for my career or personal life.</p>`],
 
-    ['You will never know what new people will enter your life. That is why you must always keep an open mind.', 
-    'I do my best not to give up even when I am so tired of working for something. In those moments I let myself take a break to rejuvenate my strength.', 
-    'We find ourselves in this world, trying to figure out how we should act, and what we should do. It&#39;s hard to know the right courses of action.'],
+    ['<p style="max-width: 750px;">You will never know what new people will enter your life. That is why you must always keep an open mind.</p>', 
+    '<p style="max-width: 750px;">I do my best not to give up even when I am so tired of working for something. In those moments I let myself take a break to rejuvenate my strength.</p>', 
+    '<p style="max-width: 750px;">We find ourselves in this world, trying to figure out how we should act, and what we should do. It&#39;s hard to know the right courses of action.</p>'],
+    
+    ['<p style="max-width: 750px;">You should always wash your hands before and after working with raw meat because it can cause foodborne illness. You don’t want to make yourself or others sick.</p>', 
+    '<p style="max-width: 750px;">Anyone can get food poisoning, but some are at a higher risk. When others do get sick, it’s best to stay and take care of them just in case they need some help.</p>', 
+    '<p style="max-width: 750px;">Often it’s not the illness itself when someone is sick that makes a person need an ambulance, it’s the body’s response causing dehydration or fever that makes them need hospital care.</p>'],
+    
+    ['<p style="max-width: 750px;">Only people who are capable of loving strongly can also suffer great sorrow, but this same necessity of loving serves to counteract their grief and heals them.</p>', 
+    '<p style="max-width: 750px;">While grief is fresh, every attempt to divert only irritates. You must wait until it is digested, and then amusement will dissipate the remains of it.</p>', 
+    '<p style="max-width: 750px;">There is no shame in holding on to the grief, so long as you make room for other things too. It is often just a part of life.</p>'],
+    
+    ['<p style="max-width: 750px;">You can be a victim of life threatening illness or a survivor of it. You can let it conquer you, or you can conquer it. It’s all a mindset.</p>', 
+    '<p style="max-width: 750px;">The secret of health for both mind and body is not  to mourn for the past, worry about the suture, or anticipate troubles, but to live in the present.</p>', 
+    '<p style="max-width: 750px;">Coping with terminal illness is a journey, but you walk the road alone. There are many places to stop along the way and get nourishment - you just have to be willing to take it.</p>'],
+   
+    ['<p style="max-width: 750px;">Being a single parent is twice the work, stress, and tears - but also twice the hugs, love, and pride. It can be really difficult at time, but it is worth it.</p>', 
+    '<p style="max-width: 750px;">A person doesn’t often set out to be a single parent, and it takes a strong person to be a single parent, taking on two roles.</p>', 
+    `<p style="max-width: 750px;">The birth of a child and parenthood are not things that a person can be trained to do. Even if you have a good example in your own parents, nobody teaches you how to be a really great parent.</p>`],
+    
+    ['<p style="max-width: 750px;">People often say money doesn’t provide happiness, but everyone still wants to prove it to themselves.</p>', 
+    '<p style="max-width: 750px;">Money is numbers, and numbers never end. If it takes money to be happy, your search for happiness will never end.</p>', 
+    '<p style="max-width: 750px;">Time is always more valuable than money. You can always make more money after spending it, but you can never regain the time that you lost.</p>'],
+    
+    [`<p style="max-width: 750px;">There are moments when nothing seems to make sense. These are the moments where you get to explore. We are not born with meaning for our life. Meaning comes from learning who we are and growing as a person.</p>`,
+    `<p style="max-width: 750px;">The quickest way to destroy your life is to believe that it has no meaning. If you feel like you are lacking purpose and passion, the best thing to do is begin to experiment. Standing still is not how you find the answer.</p>`,
+    `<p style="max-width: 750px;">To begin to think with purpose, is to enter the ranks of those strong ones who only recognize failure as one of the pathways to attainment.</p>`],
 
-    ['Separating raw meat, poultry, and seafood from ready-made-food is essential because it can cause food-borne illness.', 
-    'Anyone can get food poisoning, but some are at a higher risk. When they do, it’s good to stay and take care of them just in case they need to go to the ER.', 
-    'Often it’s not food poisoning itself that makes a person need an ambulance, it’s the body’s response causing dehydration that makes them need hospital care.'],
-
-    ['Only people who are capable of loving strongly can also suffer great sorrow, but this same necessity of loving serves to counteract their grief and heals them.', 
-    'While grief is fresh, every attempt to divert only irritates. You must wait until it is digested, and then amusement will dissipate the remains of it.', 
-    'There is no shame in holding on to the grief, so long as you make room for other things and people you love too.'],
-
-    ['You can be a victim of cancer or a survivor of cancer. You can let it conquer you, or you can conquer it. It’s all a mindset.', 
-    'The secret of health for both mind and body is not to mourn for the past, worry about the future, or anticipate troubles, but to live in the present.', 
-    'Cancer is a journey, but you walk the road alone. There are many places to stop along the way and get nourishment - you just have to be willing to take it.'],
-
-    ['Being a single parent is twice the work, stress, and tears - but also twice the hugs, love, and pride.', 
-    'A person doesn’t often set out to be a single parent, and it takes a strong person to be a single parent, taking on two roles.', 
-    `The birth of a child and parenthood are not things that a person can be trained to do. Even if you have a good example in your own parents, 
-    <br>nobody teaches you how to be a really great parent.`],
-
-    ['People often say money doesn’t provide happiness, but everyone still wants to prove it to themselves.', 
-    'Money is numbers, and numbers never end. If it takes money to be happy, your search for happiness will never end.', 
-    'Time is always more valuable than money. You can always make more money after spending it, but you can never regain the time that you lost.'],
   ];
 
   // condition pairs
   const conditions = [
-    [aphorism, covid_need],
-    [aphorism, abstract_need],
-    [covid_need, abstract_need],
+    [platitude, covid_need],
+    [platitude, covid_abstract],
+    [covid_need, covid_abstract],
   ];
 
 
@@ -233,10 +240,40 @@ document.addEventListener("DOMContentLoaded", function() {
     data: { experiment_section: 'instructions' },
     pages: [
       'Welcome to the study!<br><br>',
-      'In this study you will observe an interaction among eight individiduals discussing a topic of interest.<br><br>',
-      'The discussion is presented as a series of slides, each of which contains a photo of a single speaker, along with the text of a statement made by that speaker.<br><br>',
-      'Please attend carefully to the discussion and form impressions of the speakers.<br><br>',
-      'The study will begin on the next page. <br><br> Press &#39;Next&#39; to begin the study.<br><br>'
+      `<p style="max-width: 750px;">
+      In this study you will observe two different interactions among individiduals discussing various topics of interest.
+      The discussion is presented as a series of slides, each of which contains a photo of a single speaker, along with the text of a statement made by that speaker.
+      Please attend carefully to the discussion and form impressions of the speakers. </p> 
+      <br>Press &#39;Next&#39; to go to the next page.<br><br>`
+    ],
+    show_clickable_nav: true
+  };
+
+  var perspective_taking = {
+    type: 'instructions',
+    data: { experiment_section: 'instructions' },
+    pages: [
+      `<p style="max-width: 750px;">
+        While you are reading the statements, try to imagine how each person feels about what they are experiencing and how it has affected his or her life. 
+        Try not to concern yourself with attending to all of the information presented. Just concentrate on trying to imagine how the person feels.
+       </p>
+       <br>Press &#39;Next&#39; to begin the study.<br><br>
+       `,
+    ],
+    show_clickable_nav: true
+  };
+
+  var remain_objective = {
+    type: 'instructions',
+    data: { experiment_section: 'instructions' },
+    pages: [
+      `<p style="max-width: 750px;">
+      While you are reading the statements, try to be as objective as possible about what each person is experiencing and how it has affected his or her life.
+       To remain objective, do not let yourself get caught up in imagining what this person has been through and how he or she feels as a result. 
+       Just try to remain objective and detached.
+      </p>
+      <br>Press &#39;Next&#39; to begin the study.<br><br>
+      `,
     ],
     show_clickable_nav: true
   };
@@ -261,7 +298,7 @@ document.addEventListener("DOMContentLoaded", function() {
             stimulus_width: 600,
             maintain_aspect_ration: true,
             choices: jsPsych.NO_KEYS,
-            trial_duration: 1000,
+            trial_duration: 15000,
             prompt: () => `<p>${jsPsych.timelineVariable('statement', true)}</p>`
         }
     ],
@@ -286,7 +323,7 @@ document.addEventListener("DOMContentLoaded", function() {
             stimulus_width: 600,
             maintain_aspect_ration: true,
             choices: jsPsych.NO_KEYS,
-            trial_duration: 1000,
+            trial_duration: 15000,
             prompt: () => `<p>${jsPsych.timelineVariable('statement', true)}</p>`
         }
     ],
@@ -298,8 +335,8 @@ document.addEventListener("DOMContentLoaded", function() {
     type: 'instructions',
     data: { experiment_section: 'instructions' },
     pages: [
-      `Thank you for taking part in the impression formation task! Now you will move on to the next task.
-      <br><br> When you are ready to move on, click &#39;Next&#39;.<br><br>`,
+      `<p style="max-width: 750px;">Thank you for taking part in the impression formation task! Now you will move on to the next task.
+      <br><br> When you are ready to move on, click &#39;Next&#39;.<br></p>`,
 
       `For the next task, you will have 60 seconds to list as many US state capitals as you can recall. 
       <br><br> When you are ready to begin, click &#39;Next&#39;.<br><br>`
@@ -338,37 +375,17 @@ document.addEventListener("DOMContentLoaded", function() {
     `
   };
 
-  var task_intro1 = {
-    type: 'instructions',
-    data: { experiment_section: 'instructions' },
-    pages: [
-      `<p style="max-width: 750px;">
-        While you are reading the statements, try to imagine how each person feels about what they are experiencing and how it has affected his or her life. Try not to concern yourself with attending to all of the information presented. Just concentrate on trying to imagine how the person feels.
-       </p>`,
-    ],
-    show_clickable_nav: true
-  };
-
-  var task_intro2 = {
-    type: 'instructions',
-    data: { experiment_section: 'instructions' },
-    pages: [
-      `<p style="max-width: 750px;">While you are reading the statements, try to be as objective as possible about what each person is experiencing and how it has affected his or her life. To remain objective, do not let yourself get caught up in imagining what this person has been through and how he or she feels as a result. Just try to remain objective and detached.</p>`,
-    ],
-    show_clickable_nav: true
-  };
-
   // transition page from distractor task to recall task
   var transition_2 = {
     type: 'instructions',
     data: { experiment_section: 'instructions' },
     pages: [
-      `Thank you for taking part in that task. There is one last task for you to do. On the next page we will describe this task to you.
-      <br><br> Click &#39;Next&#39; when you are ready to read the instructions.<br><br>`,
+      `<p style="max-width: 750px;">Thank you for taking part in that task. For this part of the study, there is one last task for you to do. On the next page we will describe this task to you.
+      <br><br> Click &#39;Next&#39; when you are ready to read the instructions.<br></p>`,
 
-      `Next, you will take part in a recall task. You will see a screen with all the faces that were presented to you in the first task.<br>
-      The statements each person said will appear sequentially. Please reread each statement and try to recall which person said it.<br>
-      To choose the person you think said the presented statement, simply click their picture.<br><br> 
+      `<p style="max-width: 750px;">Next, you will take part in a recall task. You will see a screen with all the faces that were presented to you in the first task.
+      The statements each person said will appear sequentially. Please reread each statement and try to recall which person said it.
+      To choose the person you think said the presented statement, simply click their picture.<br></p>
       When you are ready to begin, click &#39;Next&#39;.<br><br>`
     ],
     show_clickable_nav: true
@@ -379,11 +396,10 @@ document.addEventListener("DOMContentLoaded", function() {
     type: 'instructions',
     data: { experiment_section: 'instructions' },
     pages: [
-      `<p>
-        Content for a transition between sections gos here.
-        <strong>Please replace this content!</strong>
+      `<p style="max-width: 750px;">
+        Thank you for doing the first part of the study. Now, you will take part in the same task a second time, with new individuals and discussion topics.
       </p>
-      <br><br> When you are ready to move on, click &#39;Next&#39;.<br><br>`,
+      <br> When you are ready to move on, click &#39;Next&#39;.<br><br>`,
     ],
     show_clickable_nav: true
   };
@@ -393,8 +409,8 @@ document.addEventListener("DOMContentLoaded", function() {
     type: 'instructions',
     data: { experiment_section: 'instructions' },
     pages: [
-      `Thank you for taking part in that task. Next, you will answer some survey questions.
-       <br><br> Click &#39;Next&#39; when you are ready to begin.<br><br>`
+      `<p style="max-width: 750px;">Thank you for taking part in those two tasks! Next, you will answer some survey questions.</p>
+       <br> Click &#39;Next&#39; when you are ready to begin.<br><br>`
     ],
     show_clickable_nav: true
   };
@@ -411,9 +427,9 @@ document.addEventListener("DOMContentLoaded", function() {
   var GB_checklist = {
     type: 'survey-likert',
     data: { experiment_section: 'gb_checklist' },
-    preamble: `<br><br> Below is a list of specific behaviors or acts. Over the past two months, it is likely that you may have performed some of these behaviors. 
-    <br> It is also likely that you have not performed many of them as well during this time. Please consider each behavior to determine whether or not you have performed the behavior during the past two months. 
-    <br> If you have performed the behavior, please try to determine how many times you have performed it during the past two months. For each behavior, provide one of the following ratings.
+    preamble: `<p style="max-width: 750px;"><br><br> Below is a list of specific behaviors or acts. Over the past two months, it is likely that you may have performed some of these behaviors. 
+    It is also likely that you have not performed many of them as well during this time. Please consider each behavior to determine whether or not you have performed the behavior during the past two months. 
+    If you have performed the behavior, please try to determine how many times you have performed it during the past two months. For each behavior, provide one of the following ratings.</p>
    `,
     questions:[
       {prompt: "Taught somebody a skill.", name: 'gen_behavior_1', required: true, labels: freq_behavior},
@@ -472,21 +488,22 @@ document.addEventListener("DOMContentLoaded", function() {
   var moral_identity = {
     type: 'survey-likert',
     data: { experiment_section: 'moral_identity' },
-    preamble: `<br><br>Listed below are some characteristics that may describe a person: <br>
-    <b>Caring, compassionate, fair, friendly, generous, helpful, hardworking, honest, and kind.</b><br>
-    The person with these characteristics could be you or it could be someone else. <br>
-    For a moment, visualize in your mind the kind of person who has these characteristics. <br>
-    Imagine how that person would think, feel, and act. When you have a clear image of what this person would be like, answer the following questions.`,
+    preamble: `<p style="max-width: 750px;"><br><br>Listed below are some characteristics that may describe a person: <br><br>
+    <b>Caring, compassionate, fair, friendly, generous, helpful, hardworking, honest, and kind.</b><br><br>
+    The person with these characteristics could be you or it could be someone else.
+    For a moment, visualize in your mind the kind of person who has these characteristics. 
+    Imagine how that person would think, feel, and act. When you have a clear image of what this person would be like, answer the following questions.</p>`,
     questions: [
       {prompt: "It would make me feel good to be a person who has these characteristics.", name: 'moral_1', required: true, labels: scale_2},
       {prompt: "Being someone who has these characteristics is an important part of who I am.", name: 'moral_2', required: true, labels: scale_2},
-      {prompt: "I often wear clothes that identify me as having these characteristics.", name: 'moral_3', required: true, labels: scale_2},
+      {prompt: "A big part of my emotional well-being is tied up in having these characteristics.", name: 'moral_3', required: true, labels: scale_2},
       {prompt: "I would be ashamed to be a person who had these characteristics.", name: 'moral_4R', required: true, labels: scale_2},
-      {prompt: "The types of things I do in my spare time (e.g., hobbies) clearly identify me as having these characteristics.", name: 'moral_5',required: true, labels: scale_2},
-      {prompt: "The kinds of books and magazines that I read identify me as having these characteristics.", name: 'moral_6', required: true, labels: scale_2},
-      {prompt: "Having these characteristics is not really important to me.", name: 'moral_7R', required: true, labels: scale_2},
-      {prompt: "The fact that I have these characteristics is communicated to others by my membership in certain organizations.", name: 'moral_8', required: true, labels: scale_2},
-      {prompt: "I am actively involved in activities that communicate to others that I have these characteristics.", name: 'moral_9', required: true, labels: scale_2},
+      {prompt: "Having these characteristics is not really important to me.", name: 'moral_5', required: true, labels: scale_2},
+      {prompt: "I strongly desire to have these characteristics.", name: 'moral_6', required: true, labels: scale_2},
+      {prompt: "I often wear clothes that identify me as having these characteristics.", name: 'moral_7', required: true, labels: scale_2},
+      {prompt: "The types of things I do in my spare time (e.g., hobbies) clearly identify me as having these characteristics.", name: 'moral_8',required: true, labels: scale_2},
+      {prompt: "The fact that I have these characteristics is communicated to others by my membership in certain organizations.", name: 'moral_9', required: true, labels: scale_2},
+      {prompt: "I am actively involved in activities that communicate to others that I have these characteristics.", name: 'moral_10', required: true, labels: scale_2},
       {prompt: "Having these characteristics is not really important to me.", name: 'moral_11R', required: true, labels: scale_2},
       {prompt: "I often buy products that communicate the fact that I have these characteristics.", name: 'moral_12', required: true, labels: scale_2},
       {prompt: "The kinds of books and magazines that I read identify me as having these characteristics.", name: 'moral_13', required: true, labels: scale_2}
@@ -507,9 +524,9 @@ document.addEventListener("DOMContentLoaded", function() {
     var life_orientation = {
       type: 'survey-likert',
       data: { experiment_section: 'life_orientation' },
-      preamble: `<br><br>Please be as honest and accurate as you can throughout.  
-      <br> Try not to let your response to one statement influence your responses to other statements.  
-      <br> There are no &#39;correct&#39; or &#39;incorrect&#39; answers.  Answer according to your own feelings, rather than how you think &#39;most people&#39; would answer`,
+      preamble: `<p style="max-width: 750px;"><br><br>Please be as honest and accurate as you can throughout. 
+      Try not to let your response to one statement influence your responses to other statements. There are no &#39;correct&#39; or &#39;incorrect&#39; answers. 
+      Answer according to your own feelings, rather than how you think &#39;most people&#39; would answer </p>`,
       questions: [
         {prompt: "In uncertain times, I usually expect the best.", name: 'life_orient_1', required: true, labels: scale_8},
         {prompt: "If something can go wrong for me, it will.", name: 'life_orient_2R', required: true, labels: scale_8},
@@ -820,8 +837,8 @@ var scale_5 = [
 var life_history_4 = {
   type: 'survey-likert',
   data: { experiment_section: 'life_history' },
-  preamble: `<br><br>The following are questions about your childhood and early adolescence (ages 5-15). 
-  <br> Please think over your family life and answer these questions by putting the relevant number next to each statement to indicate how much you agree with it.`,
+  preamble: `<p style="max-width: 750px;"><br><br>The following are questions about your childhood and early adolescence (ages 5-15). 
+  Please think over your family life and answer these questions by putting the relevant number next to each statement to indicate how much you agree with it. </p>`,
   questions: [ 
     {prompt: "How often did a parent or other adult in the household swear at you, insult you, put you down, or act in a way that made you feel threatened?", name: 'life_hist_31', required: true, labels: scale_5}, 
     {prompt: "How often did a parent or other adult in the household push, grab, shove, or slap you?", name: 'life_hist_32', required: true, labels: scale_5},     
@@ -859,8 +876,8 @@ var life_history_4 = {
   var life_history_5 = {
     type: 'survey-likert',
     data: { experiment_section: 'life_history' },
-    preamble: `<br><br>The following are questions about your childhood and early adolescence (ages 5-15). 
-    <br> Please answer the following four questions about the police in the neighborhood where you grew up.`,
+    preamble: `<p style="max-width: 750px;"><br><br>The following are questions about your childhood and early adolescence (ages 5-15). 
+    Please answer the following four questions about the police in the neighborhood where you grew up.</p>`,
     questions: [ 
       {prompt: "How effective are the police in your neighborhood in fighting crime?", name: 'life_hist_40', required: true, labels: police_effective}, 
       {prompt: "How effective are the police in your neighborhood at helping people who ask for help? ", name: 'life_hist_41', required: true, labels: police_effective},
@@ -884,8 +901,8 @@ var life_history_4 = {
     var life_history_6 = {
       type: 'survey-likert',
       data: { experiment_section: 'life_history' },
-      preamble: `<br><br>The following are questions about your childhood and early adolescence (ages 5-15). 
-      <br> How many times do you remember witnessing or hearing about the following events in your neighborhood when you were growing up?`,
+      preamble: `<p style="max-width: 750px;"><br><br>The following are questions about your childhood and early adolescence (ages 5-15). 
+      How many times do you remember witnessing or hearing about the following events in your neighborhood when you were growing up? </p>`,
       questions: [ 
         {prompt: "People getting into fistfights.", name: 'life_hist_44', required: true, labels: scale_11}, 
         {prompt: "Someone threatening someone else with a gun.", name: 'life_hist_45', required: true, labels: scale_11}, 
@@ -959,10 +976,10 @@ var life_history_4 = {
     preamble: `<br><br>For the next questions, please think of your life while you were growing up (ages 5-15).`,  
     questions: [
       {prompt: 
-        `When you were growing up, was there an important adult who was NOT your parent or guardian that did a lot of good things for you? 
+        `<p style="max-width: 750px;">When you were growing up, was there an important adult who was NOT your parent or guardian that did a lot of good things for you? 
         Someone you thought was a special person in your life? This could be a teacher, a neighbor, someone in your community, or anyone that did a 
-        lot of good things for you.`, 
-        name: 'life_hist_20', required: true, labels: role_model},
+        lot of good things for you.</p>`, 
+        name: 'life_hist_73', required: true, labels: role_model},
     ],
   };
 
@@ -978,7 +995,7 @@ var life_history_4 = {
     type: 'survey-likert',
     data: { experiment_section: 'life_history' },
     questions: [
-      {prompt: `How many adults like this did you have in your life?`, name: 'life_hist_21', required: true, labels: scale_4},
+      {prompt: `How many adults like this did you have in your life?`, name: 'life_hist_74', required: true, labels: scale_4},
     ],
   };
 
@@ -993,11 +1010,11 @@ var yes_no = [
 var parent_birth = {
   type: 'survey-text',
   data: { experiment_section: 'life_history' },
-  preamble: `<br><br>You will now fill out the last questionnaire. Some of the questions are personal.  
-  <br><br>You are asked these questions so that participants’ responses can be analyzed according to their individual profile and history.  
-  <br><br>We wish to remind you that all of the responses we collect will be analysed completely anonymously - NO INFORMATION FROM THIS 
-  <br>SECTION WILL BE LINKED TO YOU IN ANY WAY. If you would prefer to not respond to some of the questions, you will simply have to   
-  <br>type in the box 'I don’t want to answer'.`,
+  preamble: `<p style="max-width: 750px;"><br><br>You will now fill out the last questionnaire. Some of the questions are personal. 
+  You are asked these questions so that participants’ responses can be analyzed according to their individual profile and history.  
+  We wish to remind you that all of the responses we collect will be analysed completely anonymously - NO INFORMATION FROM THIS 
+  SECTION WILL BE LINKED TO YOU IN ANY WAY. If you would prefer to not respond to some of the questions, you will simply have to   
+  type in the box 'I don’t want to answer'.</p>`,
   questions: [
     {prompt: `What is the birth year of your mother?`, name: 'mom_birth', required: true, rows: 1, columns: 7}, 
     {prompt: `What is the birth year of your father?`, name: 'dad_birth', required: true, rows: 1, columns: 7}
@@ -1149,8 +1166,8 @@ var no_death_dad = {
     type: 'survey-multi-select',
     data: { experiment_section: 'life_history' },
     questions: [
-      {prompt: `Answer this question only if you answered 'Physical abuse' or 'Psychological abuse' or 'Sexual abuse' to the previous question. <br>
-                These episodes were caused by (please select all appropriate answers):`, 
+      {prompt: `<p style="max-width: 750px;">Answer this question only if you answered 'Physical abuse' or 'Psychological abuse' or 'Sexual abuse' to the previous question. <br>
+                These episodes were caused by (please select all appropriate answers):</p>`, 
         options: ["One or several people in my family", "One or several people outside my family", "Does not apply to me", "I do not want to answer"], name: 'childhood_abuse', required: true}
     ],
   };
@@ -1219,8 +1236,8 @@ var no_death_dad = {
 var personal_striving = {
   type: 'survey-text',
   data: { experiment_section: 'personal_strivings' },
-  preamble: `<br><br> One way to describe someone’s personality is to consider the purposes or goals that the person seems to be seeking in his or her everyday behavior. 
-    <br>We are interested in the things that you typically or characteristically are trying to do. We might call these objectives “strivings.” Here are some examples of strivings:
+  preamble: `<p style="max-width: 750px;"><br><br> One way to describe someone’s personality is to consider the purposes or goals that the person seems to be seeking in his or her everyday behavior. 
+  We are interested in the things that you typically or characteristically are trying to do. We might call these objectives “strivings.” Here are some examples of strivings:
               
     <br>Trying to be physically attractive to others
     <br>Trying to persuade others that one is right
@@ -1243,7 +1260,7 @@ var personal_striving = {
     You might find it useful to think about your goals in different domains of your life: work and school, home and family, social relationships, and leisure/recreation. 
     Think about all of your desires, goals, wants, and hopes in these different areas.
     
-    <br><br>Take your time with this task; spend some time thinking about your goals before you begin.`,
+    <br><br>Take your time with this task; spend some time thinking about your goals before you begin.</p>`,
   questions: [
     {prompt: `I typically try to...`, name: 'striving_1', rows: 2, columns: 20},
     {prompt: `I typically try to...`, name: 'striving_2', rows: 2, columns: 20},
@@ -1270,7 +1287,7 @@ var scale_important = [
 var volunteer_functions = {
   type: 'survey-likert',
   data: { experiment_section: 'volunteer_functions' },
-  preamble: `<br><br>Please indicate how important or accurate each of the 30 possible reasons for volunteering are for you when you take part in volunteer work.`,
+  preamble: `<p style="max-width: 750px;"><br><br>Please indicate how important or accurate each of the 30 possible reasons for volunteering are for you when you take part in volunteer work.</p>`,
   questions: [
     {prompt: `Volunteering can help me to get my foot in the door at a place where I would like to work.`, name: 'vol_funct_1', required: true, labels: scale_important},
     {prompt: `My friends volunteer.`, name: 'vol_funct_2', required: true, labels: scale_important},
@@ -1321,8 +1338,8 @@ var scale_true = [
 var motivation_to_help = {
   type: 'survey-likert',
   data: { experiment_section: 'motivation_to_help' },
-  preamble: `<br><br>Think of the last time you acted prosocially (e.g., selflessly, kindly, helpful, etc.) toward another person. 
-  Please indicate how true or untrue each of the statements below is in describing why you acted prosocialy.`,
+  preamble: `<p style="max-width: 750px;"><br><br>Think of the last time you acted prosocially (e.g., selflessly, kindly, helpful, etc.) toward another person. 
+  Please indicate how true or untrue each of the statements below is in describing why you acted prosocialy.</p>`,
   questions: [
     {prompt: `So that I would be liked.`, name: 'motivation_help_1', required: true, labels: scale_true},
     {prompt: `Because I’d feel like a bad person if I didn&#39;t.`, name: 'motivation_help_2', required: true, labels: scale_true},
@@ -1338,7 +1355,7 @@ var motivation_to_help = {
 randomize_question_order: true,
   };
 
-///////////////////////////////////// reasons for action questionnaire //////////////////////////////////////////////////////////////////////////////// doesn't apply to this study??
+///////////////////////////////////// reasons for action questionnaire /////////////////// doesn't apply to this study??
 
 //////////////////////////////////////// social values orientation scale ///////////////////////////////////////////
 
@@ -1552,8 +1569,8 @@ var guilt_proneness_scale = {
   type: 'survey-likert',
   data: { experiment_section: 'guilt_proneness' },
   preamble: 
-  `<br><br>In this questionnaire you will read about situations that people are likely to encounter in day‐to‐day life, followed by common reactions to those situations. 
-  As you read each scenario, try to imagine yourself in that situation. Then indicate the likelihood that you would react in the way described.`,
+  `<p style="max-width: 750px;"><br><br>In this questionnaire you will read about situations that people are likely to encounter in day‐to‐day life, followed by common reactions to those situations. 
+  As you read each scenario, try to imagine yourself in that situation. Then indicate the likelihood that you would react in the way described.</p>`,
   questions: [
     {prompt: `After realizing you have received too much change at a store, you decide to keep it because the sales clerk doesn&#39;t notice. What is the likelihood that you would feel uncomfortable about keeping the money?`, name: 'gp_1', required: true, labels: scale_likely},
     {prompt: `You secretly commit a felony. What is the likelihood that you would feel remorse about breaking the law?`, name: 'gp_2', required: true, labels: scale_likely},
@@ -1581,7 +1598,7 @@ var justice_sensitivity = {
   type: 'survey-likert',
   data: { experiment_section: 'justice_sensitivity' },
   preamble: 
-  `<br><br> People react quite differently in unfair situations. Use the following scale to indicate how much you agree with each statement. Please be honest and thoughtful in your responses.`,
+  `<p style="max-width: 750px;"><br><br> People react quite differently in unfair situations. Use the following scale to indicate how much you agree with each statement. Please be honest and thoughtful in your responses.</p>`,
   questions: [
     {prompt: `It gets me down when I get fewer opportunities than others to develop my skills.`, name: 'own_dis_1', required: true, labels: scale_agree},
     {prompt: `It makes me angry when others are undeservingly better off than me.`, name: 'own_dis_2', required: true, labels: scale_agree},
@@ -1623,9 +1640,9 @@ var reactivity_index = {
   type: 'survey-likert',
   data: { experiment_section: 'interpersonal_reactivity' },
   preamble: 
-  `<br><br> The following statements inquire about your thoughts and feelings in a variety of situations.
+  `<p style="max-width: 750px;"><br><br> The following statements inquire about your thoughts and feelings in a variety of situations.
   For each item, indicate how well it describes you by choosing the appropriate point on the scale.
-  Read each item carefully before responding. Answer as honestly as you can.`,
+  Read each item carefully before responding. Answer as honestly as you can.</p>`,
   questions: [
     {prompt: `I often have tender, concerned feelings for people less fortunate than me.`, name: 'react_1', required: true, labels: scale_describe},
     {prompt: `Sometimes I don&#39;t feel very sorry for other people when they are having problems.`, name: 'react_2R', required: true, labels: scale_describe},
@@ -1656,12 +1673,12 @@ var agentic_communal_values_scale = {
   type: 'survey-likert',
   data: { experiment_section: 'agentic_communal_values' },
   preamble: 
-  `<br><br> Below are different values that people rate of different importance in their lives. FIRST READ THROUGH THE LIST to familiarize yourself with all the values. 
+  `<p style="max-width: 750px;"><br><br> Below are different values that people rate of different importance in their lives. FIRST READ THROUGH THE LIST to familiarize yourself with all the values. 
   While reading over the list, consider which ones tend to be most important to you and which tend to be least important to you. After familiarizing yourself with the list, 
   rate the relative importance of each value to you as a guiding principle in your life.
  
   <br><br>It is important to spread your ratings out as best you can—be sure to use some numbers in the lower range, some in the middle range, and some in the higher range. 
-  Avoid using too many similar numbers. Work fairly quickly.`,
+  Avoid using too many similar numbers. Work fairly quickly.</p>`,
   questions: [
     {prompt: `FORGIVENESS (pardoning others’ faults, being merciful)`, name: 'AC_values_1', required: true, labels: scale_important},
     {prompt: `COMPETENCE (displaying mastery, being capable, effective)`, name: 'AC_values_2', required: true, labels: scale_important},
@@ -1695,7 +1712,7 @@ var parental_bonding_mom = {
   type: 'survey-likert',
   data: { experiment_section: 'parental_bonding' },
   preamble: 
-  `<br><br>This questionnaire lists various attitudes and behaviors of parents. As you remember your <b>mother</b> in your first 16 years, would you rate each question as either very like to very unlike`,
+  `<p style="max-width: 750px;"><br><br>This questionnaire lists various attitudes and behaviors of parents. As you remember your <b>mother</b> in your first 16 years, would you rate each question as either very like to very unlike.</p>`,
   questions: [
     {prompt: `Spoke to me with a warm and friendly voice.`, name: 'pbm_1', required: true, labels: scale_parent},
     {prompt: `Did not help me as much as I needed.`, name: 'pbm_2', required: true, labels: scale_parent},
@@ -1731,7 +1748,7 @@ var parental_bonding_dad = {
   type: 'survey-likert',
   data: { experiment_section: 'parental_bonding' },
   preamble: 
-  `<br><br>This questionnaire lists various attitudes and behaviors of parents. As you remember your <b>father</b> in your first 16 years, would you rate each question as either very like to very unlike`,
+  `<p style="max-width: 750px;"><br><br>This questionnaire lists various attitudes and behaviors of parents. As you remember your <b>father</b> in your first 16 years, would you rate each question as either very like to very unlike.</p>`,
   questions: [
     {prompt: `Spoke to me with a warm and friendly voice.`, name: 'pbf_1', required: true, labels: scale_parent},
     {prompt: `Did not help me as much as I needed.`, name: 'pbf_2', required: true, labels: scale_parent},
@@ -1810,9 +1827,9 @@ randomize_question_order: true,
   type: 'survey-likert',
   data: { experiment_section: 'religious_behaviors' },
   preamble: 
-  `<br><br>This questionnaire has four statements, each of which is followed by three possible responses. Please read the first statement, and then consider each response. 
+  `<p style="max-width: 750px;"><br><br>This questionnaire has four statements, each of which is followed by three possible responses. Please read the first statement, and then consider each response. 
   Indicate how true each response is for you, using the following scale.
-  <br><br><b>One reason I think it’s important to actively share my faith with others is:</b>`,
+  <br><br><b>One reason I think it’s important to actively share my faith with others is:</b></p>`,
   questions: [
     {prompt: `Because God is important to me and I’d like other people to know about Him too.`, name: 'rb_1', required: true, labels: scale_true},
     {prompt: `Because I would feel bad about myself if I didn’t.`, name: 'rb_2', required: true, labels: scale_true},
@@ -1826,9 +1843,9 @@ randomize_question_order: true,
     type: 'survey-likert',
     data: { experiment_section: 'religious_behaviors' },
     preamble: 
-    `<br><br>This questionnaire has four statements, each of which is followed by three possible responses. Please read the first statement, and then consider each response. 
+    `<p style="max-width: 750px;"><br><br>This questionnaire has four statements, each of which is followed by three possible responses. Please read the first statement, and then consider each response. 
     <br>Indicate how true each response is for you, using the following scale.
-    <br><br><b>When I turn to God, I most often do it because:</b>`,
+    <br><br><b>When I turn to God, I most often do it because:</b></p>`,
     questions: [
       {prompt: `I enjoy spending time with Him.`, name: 'rb_4', required: true, labels: scale_true},
       {prompt: `I would feel guilty if I didn’t.`, name: 'rb_5', required: true, labels: scale_true},
@@ -1842,9 +1859,9 @@ randomize_question_order: true,
     type: 'survey-likert',
     data: { experiment_section: 'religious_behaviors' },
     preamble: 
-    `<br><br>This questionnaire has four statements, each of which is followed by three possible responses. Please read the first statement, and then consider each response. 
+    `<p style="max-width: 750px;"><br><br>This questionnaire has four statements, each of which is followed by three possible responses. Please read the first statement, and then consider each response. 
     <br>Indicate how true each response is for you, using the following scale.
-    <br><br><b>A reason I think praying by myself is important is:</b>`,
+    <br><br><b>A reason I think praying by myself is important is:</b></p>`,
     questions: [
       {prompt: `Because if I don&#39;t, God will disapprove of me.`, name: 'rb_7', required: true, labels: scale_true},
       {prompt: `Because I enjoy praying.`, name: 'rb_8', required: true, labels: scale_true},
@@ -1858,9 +1875,9 @@ randomize_question_order: true,
       type: 'survey-likert',
       data: { experiment_section: 'religious_behaviors' },
       preamble: 
-      `<br><br>This questionnaire has four statements, each of which is followed by three possible responses. Please read the first statement, and then consider each response. 
+      `<p style="max-width: 750px;"><br><br>This questionnaire has four statements, each of which is followed by three possible responses. Please read the first statement, and then consider each response. 
       <br>Indicate how true each response is for you, using the following scale.
-      <br><br><b>An important reason why I attend church is:</b>`,
+      <br><br><b>An important reason why I attend church is:</b></p>`,
       questions: [
         {prompt: `Because one is supposed to go to church.`, name: 'rb_10', required: true, labels: scale_true},
         {prompt: `By going to church I learn new things.`, name: 'rb_11', required: true, labels: scale_true},
@@ -1886,7 +1903,7 @@ var general_trust_scale = {
   type: 'survey-likert',
   data: { experiment_section: 'general_trust' },
   preamble: 
-  `<br><br> Please read each of the following statements. Choose the response that best describes strongly you agree or disagree with the statement.`,
+  `<p style="max-width: 750px;"><br><br> Please read each of the following statements. Choose the response that best describes strongly you agree or disagree with the statement.</p>`,
   questions: [
     {prompt: `Most people are basically honest.`, name: 'gt_1', required: true, labels: scale_1},
     {prompt: `Most people are basically good-natured and kind.`, name: 'gt_2', required: true, labels: scale_1},
@@ -1915,8 +1932,8 @@ var personal_belief_just_world_scale = {
   type: 'survey-likert',
   data: { experiment_section: 'personal_belief' },
   preamble: 
-  `<br><br> Below you will find various statements. Most likely, you will strongly agree with some statements, and strongly disagree with others. Sometimes you may feel more neutral.
-  <br>Read each statement carefully and decide to what extent you personally agree or disagree with it. Choose the point which corresponds to this judgement. 
+  `<p style="max-width: 750px;"><br><br> Below you will find various statements. Most likely, you will strongly agree with some statements, and strongly disagree with others. Sometimes you may feel more neutral.
+  <br>Read each statement carefully and decide to what extent you personally agree or disagree with it. Choose the point which corresponds to this judgement. </p>
   `,
   questions: [
     {prompt: `I believe that, by and large, I deserve what happens to me.`, name: 'pbjw_1', required: true, labels: scale_1},
@@ -1950,8 +1967,8 @@ var general_trust_scale = {
   type: 'survey-likert',
   data: { experiment_section: 'general_belief' },
   preamble: 
-  `<br><br> Below you will find various statements. Most likely, you will strongly agree with some statements, and strongly disagree with others. Sometimes you may feel more neutral.
-  <br>Read each statement carefully and decide to what extent you personally agree or disagree with it. Choose the point which corresponds to this judgement. 
+  `<p style="max-width: 750px;"><br><br> Below you will find various statements. Most likely, you will strongly agree with some statements, and strongly disagree with others. Sometimes you may feel more neutral.
+  <br>Read each statement carefully and decide to what extent you personally agree or disagree with it. Choose the point which corresponds to this judgement. </p>
   `,
   questions: [
     {prompt: `I think the world is a just place.`, name: 'gbjw_1', required: true, labels: scale_1},
@@ -1983,7 +2000,7 @@ var social_dominance_orientation = {
   type: 'survey-likert',
   data: { experiment_section: 'social_dominance_orientation' },
   preamble:
-  `<br><br>Show how much you agree or disagree each idea below by selecting a number from 1 to 7 on the scale below. You can work quickly; your first feeling is generally best.`,
+  `<p style="max-width: 750px;"><br><br>Show how much you agree or disagree each idea below by selecting a number from 1 to 7 on the scale below. You can work quickly; your first feeling is generally best.</p>`,
   questions: [
     {prompt: `An ideal society requires some groups to be on top and others to be on the bottom. `, name: 'sdo_1', required: true, labels: scale_1},
     {prompt: `Some groups of people are simply inferior to other groups. `, name: 'sdo_2', required: true, labels: scale_1},
@@ -2016,7 +2033,7 @@ var power_domineering_position = {
   type: 'survey-likert',
   data: { experiment_section: 'power_domineering_position' },
   preamble: 
-  `<br><br>Show how much you agree or disagree each idea below by selecting a number from 1 to 7 on the scale below. You can work quickly; your first feeling is generally best.`,
+  `<p style="max-width: 750px;"><br><br>Show how much you agree or disagree each idea below by selecting a number from 1 to 7 on the scale below. You can work quickly; your first feeling is generally best.</p>`,
   questions: [
     {prompt: `I&#39;d rather be seen as a ruthless person than as a sissy.`, name: 'pdp_1', required: true, labels: scale_1},
     {prompt: `I don&#39;t feel bad if I occasionally step on others to get what I want.`, name: 'pdp_2', required: true, labels: scale_1},
@@ -2034,8 +2051,8 @@ randomize_question_order: true,
 var team_prosocial_motivation = {
   type: 'survey-likert',
   data: { experiment_section: 'team_prosocial_motivation' },
-  preamble: `<br><br> We are interested in how you approach teamwork-related tasks. <br>
-  When you work with others in teams (for example, on a sports team, or at a job, or for schoolwork) what motivates you to contribute to your team&#39;s work?`,
+  preamble: `<p style="max-width: 750px;"><br><br> We are interested in how you approach teamwork-related tasks. <br>
+  When you work with others in teams (for example, on a sports team, or at a job, or for schoolwork) what motivates you to contribute to your team&#39;s work?</p>`,
   questions: [
     {prompt: "I care about benefiting others through our work.", name: 'team_1', required: true, labels: scale_1},
     {prompt: "I want to help others through our work.", name: 'team_2', required: true, labels: scale_1},
@@ -2056,8 +2073,8 @@ var team_prosocial_motivation = {
   var org_citizenship_behavior_scale = {
     type: 'survey-likert',
     data: { experiment_section: 'org_citizenship_behavior' },
-    preamble: `<br><br> We are interested in how you approach teamwork-related tasks. <br>
-    When you work with others in teams (for example, on a sports team, or at a job, or for schoolwork) what motivates you to contribute to your team&#39;s work?`,
+    preamble: `<p style="max-width: 750px;"><br><br> We are interested in how you approach teamwork-related tasks.
+    When you work with others in teams (for example, on a sports team, or at a job, or for schoolwork) what motivates you to contribute to your team&#39;s work?</p>`,
     questions: [
       {prompt: "I help others who have heavy workloads.", name: 'OCB_1', required: true, labels: scale_1},
       {prompt: "I am always ready to lend a helping hand to those around me.", name: 'OCB_2', required: true, labels: scale_1},
@@ -2088,8 +2105,8 @@ var team_prosocial_motivation = {
 var teamwork_scale = {
 type: 'survey-likert',
 data: { experiment_section: 'teamwork_scale' },
-preamble: `<br><br> We are interested in how you approach teamwork-related tasks. <br>
-When you work with others in teams (for example, on a sports team, or at a job, or for schoolwork) what motivates you to contribute to your team&#39;s work?`,
+preamble: `<p style="max-width: 750px;"><br><br> We are interested in how you approach teamwork-related tasks. 
+When you work with others in teams (for example, on a sports team, or at a job, or for schoolwork) what motivates you to contribute to your team&#39;s work?</p>`,
 questions: [
   {prompt: "In my experience, groups work better when group members have different strengths.", name: 'teamwork_comp_1', required: true, labels: scale_1},
   {prompt: "My group work experience shows that groups can produce better work than individuals.", name: 'teamwork_comp_2', required: true, labels: scale_1},
@@ -2303,7 +2320,8 @@ var children = {
 var children_age = {
   type: 'survey-text',
   data: { experiment_section: 'demographics' },
-  preamble: `If you have children, what are the ages of your children in years? Please round to the nearest year. You should only fill out as many boxes as children you have. If you have more than 18 children, just fill in the ages of the first 18 children. `,
+  preamble: `<p style="max-width: 750px;">If you have children, what are the ages of your children in years? Please round to the nearest year. 
+  You should only fill out as many boxes as children you have. If you have more than 18 children, just fill in the ages of the first 18 children.</p>`,
   questions:[
     {prompt: "Child 1:", name: 'childAge_1', columns: 20, rows: 2},
     {prompt: "Child 2:", name: 'childAge_2', columns: 20, rows: 2},
@@ -2348,8 +2366,8 @@ var debrief_3 = {
   data: { experiment_section: 'debrief' },
   questions: [
     {prompt: 
-      `Sometimes people think that psychology experiments are all about tricks and behind the scenes stuff; 
-      did you have any thoughts that maybe there were some things going on that we didn&#39;t tell you about? If so, what and when?`, name: 'debrief_3', rows: 5, columns: 40}, 
+      `<p style="max-width: 750px;">Sometimes people think that psychology experiments are all about tricks and behind the scenes stuff; 
+      did you have any thoughts that maybe there were some things going on that we didn&#39;t tell you about? If so, what and when?</p>`, name: 'debrief_3', rows: 5, columns: 40}, 
 ],
   };
 
@@ -2358,7 +2376,7 @@ var debrief_3 = {
     type: 'instructions',
     data: { experiment_section: 'debrief' },
     pages: [
-      `Dear Participant, <br><br> 
+      `<p style="max-width: 900px;">Dear Participant, <br><br> 
 
       During this study, you were asked to read statements made by a variety of different people, complete a memory task, and answer several 
       questionnaires. However, we withheld some information about the actual purpose of the study, which was to understand the attentional 
@@ -2392,7 +2410,7 @@ var debrief_3 = {
       If you have questions about your rights as a research participant, you may contact the University of Colorado, Boulder Human Research and 
       IRB Office at 303-735-3702.<br><br>
 
-      Please again accept our appreciation for your participation in this study.<br><br> `
+      Please again accept our appreciation for your participation in this study.<br><br></p>`
     ],
     show_clickable_nav: true
   }
@@ -2426,9 +2444,9 @@ var debrief_3 = {
     siblings,
     parent_divorce,
     age_divorce,
+    live_with_step_dad,
     live_with_step_mom,
     age_divorce_step_dad,
-    live_with_step_mom,
     age_divorce_step_mom,
     foster_care,
     abuse_1,
@@ -2489,7 +2507,7 @@ var debrief_3 = {
 
   const experiment_sections= random.shuffle([
     [
-      task_intro1,
+      perspective_taking,
       face_stimulus_procedure1,
       transition_1,
       distractor_task,
@@ -2497,7 +2515,7 @@ var debrief_3 = {
       ...recall_tasks1,
     ],
     [
-      task_intro2,
+      remain_objective,
       face_stimulus_procedure2,
       transition_1,
       distractor_task,
