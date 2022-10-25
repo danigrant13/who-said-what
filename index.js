@@ -47,20 +47,21 @@ document.addEventListener("DOMContentLoaded", function() {
 
   // call all statements
   var covid_personal_need = [
+    //depression
     [`Depression can be really unpredictable, and being stuck inside because <br/>
     of COVID-19 has been really rough. I wish I could talk to someone about it in person.`,
     `Some days I am so depressed I can&#39;t even get out of bed. With the city stay-at-home<br/>
      recommendation, this morning it took me a few hours to finally get up to make breakfast.`, 
     `Because of the COVID-19 epidemic, my anxiety has interfered with all aspects of my life.<br/>
      I&#39;ve had insomnia and a debilitating fear of going to the grocery store.`],
-
+    //loneliness
     [`I&#39;ve been feeling really alone since my college shifted online last semester. I wish<br/>
      I had someone to talk to about how hard it is living in a city shut down by Covid-19.`,
     `I just feel like my life is falling apart right now. I feel so down all the time, and just<br/>
      wish I had someone to hang out with to take my mind off my worries about Covid-19.`,
     `I often feel really lonely and anxious since Covid-19 shut down the city, and all my close<br/>
      friends who I could hang out with to distract me live really far away.`],
-
+    //illness
     [`I&#39;ve been really sick with COVID-19 the last couple of days. It&#39;s rough because I<br/>
     live alone, so I still have to get up and walk around even though I feel so exhausted.`,
     `I&#39;m nervous about falling asleep because there is no one around to check-in on me while<br/>
@@ -69,7 +70,7 @@ document.addEventListener("DOMContentLoaded", function() {
     `I don&#39;t own a car, so I know if I got COVID-19 symptoms bad enough I would have to<br/>
      call an ambulance to get to the hospital. I hope I don&#39;t need it because I&#39;m<br/>
       worried about the cost of the medical bill.`],
-
+    //grandparent death
     [`I&#39;ve really missed my grandmother since she passed away from Coronavirus. It&#39;s<br/>
      been hard because I&#39;m basically planning her funeral on my own.`,
     `Since my grandmother passed away there are some nights where I just sit and cry because I<br/>
@@ -77,7 +78,7 @@ document.addEventListener("DOMContentLoaded", function() {
       risk spreading Coronavirus.`,
     `My family life has been so stressful since my grandmother passed away. We can&#39;t mourn<br/>
      in person together, and everyone is always either arguing or really sad.`],
-
+    //caring for parent
     [`A few weeks ago my dad was diagnosed with Covid-19. I asked him to move in with me so I<br/>
      could help him recover. Knowing he could be gone soon makes me feel so hopeless.`,
     `I love my dad so much, but helping him out through his Covid-19 recovery has been such a struggle.<br/>
@@ -85,7 +86,7 @@ document.addEventListener("DOMContentLoaded", function() {
     `I feel so much guilt sometimes taking care of my dad while he fights Covid-19. I want to<br/>
      support him emotionally, but I often feel the weight of the world on my shoulders which makes<br/>
       it really hard sometimes.`],
-
+    //caring for child
     [`For the last few months, it has been difficult to pay for rent and for my daughter&#39;s<br/>
      daycare. Being a single parent during the Covid-19 pandemic can be a struggle sometimes.`,
     `With no family nearby, I have to pay for childcare. Most of the time I can&#39;t afford to pay<br/>
@@ -94,7 +95,7 @@ document.addEventListener("DOMContentLoaded", function() {
     `Money has been tight lately because Covid-19 restrictions cut my work hours. To make it worse,<br/>
      last week I lost my job. I am so worried about finances, but I have a put on a smile each<br/>
       morning so my daughter doesn&#39;t worry.`],
-
+    //lost job
     [`A while ago the cafe I worked for closed because of Covid-19, and I was laid off. I&#39;m<br/>
      worried I will run out of savings to pay rent before I find another job.`,
     `Recently, I applied for unemployment, but I haven&#39;t received a response yet. It seems<br/>
@@ -102,7 +103,7 @@ document.addEventListener("DOMContentLoaded", function() {
       even be considered.`,
     `Some businesses in my area are reopening from Covid-19 shutdowns. I&#39;ve applied to every<br/>
      job position I&#39;ve learned about, but haven&#39;t received a single call back.`],
-
+    //lost meaning
     [`I have been staying home socially distancing for months now. Every day is the same. I get up<br/>
      and I work on my computer. I used to be passionate about my job, but now my work<br/>
       feels so meaningless.`,
@@ -114,55 +115,56 @@ document.addEventListener("DOMContentLoaded", function() {
 ];
 
   var general_personal_need = [
+    //depression
     [`Depression can be really unpredictable, and it makes it really hard to leave the house.<br/>
      I wish I could talk to someone about it in person.`,
     `Some days I am so depressed I can&#39;t even get out of bed. This morning it took me a few<br/>
      hours to finally get up to make breakfast.`,
     `Having depression and my anxiety has interfered with all aspects of my life. I&#39;ve had<br/>
      insomnia and a debilitating fear of going to the grocery store.`],
-
+    //loneliness
     [`I&#39;ve been feeling really alone since I moved for college last semester. I wish I had<br/>
      someone to talk to about how hard it is living in a new city.`,
     `I just feel like my life is falling apart right now. I feel so down all the time, and just<br/>
      wish I had someone to hang out with who is encouraging.`,
     `I often feel really lonely and anxious when I go out into the city, and all my close friends<br/>
      who could distract me from these feelings live really far away.`],
-
+    //illness
     [`I&#39;ve been really ill with food poisoning the last few days. It&#39;s rough because I<br/>
      live alone, so I still have to get up and walk around even though I feel exhausted.`,
     `I&#39;m so nervous about falling asleep with food poisoning because there is no one around<br/>
      to check-in on me while I&#39;m recovering. What if I get dehydrated and need to go to the ER?`,
     `I don&#39;t own a car, so I know if I ever got sick enough from food poisoning I would have<br/>
      to call an ambulance to get to the hospital.`],
-
+    //grandmoth death
     [`I&#39;ve really missed my grandmother since she passed away. It&#39;s been hard because<br/>
      I&#39;m basically planning her funeral on my own.`,
     `Since my grandmother passed away there are some nights where I just sit and cry because I<br/>
      miss her so much. It would be nice if I had someone there with me.`,
     `My family has been so stressful since my grandmother passed away. Everyone is always either<br/>
     arguing or really sad.`],
-
+    //caring for parent
     [`Last year my dad was diagnosed with cancer. I asked him to move in with me so I could help<br/>
      him through treatment. Knowing he could be gone soon makes me feel hopeless.`,
     `I love my dad so much, but helping him out through chemotherapy has been such a struggle.<br/>
      Each day he seems worse, and I feel so helpless.`,
     `I feel so much guilt sometimes taking care of my dad while he fights cancer. I want to support<br/>
      him, but I often feel the weight of the world on my shoulders.`],
-
+    //caring for child
     [`For the last few months, it has been difficult to pay rent and for my daughter&#39;s daycare.<br/>
      Being a single parent can be a struggle sometimes.`,
     `With no family nearby, I have to pay for childcare. Most of the time I can&#39;t afford to pay<br/>
      for even a few extra hours to have some time to myself. Sometimes I feel so burnt out.`,
     `Because money has been so tight lately, I took on a second job. I know it will help with<br/>
      finances, but I&#39;m broken up about being away from my daughter.`],
-    
+    //lost job
     [`A while ago, the cafe I worked for closed down and I was laid off. I&#39;m so worried I will<br/>
      run out of savings for paying rent before I find another job.`,
     `Recently, I applied for unemployment, but I haven&#39;t received a response yet. I&#39;m<br/>
      worried I won&#39;t even be considered.`,
     `I&#39;ve applied to every job position I&#39;ve learned about, but haven&#39;t received<br/>
      a single call back.`],
-
+    //lost meaning
     [`Recently, every day is the same. I get up and I go to work. I used to be passionate about my<br/>
      job, but now my work and life feels so meaningless.`,
     `I feel like I have no structure or routine in my life right now. Life feels bland and I am so<br/>
@@ -243,7 +245,7 @@ document.addEventListener("DOMContentLoaded", function() {
   ];
 
   var general_abstract_need = [
-      [`I’ve had friends in the past who have struggled with mental health issues. They told me<br/>
+      [`I&#39;ve had friends in the past who have struggled with mental health issues. They told me<br/>
        sometimes just sitting there and being with them can be a big help.`,
       `I try to remember that some people may struggle a lot with things I don&#39;t find difficult<br/>
        at all. Simply motivating yourself to get out of bed can be a challenge.`,
@@ -251,7 +253,7 @@ document.addEventListener("DOMContentLoaded", function() {
        mental health. Sometimes I can help, but other times I need to trust that someone better<br/>
         equipped will help.`],
 
-      [`I’ve had friends in the past who have struggled with mental health issues. They told<br/>
+      [`I&#39;ve had friends in the past who have struggled with mental health issues. They told<br/>
        me sometimes just sitting there and being with them can be a big help.`,
       `I try to remember that some people may struggle a lot with things I don&#39;t find<br/>
        difficult at all. Simply motivating yourself to get out of bed can be a challenge.`,
@@ -360,22 +362,31 @@ document.addEventListener("DOMContentLoaded", function() {
     `To begin to think with purpose, is to enter the ranks of those strong ones who only recognize failure<br/>
      as one of the pathways to attainment.`],
   ];
-
+  
   // condition pairs
-  var conditions = [
+  var conditions_general = [
     [general_personal_need, general_abstract_need],
     [general_personal_need, aphorism],
     [general_abstract_need, aphorism],
+  ];
+
+  var conditions_covid = [
     [covid_personal_need, covid_abstract_need],
     [covid_personal_need, aphorism],
     [covid_abstract_need, aphorism]
   ];
 
   // randomly select statement clusters from list
-  var allStatementGroups = random.sampleWithoutReplacement(conditions, 2);
+  var allStatementGroups = [
+    random.sampleWithoutReplacement(conditions_general, 1),
+    random.sampleWithoutReplacement(conditions_covid, 1),
+  ];
   
   // assign selected statement clusters to single array
-  var allStatementSelections = allStatementGroups.map(choice => choice.map(group => random.sampleWithoutReplacement(group, 4)).flat());
+  var allStatementSelections = random.shuffle(allStatementGroups)
+    .flat()
+    .map(choice => choice.map(group => random.sampleWithoutReplacement(group, 4)).flat());
+
   // shuffle statement order
   statementSelections = allStatementSelections.map(selections => random.shuffle(selections));
   // randomly sample from female faces 
@@ -422,16 +433,47 @@ document.addEventListener("DOMContentLoaded", function() {
     data: { experiment_section: 'instructions' },
     pages: [
       'Welcome to the study!<br><br>',
-      'In this study you will observe an interaction among eight individiduals discussing a topic of interest.<br><br>',
-      'The discussion is presented as a series of slides, each of which contains a photo of a single speaker, along with the text of a statement made by that speaker.<br><br>',
+      `This study has two parts. In each part you will observe an interaction among eight individiduals discussing a<br>
+      topic of interest.<br><br>`,
+      `The discussion is presented as a series of slides, each of which contains a photo of a single speaker,<br> 
+      along with the text of a statement made by that speaker.<br><br>`,
       'Please attend carefully to the discussion and form impressions of the speakers.<br><br>',
       'The study will begin on the next page. <br><br> Press &#39;Next&#39; to begin the study.<br><br>'
     ],
     show_clickable_nav: true
   };
 
+  var objectiveStatement = {
+    type: 'instructions',
+    data: { experiment_section: 'instructions' },
+    pages: [
+      `<b>While you are reading the statements, try to be as objective as possible about what each person is experiencing<br>
+      and how it has affected his or her life. To remain objective, do not let yourself get caught up in imagining what<br> 
+      this person has been through and how he or she feels as a result.<br>
+      Just try to remain objective and detached.</b>
+      <br><br> When you are ready to move on, click &#39;Begin&#39;.<br><br>`,
+    ],
+    show_clickable_nav: true,
+    allow_backward: false,
+    button_label_next: "Begin",
+  };
+
+  var empathyStatement = {
+    type: 'instructions',
+    data: { experiment_section: 'instructions' },
+    pages: [
+      `<b>While you are reading the statements, try to imagine how each person feels about what they are experiencing and how<br>
+      it has affected his or her life. Try not to concern yourself with attending to all of the information presented.<br>
+      Just concentrate on trying to imagine how the person feels.</b>
+      <br><br> When you are ready to move on, click &#39;Begin &#39;.<br><br>`,
+    ],
+    show_clickable_nav: true,
+    allow_backward: false,
+    button_label_next: "Begin",
+  };
+
   // stimulus presentation
-  var face_stimulus_procedure = {
+  var face_stimulus_procedure_objective = {
     timeline: [
         {
             type: 'html-keyboard-response',
@@ -445,17 +487,46 @@ document.addEventListener("DOMContentLoaded", function() {
             data: {
               experiment_section: 'face_stimulus_procedure',
               message: jsPsych.timelineVariable('statement'),
+              perspective: 'objective',
             },
             stimulus: jsPsych.timelineVariable('face'),
             stimulus_width: 600,
             maintain_aspect_ration: true,
             choices: jsPsych.NO_KEYS,
-            trial_duration: 15000,
+            trial_duration: 15000, ////////////////////////////////////////////////////////////// set back to 15000 ms
             prompt: () => `<p>${jsPsych.timelineVariable('statement', true)}</p>`
         }
     ],
     timeline_variables: trialData[0],
   };
+
+    // stimulus presentation
+    var face_stimulus_procedure_empathy = {
+      timeline: [
+          {
+              type: 'html-keyboard-response',
+              data: { experiment_section: 'face_stimulus_procedure_blank_page' },
+              stimulus: ' ',
+              choices: jsPsych.NO_KEYS,
+              trial_duration: 500
+          },
+          {
+              type: 'image-keyboard-response',
+              data: {
+                experiment_section: 'face_stimulus_procedure',
+                message: jsPsych.timelineVariable('statement'),
+                perspective: 'empathy',
+              },
+              stimulus: jsPsych.timelineVariable('face'),
+              stimulus_width: 600,
+              maintain_aspect_ration: true,
+              choices: jsPsych.NO_KEYS,
+              trial_duration: 15000,  //////////////////////////////////////////////////////////////////////// set back to 15000 ms
+              prompt: () => `<p>${jsPsych.timelineVariable('statement', true)}</p>`
+          }
+      ],
+      timeline_variables: trialData[1],
+    };
 
   // transition page from experimental task to distractor task
   var transition_1 = {
@@ -471,8 +542,8 @@ document.addEventListener("DOMContentLoaded", function() {
     show_clickable_nav: true
   };
 
-  //   distractor task   
-  var distractor_task = {
+  //   distractor task    #1
+  var distractor_task_1 = {
     type: 'survey-html-javascript-form',
     data: { experiment_section: 'distractor_task' },
     preamble: '<img width="600" height="400" src="USA2.jpg"></img>',
@@ -495,10 +566,41 @@ document.addEventListener("DOMContentLoaded", function() {
      <p><input name="state46" type="text"/> <input name="state47" type="text"/> <input name="state48" type="text"/> <input name="state49" type="text"/> <input name="state50" type="text"/><p>
      `,
     javascript: `
-      const nextButton = document.getElementById('jspsych-survey-html-form-next');
+      var nextButton = document.getElementById('jspsych-survey-html-form-next');
       setTimeout(() => {
         nextButton.click();
-      }, 60000)
+      }, 60000) 
+    `
+  };
+
+  //   distractor task    #2
+  var distractor_task_2 = {
+    type: 'survey-html-javascript-form',
+    data: { experiment_section: 'distractor_task' },
+    preamble: '<img width="600" height="400" src="USA2.jpg"></img>',
+    html: `
+    <style>
+      #jspsych-survey-html-form-next {
+        display: none;
+      }
+    </style>
+    <p> For the next 60 seconds, type as many state capitals as you can. </p>
+     <p><input name="state1" type="text"/> <input name="state2" type="text"/> <input name="state3" type="text"/> <input name="state4" type="text"/> <input name="state5" type="text"/></p>
+     <p><input name="state6" type="text"/> <input name="state7" type="text"/> <input name="state8" type="text"/> <input name="state9" type="text"/> <input name="state10" type="text"/></p>
+     <p><input name="state11" type="text"/> <input name="state12" type="text"/> <input name="state13" type="text"/> <input name="state14" type="text"/> <input name="state15" type="text"/></p>
+     <p><input name="state16" type="text"/> <input name="state17" type="text"/> <input name="state18" type="text"/> <input name="state19" type="text"/> <input name="state20" type="text"/></p>
+     <p><input name="state21" type="text"/> <input name="state22" type="text"/> <input name="state23" type="text"/> <input name="state24" type="text"/> <input name="state25" type="text"/></p>
+     <p><input name="state26" type="text"/> <input name="state27" type="text"/> <input name="state28" type="text"/> <input name="state29" type="text"/> <input name="state30" type="text"/></p>
+     <p><input name="state31" type="text"/> <input name="state32" type="text"/> <input name="state33" type="text"/> <input name="state34" type="text"/> <input name="state35" type="text"/></p>
+     <p><input name="state36" type="text"/> <input name="state37" type="text"/> <input name="state38" type="text"/> <input name="state39" type="text"/> <input name="state40" type="text"/></p>
+     <p><input name="state41" type="text"/> <input name="state42" type="text"/> <input name="state43" type="text"/> <input name="state44" type="text"/> <input name="state45" type="text"/></p>
+     <p><input name="state46" type="text"/> <input name="state47" type="text"/> <input name="state48" type="text"/> <input name="state49" type="text"/> <input name="state50" type="text"/><p>
+     `,
+    javascript: `
+      var nextButton = document.getElementById('jspsych-survey-html-form-next');
+      setTimeout(() => {
+        nextButton.click();
+      }, 60000) 
     `
   };
 
@@ -507,7 +609,8 @@ document.addEventListener("DOMContentLoaded", function() {
     type: 'instructions',
     data: { experiment_section: 'instructions' },
     pages: [
-      `Thank you for taking part in that task. There is one last task for you to do. On the next page we will describe this task to you.
+      `Thank you for taking part in that task. There is one last task for you to do. On the next page we will<br>
+       describe this task to you.
       <br><br> Click &#39;Next&#39; when you are ready to read the instructions.<br><br>`,
 
       `Next, you will take part in a recall task. You will see a screen with all the faces that were presented to you in the first task.<br>
@@ -518,34 +621,74 @@ document.addEventListener("DOMContentLoaded", function() {
     show_clickable_nav: true
   };
 
- // transition page from recall task to moderator surveys
+  // transition from first task to second task
   var transition_3 = {
     type: 'instructions',
     data: { experiment_section: 'instructions' },
     pages: [
-      `Thank you for taking part in that task. Next, you will answer some survey questions.
+      `Thank you for taking part in the first part of the study. Now, you will move on to the second part.
+      <br><br> Click &#39;Next&#39; when you are ready to begin.<br><br>`,
+    ],
+    show_clickable_nav: true
+  };
+
+ // transition page from recall task to moderator surveys
+  var transition_4 = {
+    type: 'instructions',
+    data: { experiment_section: 'instructions' },
+    pages: [
+      `Thank you for taking part in those two tasks. Next, you will answer some survey questions.
        <br><br> Click &#39;Next&#39; when you are ready to be redirected.<br><br>`
     ],
     show_clickable_nav: true
   };
 
-  const selectionFaces = random.shuffle(faces);
-  const recall_tasks = random.shuffle(statementSelections.flat()).map(statement => ({
+  const selectionFacesObjective = random.shuffle(allFaces[0]);
+
+  const recall_tasks_objective = random.shuffle(statementSelections[0].flat()).map(statement => ({
     type: 'multi-image-selection',
-    data: { experiment_section: 'recall_tasks' },
-    image_paths: selectionFaces,
+    data: { experiment_section: 'recall_tasks', perspective: 'objective' },
+    image_paths: selectionFacesObjective,
     prompt: statement,
   }));
+
+  const selectionFacesEmpathy = random.shuffle(allFaces[1]);
+
+  const recall_tasks_empathy = random.shuffle(statementSelections[1].flat()).map(statement => ({
+    type: 'multi-image-selection',
+    data: { experiment_section: 'recall_tasks', perspective: 'empathy' },
+    image_paths: selectionFacesEmpathy,
+    prompt: statement,
+  }));
+
+
+  const objectiveTrial = [
+    objectiveStatement,
+    face_stimulus_procedure_objective,
+    transition_1,
+    distractor_task_1,
+    transition_2,
+    ...recall_tasks_objective,
+  ]
+
+  const empathyTrial = [
+    empathyStatement,
+    face_stimulus_procedure_empathy,
+    transition_1,
+    distractor_task_2,
+    transition_2,
+    ...recall_tasks_empathy,
+  ]
+
+  const mainTrials = random.shuffle([empathyTrial, objectiveTrial]) 
 
   const timeline = [
     consent,
     instructions,
-    face_stimulus_procedure,
-    transition_1,
-    distractor_task,
-    transition_2,
-    ...recall_tasks,
-    transition_3
+    ...mainTrials[0],
+    transition_3,
+    ...mainTrials[1],
+    transition_4,
   ];
 
   window.jatos.onLoad(() => {
