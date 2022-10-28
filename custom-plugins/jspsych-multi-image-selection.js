@@ -51,7 +51,7 @@ jsPsych.plugins['multi-image-selection'] = (function() {
         .jspsych-multi-image-selection-image {
           margin-right: 20px;
           margin-bottom: 50px;
-          width: 300px;
+          width: 260px;
           cursor: pointer;
         }
 

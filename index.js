@@ -336,7 +336,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     [`You can be a victim of life threatening illness or a survivor of it. You can let it conquer you,<br/>
      or you can conquer it. It&#39;s all a mindset.`,
-    `The secret of health for both mind and body is not  to mourn for the past, worry about the suture,<br/>
+    `The secret of health for both mind and body is not  to mourn for the past, worry about the future,<br/>
      or anticipate troubles, but to live in the present.`,
     `Coping with terminal illness is a journey, but you walk the road alone. There are many places to<br/>
      stop along the way and get nourishment - you just have to be willing to take it.`],
@@ -433,8 +433,8 @@ document.addEventListener("DOMContentLoaded", function() {
     data: { experiment_section: 'instructions' },
     pages: [
       'Welcome to the study!<br><br>',
-      `This study has two parts. In each part you will observe an interaction among eight individiduals discussing a<br>
-      topic of interest.<br><br>`,
+      `This study has two parts. In each part you will observe an interaction among eight individiduals<br>
+      discussing a topic of interest.<br><br>`,
       `The discussion is presented as a series of slides, each of which contains a photo of a single speaker,<br> 
       along with the text of a statement made by that speaker.<br><br>`,
       'Please attend carefully to the discussion and form impressions of the speakers.<br><br>',
@@ -447,9 +447,9 @@ document.addEventListener("DOMContentLoaded", function() {
     type: 'instructions',
     data: { experiment_section: 'instructions' },
     pages: [
-      `<b>While you are reading the statements, try to be as objective as possible about what each person is experiencing<br>
-      and how it has affected his or her life. To remain objective, do not let yourself get caught up in imagining what<br> 
-      this person has been through and how he or she feels as a result.<br>
+      `<b>While you are reading the statements, try to be as objective as possible about what each person<br>
+      is experiencing and how it has affected his or her life. To remain objective, do not let yourself get<br>
+      caught up in imagining what this person has been through and how he or she feels as a result.<br>
       Just try to remain objective and detached.</b>
       <br><br> When you are ready to move on, click &#39;Begin&#39;.<br><br>`,
     ],
@@ -462,9 +462,9 @@ document.addEventListener("DOMContentLoaded", function() {
     type: 'instructions',
     data: { experiment_section: 'instructions' },
     pages: [
-      `<b>While you are reading the statements, try to imagine how each person feels about what they are experiencing and how<br>
-      it has affected his or her life. Try not to concern yourself with attending to all of the information presented.<br>
-      Just concentrate on trying to imagine how the person feels.</b>
+      `<b>While you are reading the statements, try to imagine how each person feels about what they are<rb>
+      experiencing and how it has affected his or her life. Try not to concern yourself with attending to all<br>
+      of the information presented. Just concentrate on trying to imagine how the person feels.</b>
       <br><br> When you are ready to move on, click &#39;Begin &#39;.<br><br>`,
     ],
     show_clickable_nav: true,
@@ -613,8 +613,9 @@ document.addEventListener("DOMContentLoaded", function() {
        describe this task to you.
       <br><br> Click &#39;Next&#39; when you are ready to read the instructions.<br><br>`,
 
-      `Next, you will take part in a recall task. You will see a screen with all the faces that were presented to you in the first task.<br>
-      The statements each person said will appear sequentially. Please reread each statement and try to recall which person said it.<br>
+      `Next, you will take part in a recall task. You will see a screen with all the faces that were presented to<br>
+      you in the first task. The statements each person said will appear sequentially. Please reread each statement<br>
+      and try to recall which person said it.<br><br>
       To choose the person you think said the presented statement, simply click their picture.<br><br> 
       When you are ready to begin, click &#39;Next&#39;.<br><br>`
     ],
