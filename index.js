@@ -176,32 +176,33 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
   // condition pairs
-  var conditions = [
+  const conditions = [
     [aphorism, covid_need],
     [personal_need, abstract_need],
     [personal_need, aphorism],
     [abstract_need, aphorism]
   ];
 
-  // randomly select statement clusters from list
-  var statementGroups = random.sampleWithoutReplacement(conditions, 1)[0];
-  // assign selected statement clusters to single array
-  var statementSelections = statementGroups.map(group => random.sampleWithoutReplacement(group, 4)).flat();
-  // shuffle statement order
-  statementSelections = random.shuffle(statementSelections);
-  // randomly sample from female faces 
-  var femaleSample = random.sampleWithoutReplacement(females, 4);
-  // randomly sample from male faces
-  var maleSample = random.sampleWithoutReplacement(males, 4);
-  // place male and female faces in single array and randomize order
-  var faces = random.shuffle(maleSample.concat(femaleSample));
-  // pair faces with statement clusters
-  var facesWithStatements = faces.map((face, i) => ({ face, statements: statementSelections[i] }));
-  // call statements when paired face displays
+  const statementGroups = random.sampleWithoutReplacement(conditions, 1)[0];
+  const statementSelections = random.shuffle(statementGroups.map(group => random.sampleWithoutReplacement(group, 4)));
+  const femaleSample = random.sampleWithoutReplacement(females, 4);
+  const maleSample = random.sampleWithoutReplacement(males, 4);
 
- var trialData = [0, 1, 2].map(i =>
-    random.shuffle(facesWithStatements).map(({ face, statements }) => ({ face, statement: statements[i] })))
-    .flat();
+  const femalesWithStatements = [
+    femaleSample.slice(0, 2).map((face, i ) => ({ face, statements: statementSelections[0][i] })),
+    femaleSample.slice(2, 4).map((face, i) => ({ face, statements: statementSelections[1][i] })),
+  ].flat();
+
+  const malesWithStatements = [
+    maleSample.slice(0, 2).map((face, i) => ({ face, statements: statementSelections[0][i + 2] })),
+    maleSample.slice(2, 4).map((face, i) => ({ face, statements: statementSelections[1][i + 2] })),
+  ].flat();
+
+  const facesWithStatements = random.shuffle(malesWithStatements.concat(femalesWithStatements));
+
+  const trialData = [0, 1, 2].map(i =>
+    random.shuffle(facesWithStatements).map(({ face, statements }) => ({ face, statement: statements[i] }))
+  ).flat();
 
   // declare the block
   var consent = {
@@ -2420,7 +2421,7 @@ var debrief_3 = {
     debrief,
   ];
 
-  const selectionFaces = random.shuffle(faces);
+  const selectionFaces = random.shuffle(maleSample.concat(femaleSample));
   const recall_tasks = random.shuffle(statementSelections.flat()).map(statement => ({
     type: 'multi-image-selection',
     data: { experiment_section: 'recall_tasks' },
