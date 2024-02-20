@@ -2429,6 +2429,17 @@ var debrief_3 = {
     prompt: statement,
   }));
 
+ // transition page from recall task to moderator surveys
+  var redirectWarningPage = {
+    type: 'instructions',
+    data: { experiment_section: 'instructions' },
+    pages: [
+      `Thank you for taking part in those two tasks. Next, you will answer some survey questions.
+       <br><br> Click &#39;Next&#39; when you are ready to be redirected.<br><br>`
+    ],
+    show_clickable_nav: true
+  };
+
   const timeline = [
     consent,
     instructions,
@@ -2438,10 +2449,11 @@ var debrief_3 = {
     transition_2,
     ...recall_tasks,
     transition_3,
-    ...surveys,
-    transition_4,
-    ...demographicQuestions,
-    ...debriefs,
+    //...surveys,
+    //transition_4,
+    //...demographicQuestions,
+    //...debriefs,
+    redirectWarningPage,
   ];
 
   window.jatos.onLoad(() => {
@@ -2451,7 +2463,11 @@ var debrief_3 = {
     jsPsych.init({
       timeline: timeline,
       on_finish: data => {
-        window.jatos.submitResultData(data.json(), window.jatos.startNextComponent);
+        const redirectUrl = 
+        window.jatos.endStudyAndRedirect(
+          redirectUrl,
+          data.json(),
+        );
       }
     });
   });
