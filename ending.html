@@ -1,60 +1,63 @@
 <!DOCTYPE html>
-  <head>
-    <title> wsw </title>
-    <link href="jspsych/css/jspsych.css" rel="stylesheet" />
-    <link href="app.css" rel="stylesheet" />
-    <script type="application/javascript" src="jspsych/jspsych.js"></script>
-    <script type="application/javascript" src="jspsych/plugins/jspsych-instructions.js"></script>
-    <script src="jatos.js"></script>
-    <style>
-      #jspsych-instructions-back {
-        display: none;
-      }
-    </style>
-  </head>
-  <body>
-    <script type="application/javascript">
-      document.addEventListener("DOMContentLoaded", function() {
-        window.jatos.onLoad(() => {
-          //end experiment
-          var end_experiment = {
-            type: 'instructions',
-            pages: [
-              `
+
+<head>
+  <title> wsw </title>
+  <link href="jspsych/css/jspsych.css" rel="stylesheet" />
+  <link href="app.css" rel="stylesheet" />
+  <script type="application/javascript" src="jspsych/jspsych.js"></script>
+  <script type="application/javascript" src="jspsych/plugins/jspsych-instructions.js"></script>
+  <script src="jatos.js"></script>
+  <style>
+    #jspsych-instructions-back {
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+  <script type="application/javascript">
+    document.addEventListener("DOMContentLoaded", function () {
+      window.jatos.onLoad(() => {
+        //end experiment
+        var end_experiment = {
+          type: 'instructions',
+          pages: [
+            `
               The experiment is over now. <br><br> 
 
               Thank you for taking part!
               `
-            ],
-            show_clickable_nav: true,
-            allow_back: false,
-            button_label_next: "Finish Experiment",
-            on_finish: () => {
-              console.log("Experiment Finished");
-              if (window.jatos) {
-                const surveyCode = jatos.studySessionData.sonaCode;
-                const creditToken = 'dae9dd6075014d5788a8c535a61dca46';
-                const experimentId = '2019';
+          ],
+          show_clickable_nav: true,
+          allow_back: false,
+          button_label_next: "Finish Experiment",
+          on_finish: () => {
+            console.log("Experiment Finished");
+            if (window.jatos) {
+              const surveyCode = jatos.studySessionData.sonaCode;
+              const creditToken = 'dae9dd6075014d5788a8c535a61dca46';
+              const experimentId = '2019';
 
-                var baseURL = 'https://ucboulder.sona-systems.com/webstudy_credit.aspx';
-                var query = `?experiment_id=${experimentId}&credit_token=${creditToken}&survey_code=${surveyCode}`;
-                var realURL = baseURL + query;
+              var baseURL = 'https://ucboulder.sona-systems.com/webstudy_credit.aspx';
+              var query = `?experiment_id=${experimentId}&credit_token=${creditToken}&survey_code=${surveyCode}`;
+              var realURL = baseURL + query;
 
-                window.jatos.endStudyAjax(
-                  true,
-                  "Ended at max index in study flow.",
-                  onSuccess=() => { window.location=realURL },
-                  onError=() => { window.location=realURL }
-                ); 
-              }
+              window.jatos.endStudyAjax(
+                true,
+                "Ended at max index in study flow.",
+                onSuccess = () => {window.location = realURL},
+                onError = () => {window.location = realURL}
+              );
             }
           }
+        }
 
-          jsPsych.init({
-            timeline: [end_experiment],
-          });
+        jsPsych.init({
+          timeline: [end_experiment],
         });
       });
-    </script>
-  </body>
+    });
+  </script>
+</body>
+
 </html>
