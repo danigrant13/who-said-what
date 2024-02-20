@@ -214,10 +214,12 @@ document.addEventListener("DOMContentLoaded", function() {
     random.shuffle(facesWithStatements).map(({ face, statements }) => ({ face, statement: statements[i] }))
   ).flat();
 
+  const participantNumber = crypto.randomUUID();
+
   // declare the block
   var consent = {
     type:'custom-external-html',
-    data: { experiment_section: 'consent' },
+    data: { experiment_section: 'consent', participantNumber },
     url: "consent.html",
     cont_btn: "start",
     end_btn: "end",
@@ -370,7 +372,7 @@ document.addEventListener("DOMContentLoaded", function() {
     jsPsych.init({
       timeline: timeline,
       on_finish: data => {
-        const redirectUrl = `https://ucsas.qualtrics.com/jfe/form/SV_7akX7f1MBgXCqcm?participantNumber=${participant_number}&sonaCode=${sonaCode}`;
+        const redirectUrl = `https://ucsas.qualtrics.com/jfe/form/SV_7akX7f1MBgXCqcm?participantNumber=${participantNumber}&sonaCode=${sonaCode}`;
         window.jatos.endStudyAndRedirect(
           redirectUrl,
           data.json(),
